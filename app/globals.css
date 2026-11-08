@@ -1,0 +1,353 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * InmoExchange design system
+ * ──────────────────────────
+ * Built from the logo: Navy (#01235D) carries the brand, Blue (#0A66E0) marks
+ * everything interactive (links, focus, active states). Neutrals are a quiet,
+ * slightly warm stone so property photos stay the most colourful thing on the page.
+ * Green / amber / red are only for status (free, pending, error), always next to a label.
+ *
+ * Use the Tailwind names below (bg-primary, text-muted-foreground, bg-surface, bg-ink…),
+ * never raw hex or slate-* / emerald-* classes, so one change here restyles the whole site.
+ */
+
+/* ─── Tailwind v4 theme mapping ────────────────────────── */
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-heading: var(--font-sans);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-success-on-dark: var(--success-on-dark);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Brand: rgb triplets in :root so rgb(var(--brand) / a) keeps working in old code */
+  --color-brand: rgb(var(--brand));
+  --color-brand-light: rgb(var(--brand-light));
+  --color-brand-accent: rgb(var(--brand-accent));
+  --color-surface: var(--surface);
+  /* Dark sections (heroes, CTA bands): deep navy, never pure black */
+  --color-ink: var(--ink);
+
+  /* Colabora MLS landing: deep navy, off-white, one warm accent */
+  --color-navy: #0b2545;
+  --color-offwhite: #faf8f4;
+  --color-terracotta: #b5532e;        /* 4.9:1 with white text (AA) */
+  --color-terracotta-hover: #9c4425;
+
+  /* "Para promotoras" page (/promotoras): navy + the site's blue, matching the logo (dev-* names kept,
+     so the page's components don't change) */
+  --color-dev-ink: #01235d;           /* = primary navy: text and the dark offer band */
+  --color-dev-muted: #556070;         /* = muted-foreground: secondary text (5.9:1 on the light blue) */
+  --color-dev-accent: #0a66e0;        /* = brand-light blue: buttons, links, icons (5.3:1 with white text) */
+  --color-dev-accent-hover: #0852b5;
+  --color-dev-light: #f2f7fd;         /* light blue sections (the blue still 4.9:1 on it) */
+  --color-dev-border: #dce7f5;        /* light blue border */
+  /* Space Grotesk is loaded by app/[locale]/promotoras/page.tsx only; elsewhere this falls back to Inter */
+  --font-display: var(--font-space-grotesk), var(--font-sans);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --shadow-xs: 0 1px 2px 0 rgb(1 35 93 / 0.04);
+  --shadow-sm: 0 1px 3px 0 rgb(1 35 93 / 0.06), 0 1px 2px -1px rgb(1 35 93 / 0.04);
+  --shadow-md: 0 10px 25px -5px rgb(1 35 93 / 0.1), 0 4px 10px -4px rgb(1 35 93 / 0.05);
+  --shadow-lg: 0 20px 40px -12px rgb(1 35 93 / 0.16);
+  --shadow-brand: 0 10px 28px -8px rgb(1 35 93 / 0.35);
+}
+
+/* ─── Design tokens ────────────────────────────────────── */
+
+@layer base {
+  :root {
+    /* Brand (rgb triplets) */
+    --brand: 1 35 93;              /* #01235D Navy, logo "Inmo" — primary */
+    --brand-light: 10 102 224;     /* #0A66E0 Blue, logo "exchange" darkened to pass AA as text */
+    --brand-accent: 10 102 224;    /* same Blue: one accent, not two */
+
+    /* Page */
+    --background: #ffffff;
+    --foreground: #0f1b2e;         /* Ink text, navy-black (16:1 on white) */
+    --surface: #f7f6f3;            /* Alternate sections: warm off-white, sits well next to photos */
+    --ink: #071631;                /* Dark sections */
+
+    --card: #ffffff;
+    --card-foreground: #0f1b2e;
+    --popover: #ffffff;
+    --popover-foreground: #0f1b2e;
+
+    /* Primary = Navy */
+    --primary: #01235d;
+    --primary-hover: #0b3480;
+    --primary-foreground: #ffffff;
+
+    /* Secondary = navy tint, for quiet buttons and selected chips */
+    --secondary: #eef2f8;
+    --secondary-foreground: #01235d;
+
+    /* Muted = stone */
+    --muted: #f2f1ed;
+    --muted-foreground: #556070;   /* 6.3:1 on white, 5.6:1 on --muted */
+
+    /* Accent = hover / highlighted row in menus */
+    --accent: #eef2f8;
+    --accent-foreground: #01235d;
+
+    /* Status */
+    --destructive: #b42318;
+    --destructive-foreground: #ffffff;
+    --success: #0b7a4f;            /* 5.4:1 on white */
+    --success-soft: #e7f5ee;
+    --success-on-dark: #7ee2b3;
+    --warning: #8a5a00;
+    --warning-soft: #fdf3dc;
+    --info: #0a66e0;
+    --info-soft: #e8f1fd;
+
+    /* Lines */
+    --border: #e6e3dc;
+    --border-strong: #cfcbc1;
+    --input: #d6d3cb;
+    --ring: #0a66e0;
+
+    /* Charts: navy → blue → steel → sand → slate */
+    --chart-1: #01235d;
+    --chart-2: #0a66e0;
+    --chart-3: #6b8fc7;
+    --chart-4: #c8b48a;
+    --chart-5: #8a94a3;
+
+    /* Panel sidebar */
+    --sidebar: #fbfaf8;
+    --sidebar-foreground: #0f1b2e;
+    --sidebar-primary: #01235d;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: #eef2f8;
+    --sidebar-accent-foreground: #01235d;
+    --sidebar-border: #e6e3dc;
+    --sidebar-ring: #0a66e0;
+
+    --radius: 0.625rem;
+  }
+
+  .dark {
+    --background: #0b1424;
+    --foreground: #eef2f8;
+    --surface: #101b2f;
+    --card: #101b2f;
+    --card-foreground: #eef2f8;
+    --popover: #101b2f;
+    --popover-foreground: #eef2f8;
+    --primary: #eef2f8;
+    --primary-hover: #ffffff;
+    --primary-foreground: #01235d;
+    --secondary: #1a2740;
+    --secondary-foreground: #eef2f8;
+    --muted: #1a2740;
+    --muted-foreground: #a3adbd;
+    --accent: #1a2740;
+    --accent-foreground: #eef2f8;
+    --destructive: #f07167;
+    --border: rgb(255 255 255 / 10%);
+    --border-strong: rgb(255 255 255 / 20%);
+    --input: rgb(255 255 255 / 15%);
+    --ring: #5b9bf0;
+    --sidebar: #101b2f;
+    --sidebar-foreground: #eef2f8;
+    --sidebar-primary: #5b9bf0;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: #1a2740;
+    --sidebar-accent-foreground: #eef2f8;
+    --sidebar-border: rgb(255 255 255 / 10%);
+    --sidebar-ring: #5b9bf0;
+  }
+
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply font-sans;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: rgb(var(--brand-light) / 0.18);
+  }
+
+  *:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  /* Plain links in running text */
+  :where(p, li) > a:not([class]) {
+    color: rgb(var(--brand-light));
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+}
+
+/* ─── Brand utility classes ─────────────────────────────── */
+
+@layer components {
+  /* Dark brand panels (CTA bands, highlighted cards): navy depth, no bright blue */
+  .brand-gradient {
+    background:
+      radial-gradient(120% 120% at 100% 0%, rgb(10 102 224 / 0.22) 0%, transparent 55%),
+      linear-gradient(160deg, #0a2a66 0%, #01235d 45%, #071631 100%);
+  }
+
+  /* Small uppercase label above section titles */
+  .eyebrow {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    color: rgb(var(--brand-light));
+  }
+  .eyebrow-on-dark {
+    color: rgb(255 255 255 / 0.72);
+  }
+
+  /* Marketing buttons (pill). In-app buttons use components/ui/Button. */
+  .btn-pill {
+    display: inline-flex;
+    min-height: 3rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    border-radius: 9999px;
+    padding: 0.75rem 1.75rem;
+    text-align: center;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: transform 200ms, background-color 200ms, border-color 200ms, box-shadow 200ms;
+  }
+  .btn-pill:hover {
+    transform: translateY(-2px);
+  }
+  .btn-pill:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+  }
+  .btn-pill-primary {
+    background: var(--primary);
+    color: var(--primary-foreground);
+    box-shadow: var(--shadow-brand);
+  }
+  .btn-pill-primary:hover {
+    background: var(--primary-hover);
+  }
+  /* On dark backgrounds / photos */
+  .btn-pill-light {
+    background: #fff;
+    color: var(--primary);
+    box-shadow: 0 10px 28px -10px rgb(0 0 0 / 0.35);
+  }
+  .btn-pill-light:hover {
+    background: #eef2f8;
+  }
+  .btn-pill-light:focus-visible,
+  .btn-pill-glass:focus-visible {
+    outline-color: #fff;
+  }
+  .btn-pill-glass {
+    border: 1px solid rgb(255 255 255 / 0.5);
+    background: rgb(255 255 255 / 0.1);
+    color: #fff;
+    font-weight: 500;
+    backdrop-filter: blur(12px);
+  }
+  .btn-pill-glass:hover {
+    border-color: #fff;
+    background: rgb(255 255 255 / 0.2);
+  }
+
+  .brand-text {
+    color: rgb(var(--brand));
+  }
+  .brand-text-light,
+  .brand-accent {
+    color: rgb(var(--brand-light));
+  }
+  .brand-border {
+    border-color: rgb(var(--brand-light));
+  }
+}
+
+/* Blog post text: the public post page and the admin editor (components/admin/blog/RichTextEditor.tsx) */
+@layer components {
+  .blog-content { line-height: 1.75; overflow-wrap: anywhere; }
+  .blog-content > * + * { margin-top: 1.1em; }
+  .blog-content h2 { margin-top: 1.8em; font-size: 1.5em; font-weight: 600; line-height: 1.3; letter-spacing: -0.01em; }
+  .blog-content h3 { margin-top: 1.5em; font-size: 1.2em; font-weight: 600; line-height: 1.35; }
+  .blog-content > :first-child { margin-top: 0; }
+  .blog-content a { color: rgb(var(--brand-light)); text-decoration: underline; text-underline-offset: 2px; }
+  .blog-content a:hover { text-decoration: none; }
+  .blog-content ul { list-style: disc; padding-left: 1.4em; }
+  .blog-content ol { list-style: decimal; padding-left: 1.4em; }
+  .blog-content li + li { margin-top: 0.35em; }
+  .blog-content li > p { margin: 0; }
+  .blog-content blockquote { border-left: 3px solid rgb(var(--brand-light)); padding-left: 1em; color: var(--muted-foreground); font-style: italic; }
+  .blog-content hr { border: 0; border-top: 1px solid var(--border); margin: 2em 0; }
+  .blog-content img { max-width: 100%; height: auto; border-radius: 0.75rem; }
+  .blog-content img.ProseMirror-selectednode { outline: 2px solid var(--ring); }
+  .blog-content p.is-editor-empty:first-child::before { content: attr(data-placeholder); color: var(--muted-foreground); float: left; height: 0; pointer-events: none; }
+}

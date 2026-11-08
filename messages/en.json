@@ -1,0 +1,2224 @@
+{
+  "PanelHome": {
+    "metaTitle": "Home",
+    "subtitle": "Your agency’s activity across the network over the past {days} days.",
+    "stats": {
+      "active": "Active properties on the network",
+      "views": "Views from other agencies ({days} days)",
+      "contacts": "Contacts received ({days} days)"
+    },
+    "actions": {
+      "addProperty": "Add property",
+      "searchNetwork": "Search the network",
+      "importXml": "Import XML"
+    },
+    "viewers": {
+      "title": "Agencies that viewed your properties",
+      "empty": "No agency has viewed your properties in the last {days} days.",
+      "addFirst": "Add your first property",
+      "views": "{count, plural, one {# view} other {# views}}",
+      "last": "last: {ref}"
+    }
+  },
+  "Sidebar": {
+    "ariaLabel": "Agency navigation",
+    "close": "Close",
+    "network": "Network",
+    "myAgency": "My agency",
+    "account": "Account",
+    "dashboard": "Dashboard",
+    "searchNetwork": "Search the network",
+    "myProperties": "My properties",
+    "xml": "XML Feed",
+    "contacts": "Contacts",
+    "clientPages": "Client pages",
+    "agencyDetails": "Agency details",
+    "security": "Security",
+    "xmlExport": "XML export",
+    "openMenu": "Open menu",
+    "logout": "Log out",
+    "projects": "Projects",
+    "newBuilds": "New builds",
+    "addProperty": "Add property",
+    "addXmlFeed": "Add XML feed"
+  },
+  "FeedImport": {
+    "title": "Import your listings",
+    "description": "Add your property feed in Kyero or Apinmo XML format.",
+    "tabs": {
+      "file": "Upload file",
+      "text": "Paste XML",
+      "url": "Feed URL"
+    },
+    "file": {
+      "label": "XML file",
+      "hint": ".xml file, up to {max} MB.",
+      "selected": "{name} ({size})"
+    },
+    "text": {
+      "label": "XML content",
+      "hint": "Paste the full feed, including the opening XML declaration.",
+      "stats": "{lines, plural, one {# line} other {# lines}} · {size}"
+    },
+    "url": {
+      "label": "Feed URL",
+      "hint": "The export link from your CRM (Inmovilla, Apinmo, Resales Online…)."
+    },
+    "frequency": {
+      "label": "Update listings",
+      "placeholder": "Choose how often",
+      "options": {
+        "6h": "Every 6 hours",
+        "daily": "Once a day",
+        "weekly": "Once a week",
+        "once": "Only now"
+      }
+    },
+    "actions": {
+      "clear": "Clear",
+      "addFeed": "Add feed",
+      "checkFeed": "Check feed"
+    },
+    "errors": {
+      "fileRequired": "Choose an XML file.",
+      "fileExtension": "The file must end in .xml.",
+      "fileTooLarge": "The file must be {max} MB or smaller.",
+      "xmlRequired": "Paste your XML feed.",
+      "xmlMalformed": "This XML has a formatting error. Check for missing closing tags.",
+      "urlInvalid": "Enter a full URL starting with https://"
+    },
+    "toast": {
+      "fileChecked": {
+        "title": "File checked",
+        "description": "{name} ({size})"
+      },
+      "xmlChecked": {
+        "title": "XML checked",
+        "description": "The pasted feed is valid XML."
+      },
+      "feedAdded": {
+        "title": "Feed added"
+      }
+    }
+  },
+  "panel": {
+    "common": {
+      "unsavedChanges": "You have unsaved changes.",
+      "discard": "Discard",
+      "saving": "Saving…",
+      "saveChanges": "Save changes",
+      "cancel": "Cancel",
+      "remove": "Remove",
+      "default": "default",
+      "addLanguage": "Add language",
+      "textIn": "Text in {language}",
+      "defaultLanguageNote": "Clients see this version when their language isn't available.",
+      "makeDefault": "Make {language} the default",
+      "removeLanguage": "Remove {language}",
+      "removeLanguageTitle": "Remove the {language} version?",
+      "removeLanguageBody": "Its text will be deleted.",
+      "noLanguagesYet": "Add a language to start writing.",
+      "langStatusFilled": "written",
+      "langStatusEmpty": "empty",
+      "langStatusError": "needs fixing",
+      "pagination": "Pagination",
+      "previous": "Previous",
+      "next": "Next",
+      "pageOf": "Page {page} of {total}"
+    },
+    "validation": {
+      "slug": "Use lowercase letters, numbers and hyphens only, e.g. buying-in-spain.",
+      "slugTaken": "Another post already uses this address.",
+      "required": "This field is required.",
+      "email": "Enter an email like name@agency.com.",
+      "url": "Enter a complete URL beginning with https://",
+      "phone": "Enter digits only, optionally preceded by +.",
+      "year": "Enter a year, e.g. 2014.",
+      "postcode": "Spanish postcodes must contain 5 digits.",
+      "tooLong": "This is too long.",
+      "pickOne": "Pick at least one.",
+      "number": "Enter a whole number, 0 or more.",
+      "positive": "Enter a number greater than 0.",
+      "defaultLanguageText": "Write the text for your default language. Clients see it when their language isn't available.",
+      "oneDescription": "Write a description in at least one language.",
+      "passwordMin": "Use at least 10 characters.",
+      "passwordSame": "Choose a password different from your current one.",
+      "passwordMatch": "Passwords don't match.",
+      "sameEmail": "This is already your login email.",
+      "taxId": "Enter a CIF/NIF like B12345678.",
+      "cardNumber": "Enter the full card number.",
+      "expiry": "Use MM/YY.",
+      "expired": "This card has expired.",
+      "cvc": "Enter the 3 or 4 digits on the back.",
+      "priceRange": "The maximum price must be higher than the minimum.",
+      "wrongPassword": "That password isn't right.",
+      "emailTaken": "This email is already used by another login.",
+      "iban": "Enter a valid IBAN, e.g. ES91 2100 0418 4502 0005 1332.",
+      "idNumber": "Enter a DNI, NIE or passport number.",
+      "acceptPrivacy": "Please accept the privacy policy.",
+      "latitude": "Latitude must be between -90 and 90.",
+      "longitude": "Longitude must be between -180 and 180.",
+      "coordinatesPair": "Enter both latitude and longitude, or neither.",
+      "date": "Enter a date, or leave it empty.",
+      "bedroomRange": "The maximum must be at least the minimum.",
+      "unitsAvailable": "Available can't be more than the total.",
+      "unit_reference_taken": "There's already a unit with this reference in the development.",
+      "required_to_publish": "Needed to publish.",
+      "phone_or_email": "Give the buyer's phone or email.",
+      "whatsapp": "Enter the number in international format, e.g. +34600000000.",
+      "acceptTerms": "You must accept the privacy policy and the terms.",
+      "tooBig": "That number is too high.",
+      "invalid": "Check this field."
+    },
+    "options": {
+      "regions": {
+        "costaBlancaNorth": "Costa Blanca North",
+        "costaBlancaSouth": "Costa Blanca South",
+        "costaCalida": "Costa Cálida",
+        "costaDelSol": "Costa del Sol",
+        "costaAlmeria": "Costa Almería",
+        "inlandAlicante": "Inland Alicante",
+        "inlandMurcia": "Inland Murcia"
+      },
+      "spokenLanguages": {
+        "en": "English",
+        "es": "Spanish",
+        "pl": "Polish",
+        "de": "German",
+        "fr": "French",
+        "nl": "Dutch",
+        "sv": "Swedish",
+        "no": "Norwegian",
+        "ru": "Russian"
+      }
+    },
+    "properties": {
+      "title": "My properties",
+      "description": "Add and edit your own listings, or import them automatically from your XML feeds.",
+      "addProperty": "Add property",
+      "titleFormat": "{type} in {town}",
+      "noTown": "unknown town",
+      "tabs": {
+        "properties": "Properties",
+        "feeds": "XML feeds"
+      },
+      "types": {
+        "apartment": "Apartment",
+        "penthouse": "Penthouse",
+        "groundFloor": "Ground-floor apartment",
+        "townhouse": "Townhouse",
+        "bungalow": "Bungalow",
+        "villa": "Villa",
+        "plot": "Plot",
+        "commercial": "Commercial"
+      },
+      "statuses": {
+        "active": "Active",
+        "sold": "Sold",
+        "hidden": "Hidden",
+        "shared": "Shared"
+      },
+      "features": {
+        "pool": "Communal pool",
+        "privatePool": "Private pool",
+        "garage": "Garage",
+        "parking": "Parking",
+        "seaView": "Sea view",
+        "ac": "Air conditioning",
+        "terrace": "Terrace",
+        "garden": "Garden",
+        "lift": "Lift",
+        "furnished": "Furnished",
+        "storage": "Storage room",
+        "solarium": "Solarium"
+      },
+      "filters": {
+        "search": "Search properties",
+        "searchPlaceholder": "Reference, town…",
+        "status": "Status",
+        "source": "Source",
+        "allStatuses": "All statuses",
+        "hidden": "Hidden",
+        "allSources": "All sources",
+        "manual": "Added manually",
+        "fromFeed": "Feed: {name}",
+        "clear": "Clear filters",
+        "condition": "New build or resale",
+        "allConditions": "New build and resale"
+      },
+      "list": {
+        "property": "Property",
+        "price": "Price",
+        "specs": "Size",
+        "status": "Status",
+        "source": "Source",
+        "actions": "Actions",
+        "manual": "Manual",
+        "deletedFeed": "Deleted feed",
+        "specsFormat": "{beds} bd · {baths} ba · {m2} m²",
+        "count": "{count, plural, =0 {No properties} one {# property} other {# properties}}",
+        "noMatches": "No properties match these filters.",
+        "reducedFrom": "Reduced from",
+        "yourRef": "your ref {ref}",
+        "views": "Views (30 days)",
+        "whatsappClicks": "WhatsApp (30 days)",
+        "last30": "in the last 30 days",
+        "statTotal": "{n} total"
+      },
+      "actions": {
+        "menuFor": "Actions for {property}",
+        "edit": "Edit",
+        "viewAndSharing": "View and sharing",
+        "hide": "Hide",
+        "show": "Show again",
+        "delete": "Delete"
+      },
+      "empty": {
+        "title": "No properties yet",
+        "body": "Add your first property by hand, or connect the XML feed from your agency software to import all your listings.",
+        "connectFeed": "Connect an XML feed"
+      },
+      "deleteDialog": {
+        "title": "Delete this property?",
+        "body": "{property} ({ref}) will be removed from the network and from every client microsite. This can't be undone.",
+        "cancel": "Keep property",
+        "confirm": "Delete property"
+      },
+      "toasts": {
+        "saved": "{ref} saved.",
+        "deleted": "{ref} deleted.",
+        "hidden": "{ref} is now hidden. It stays hidden after the next sync.",
+        "shown": "{ref} is visible again.",
+        "fixErrors": "Some fields need fixing before you can save.",
+        "published": "{ref} published.",
+        "saveFailed": "Couldn't save. Please try again."
+      },
+      "errors": {
+        "referenceTaken": "This reference already exists."
+      },
+      "feeds": {
+        "intro": "Connect the XML export from your agency software (Kyero or Apinmo format). New, changed and sold properties update automatically.",
+        "add": "Add XML feed",
+        "syncNow": "Sync now",
+        "syncing": "Syncing…",
+        "pause": "Pause",
+        "resume": "Resume",
+        "delete": "Delete",
+        "lastSync": "Last sync",
+        "never": "Not synced yet",
+        "properties": "Properties",
+        "frequency": "Checks",
+        "errorPrefix": "Last sync failed:",
+        "mockError": "The feed couldn't be read.",
+        "formats": {
+          "kyero": "Kyero",
+          "apinmo": "Apinmo"
+        },
+        "frequencies": {
+          "6h": "Every 6 hours",
+          "12h": "Every 12 hours",
+          "24h": "Once a day"
+        },
+        "statuses": {
+          "active": "Active",
+          "paused": "Paused",
+          "syncing": "Syncing",
+          "error": "Error"
+        },
+        "empty": {
+          "title": "No XML feeds yet",
+          "body": "Paste the feed address from your agency software and your listings are imported automatically."
+        },
+        "toasts": {
+          "added": "{name} added. The first sync is running.",
+          "synced": "{name} synced: {count, plural, one {# property} other {# properties}}.",
+          "syncFailed": "{name} couldn't be synced. Check the feed address.",
+          "paused": "{name} paused.",
+          "resumed": "{name} resumed."
+        },
+        "addDialog": {
+          "title": "Add XML feed",
+          "description": "Your agency software gives you this address. Test it before adding.",
+          "name": "Feed name",
+          "namePlaceholder": "e.g. Inmovilla main feed",
+          "url": "Feed address (URL)",
+          "format": "Format",
+          "frequency": "Check for changes",
+          "test": "Test feed",
+          "testing": "Testing…",
+          "testOk": "Feed works: {count, plural, one {# property} other {# properties}} found.",
+          "testFailed": "This feed couldn't be read. Check the address and format.",
+          "cancel": "Cancel",
+          "add": "Add feed",
+          "adding": "Adding…"
+        },
+        "deleteDialog": {
+          "title": "Delete {name}?",
+          "body": "The feed stops syncing. Choose what happens to the properties it imported.",
+          "legend": "Imported properties",
+          "keep": "Keep them as manual properties",
+          "keepHint": "You can edit them here from now on.",
+          "remove": "{count, plural, one {Delete its # property} other {Delete its # properties}}",
+          "removeHint": "They're removed from the network and all client microsites.",
+          "cancel": "Cancel",
+          "confirm": "Delete feed",
+          "doneKept": "{name} deleted. Its properties are now manual.",
+          "doneRemoved": "{name} and its properties deleted."
+        }
+      },
+      "conditions": {
+        "newBuild": "New build",
+        "resale": "Resale"
+      },
+      "form": {
+        "backToList": "Back to my properties",
+        "newTitle": "Add property",
+        "newDescription": "Fill in the details and publish. Your property goes live on the network straight away.",
+        "editDescription": "Reference {ref}",
+        "feedNotice": "This property comes from your XML feed “{feed}”. Edit it in your agency software: changes here would be overwritten at the next sync. You can still choose whether partner agencies see it.",
+        "notFoundTitle": "Property not found",
+        "notFoundBody": "It may have been deleted, or the link is wrong.",
+        "choose": "Choose…",
+        "notSpecified": "Not specified",
+        "publish": "Publish property",
+        "saveChanges": "Save changes",
+        "saving": "Saving…",
+        "cancel": "Cancel",
+        "descriptionRequired": "Write a description in at least one language.",
+        "sections": {
+          "basics": "Basics",
+          "location": "Location",
+          "priceSize": "Price and size",
+          "features": "Features",
+          "photos": "Photos",
+          "photosHint": "The first photo is the main one in search results and on client microsites.",
+          "description": "Description",
+          "descriptionHint": "Add a version for each language your buyers speak.",
+          "sharing": "Sharing",
+          "sharingHint": "Choose whether other agencies in the network can offer it to their buyers."
+        },
+        "fields": {
+          "type": "Property type",
+          "condition": "New build or resale",
+          "reference": "Your reference",
+          "town": "Town",
+          "province": "Province",
+          "area": "Area",
+          "address": "Address",
+          "hideAddress": "Hide the exact address",
+          "price": "Asking price",
+          "bedrooms": "Bedrooms",
+          "bathrooms": "Bathrooms",
+          "builtM2": "Built area (m²)",
+          "plotM2": "Plot (m²)",
+          "yearBuilt": "Year built",
+          "communityFees": "Community fees",
+          "energyRating": "Energy rating",
+          "features": "What the property has",
+          "status": "Status",
+          "shared": "Share with partner agencies",
+          "commission": "Commission split"
+        },
+        "hints": {
+          "optional": "Optional",
+          "perMonth": "€ per month, optional",
+          "hideAddress": "Partner agencies and clients only see the town and area.",
+          "description": "Describe the property, the area and what makes it special.",
+          "shared": "Partner agencies can find it in network search and contact you about it.",
+          "sharedFeed": "Applies to this property only. Other feed properties keep their own setting.",
+          "commission": "Shown to partner agencies"
+        },
+        "priceChange": {
+          "current": "Current price",
+          "since": "since {date}",
+          "new": "New price",
+          "newHint": "Leave empty to keep the current price",
+          "down": "−{amount} (−{pct}%)",
+          "up": "+{amount} (+{pct}%)",
+          "downNote": "Listings will show “Reduced from” the current price.",
+          "upNote": "The current price is saved in the price history.",
+          "history": "Earlier prices",
+          "until": "until {date}"
+        },
+        "photos": {
+          "dropHere": "Drag photos here, or",
+          "choose": "Choose photos",
+          "limits": "JPG, PNG, WebP or iPhone (HEIC) photos, up to 20 MB each, max {max} photos.",
+          "rejected": "{count, plural, one {# file wasn't added} other {# files weren't added}}: use JPG, PNG, WebP or HEIC under 20 MB.",
+          "tooMany": "You can add up to {max} photos.",
+          "main": "Main",
+          "photoAlt": "Photo {n}",
+          "moveLeft": "Move photo {n} earlier",
+          "moveRight": "Move photo {n} later",
+          "makeMain": "Make photo {n} the main photo",
+          "remove": "Remove photo {n}",
+          "reorderHint": "Drag photos to change their order.",
+          "none": "No photos.",
+          "uploading": "Uploading {done}/{total}…",
+          "uploadFailed": "Photo upload failed. Please try again."
+        },
+        "coordinates": {
+          "title": "Coordinates",
+          "latitude": "Latitude",
+          "longitude": "Longitude",
+          "useTownCentre": "Use town centre",
+          "fromAddress": "Find from address",
+          "findingTown": "Finding the town centre…",
+          "distance": "{km} km from the town centre",
+          "straightLine": "(straight line, not road distance)",
+          "atTownCentre": "Set to the town centre. Find the address or enter the exact point for a precise location.",
+          "noPoint": "No coordinates yet: they are set to the town centre when you save.",
+          "noCentre": "This town's centre isn't known, so the distance can't be calculated.",
+          "pickTown": "Choose the town to fill in its coordinates.",
+          "townNotFound": "Couldn't find this town's coordinates. Check the town and province, or enter them by hand.",
+          "addressNotFound": "Couldn't find this address. Check it, or enter the coordinates by hand.",
+          "unavailable": "The location service didn't answer.",
+          "rateLimited": "Too many location lookups. Please wait a few minutes.",
+          "retry": "Retry",
+          "checkOnMap": "Check on the map"
+        }
+      },
+      "energy": {
+        "inProgress": "In progress"
+      },
+      "stats": {
+        "title": "Stats",
+        "description": "One view is one visitor on one day. Your own agency's views don't count.",
+        "tableCaption": "Views and WhatsApp clicks by source",
+        "measure": "Measure",
+        "periods": {
+          "d7": "7 days",
+          "d30": "30 days",
+          "all": "All time"
+        },
+        "views": "Views",
+        "whatsapp": "WhatsApp clicks",
+        "sources": {
+          "network": "Agency network",
+          "microsite": "Client pages",
+          "public": "Public page"
+        },
+        "dailyTitle": "Views per day, last 30 days",
+        "dailyTotal": "{n} in 30 days",
+        "dayValue": "{date}: {n, plural, one {# view} other {# views}}",
+        "chartLabel": "Views per day over the last 30 days: {n} in total, at most {max} in one day.",
+        "noViews": "No views in the last 30 days yet.",
+        "today": "Today",
+        "showTable": "Show as table",
+        "day": "Day"
+      }
+    },
+    "agency": {
+      "title": "Agency details",
+      "description": "Manage what partner agencies and your clients see about you. Business info stays between agencies; your About page appears on each client's microsite.",
+      "toasts": {
+        "saved": "Changes saved.",
+        "fixErrors": "Some fields need fixing before you can save.",
+        "saveFailed": "Couldn't save. Please try again.",
+        "logoFailed": "The logo couldn't be uploaded. Try another image, or save without it."
+      },
+      "logo": {
+        "alt": "{name} logo",
+        "dropHere": "Drag an image here, or",
+        "upload": "Upload logo",
+        "replace": "Replace logo",
+        "remove": "Remove",
+        "errorType": "Use a PNG, JPG or WebP file.",
+        "errorSize": "This file is over 2 MB. Export a smaller version and try again."
+      },
+      "branding": {
+        "title": "Logo and name",
+        "description": "Shown to partner agencies and on your client microsites. Square logos work best: PNG, JPG, WebP or SVG, up to 2 MB.",
+        "name": "Agency name"
+      },
+      "about": {
+        "title": "About page",
+        "description": "Shown to your clients on their microsite. Add a version for each language your clients speak.",
+        "placeholder": "Tell clients who you are, where you work, and how you help buyers."
+      },
+      "contact": {
+        "title": "Contact",
+        "description": "Shown to partner agencies and on your client microsites.",
+        "person": "Contact person",
+        "phone": "Phone",
+        "whatsapp": "WhatsApp",
+        "email": "Email",
+        "website": "Website",
+        "whatsappHint": "With country code, e.g. +34"
+      },
+      "address": {
+        "title": "Office address",
+        "street": "Street",
+        "town": "Town",
+        "province": "Province",
+        "postcode": "Postcode"
+      },
+      "areas": {
+        "title": "Areas and languages",
+        "regions": "Areas you work in",
+        "languages": "Languages your team speaks"
+      },
+      "business": {
+        "title": "Business info",
+        "description": "Only partner agencies see this. Your clients never do.",
+        "legalName": "Legal name",
+        "cif": "CIF / NIF",
+        "founded": "Year founded",
+        "commission": "Commission sharing",
+        "commissionPlaceholder": "e.g. 50/50 on shared sales"
+      },
+      "social": {
+        "title": "Social media",
+        "description": "Optional. Paste the full link to each profile."
+      },
+      "preview": {
+        "title": "Preview",
+        "client": "Client microsite",
+        "partner": "Partner card",
+        "agencyName": "Agency name",
+        "micrositeLanguage": "Microsite language",
+        "fallbackNote": "No {language} text yet, so clients see your {fallback} version.",
+        "aboutPlaceholder": "Your About text will appear here.",
+        "contact": "Contact",
+        "phone": "Phone",
+        "email": "Email",
+        "speaks": "Speaks",
+        "commission": "Commission",
+        "since": "Since"
+      }
+    },
+    "security": {
+      "title": "Security",
+      "description": "Your agency uses a shared login. Keep the password private and check which devices are signed in.",
+      "password": {
+        "title": "Password",
+        "lastChanged": "Last changed {when}.",
+        "current": "Current password",
+        "new": "New password",
+        "confirm": "Confirm new password",
+        "minHint": "At least {min} characters",
+        "strength": "Strength: {level}",
+        "levels": {
+          "0": "Too weak",
+          "1": "Weak",
+          "2": "Fair",
+          "3": "Good",
+          "4": "Strong"
+        },
+        "update": "Update password",
+        "updating": "Updating…",
+        "updated": "Password updated.",
+        "show": "Show password",
+        "hide": "Hide password"
+      },
+      "email": {
+        "title": "Login email",
+        "description": "The address your agency uses to sign in. Security emails go here too.",
+        "current": "Current login email",
+        "change": "Change email",
+        "new": "New email",
+        "password": "Current password",
+        "passwordHint": "To confirm it's you",
+        "send": "Send verification link",
+        "sending": "Sending…",
+        "cancel": "Cancel",
+        "pending": "We sent a link to <strong>{email}</strong>. Your login email changes when you click it. Until then, keep signing in with {current}.",
+        "resend": "Resend link",
+        "cancelChange": "Cancel change",
+        "cancelling": "Cancelling…",
+        "linkSent": "Verification link sent to {email}.",
+        "linkResent": "Link sent again.",
+        "changeCancelled": "Email change cancelled."
+      },
+      "sessions": {
+        "title": "Active sessions",
+        "description": "Devices signed in to your agency account. If you don't recognise one, sign it out and change your password.",
+        "device": "{browser} on {os}",
+        "thisDevice": "This device",
+        "activeNow": "{location}, active now",
+        "lastActive": "{location}, last active {when}",
+        "signOut": "Sign out",
+        "signingOut": "Signing out…",
+        "signOutLabel": "Sign out of {device} in {location}",
+        "signOutOthers": "Sign out of all other devices",
+        "onlyThisDevice": "You're only signed in on this device.",
+        "confirmTitle": "Sign out of all other devices?",
+        "confirmBody": "Anyone using your agency login on those devices will need to sign in again. You'll stay signed in here.",
+        "confirmAction": "{count, plural, one {Sign out of # device} other {Sign out of # devices}}",
+        "cancel": "Cancel",
+        "signedOut": "Signed out of {device}.",
+        "signedOutOthers": "{count, plural, one {Signed out of # device.} other {Signed out of # devices.}}",
+        "simpleDescription": "Signed in on another computer or phone, or shared your login by mistake? Sign out everywhere except here. Changing your password does this too.",
+        "signedOutEverywhere": "Signed out of all other devices.",
+        "confirmCount": "Sign out of other devices"
+      },
+      "alerts": {
+        "title": "Security emails",
+        "description": "Sent to {email}.",
+        "on": "Email alert turned on.",
+        "off": "Email alert turned off.",
+        "failed": "Setting wasn't saved. Try again.",
+        "newDevice": {
+          "label": "Sign-in from a new device",
+          "hint": "When someone signs in from a browser or phone we haven't seen before."
+        },
+        "passwordChanged": {
+          "label": "Password changed",
+          "hint": "When your agency password is changed."
+        },
+        "emailChanged": {
+          "label": "Login email changed",
+          "hint": "Sent to your old address when the login email is changed."
+        }
+      },
+      "delete": {
+        "title": "Delete account",
+        "cantUndo": "This can't be undone.",
+        "body": "Deleting your account permanently removes your agency from Colabora MLS: your properties, XML feeds, CRM contacts and notes, and every client microsite you've created.",
+        "button": "Delete account",
+        "dialogTitle": "Delete your agency account?",
+        "dialogBody": "Partner agencies and your clients lose access straight away.",
+        "typeToConfirm": "Type <strong>{name}</strong> to confirm",
+        "cancel": "Cancel",
+        "deleting": "Deleting…",
+        "done": "Account deleted."
+      },
+      "errors": {
+        "rate_limited": "Too many tries. Wait a few minutes and try again.",
+        "email_failed": "We couldn't send the email. Try again in a moment.",
+        "failed": "Something went wrong. Try again."
+      }
+    },
+    "billing": {
+      "title": "Billing",
+      "description": "Manage your subscription, payment card, and invoices.",
+      "subscription": {
+        "title": "Subscription",
+        "description": "One plan with everything included.",
+        "planName": "Colabora MLS Agency",
+        "perMonth": "/ month + {vat}% IVA",
+        "statuses": {
+          "active": "Active",
+          "trialing": "Free trial",
+          "past_due": "Payment failed",
+          "canceled": "Cancelled"
+        },
+        "features": {
+          "listings": "Share unlimited properties with partner agencies",
+          "crm": "CRM for your buyers and leads",
+          "microsites": "Client microsites with your logo and About page",
+          "support": "Email support"
+        },
+        "trialEnds": "Trial ends",
+        "trialEndsValue": "{date} (in {days, plural, one {# day} other {# days}}), then {total} incl. IVA per month",
+        "nextPayment": "Next payment",
+        "nextPaymentValue": "{date}, {total} incl. IVA",
+        "accessUntil": "Access until",
+        "pastDueNote": "Your last payment failed. Update your card below to keep your properties and client microsites online.",
+        "canceledNote": "Your subscription won't renew. After {date}, your properties, CRM and client microsites go offline. Resume any time before then to keep everything.",
+        "cancel": "Cancel subscription",
+        "cancelling": "Cancelling…",
+        "keep": "Keep subscription",
+        "cancelTitle": "Cancel your subscription?",
+        "cancelBody": "You keep full access until {date}. After that, your properties, CRM and client microsites go offline. You can resume any time before then.",
+        "cancelled": "Subscription cancelled. You have access until {date}.",
+        "resume": "Resume subscription",
+        "resuming": "Resuming…",
+        "resumed": "Subscription resumed."
+      },
+      "card": {
+        "title": "Payment method",
+        "description": "The card your monthly subscription is charged to.",
+        "ending": "{brand} ending in {last4}",
+        "expires": "Expires {date}, {holder}",
+        "none": "No card saved yet.",
+        "add": "Add card",
+        "update": "Update card",
+        "dialogDescription": "Your card is charged on the next payment date.",
+        "holder": "Name on card",
+        "number": "Card number",
+        "expiry": "Expiry",
+        "expiryPlaceholder": "MM/YY",
+        "cancel": "Cancel",
+        "save": "Save card",
+        "saving": "Saving…",
+        "updated": "Card updated."
+      },
+      "details": {
+        "title": "Billing details",
+        "description": "Shown on your invoices. Spanish agencies are charged 21% IVA.",
+        "legalName": "Company legal name",
+        "taxId": "CIF / NIF",
+        "street": "Street",
+        "town": "Town",
+        "postcode": "Postcode",
+        "province": "Province",
+        "country": "Country",
+        "invoiceEmail": "Email for invoices",
+        "countries": {
+          "ES": "Spain",
+          "PT": "Portugal",
+          "GB": "United Kingdom",
+          "other": "Other"
+        },
+        "save": "Save billing details",
+        "saving": "Saving…",
+        "discard": "Discard",
+        "saved": "Billing details saved."
+      },
+      "invoices": {
+        "title": "Invoices",
+        "description": "Every payment, with a PDF invoice for your records.",
+        "none": "No invoices yet. Your first one appears after your first payment.",
+        "date": "Date",
+        "number": "Invoice",
+        "amount": "Amount",
+        "status": "Status",
+        "download": "Download",
+        "downloadLabel": "Download {number} as PDF",
+        "mockDownload": "{number} will download once billing is connected.",
+        "statuses": {
+          "paid": "Paid",
+          "open": "Due",
+          "failed": "Failed",
+          "refunded": "Refunded"
+        }
+      }
+    },
+    "search": {
+      "title": "Search properties",
+      "description": "Properties shared by partner agencies, and your own. Contact the listing agency directly about any of them.",
+      "results": "{count, plural, =0 {No properties} one {# property} other {# properties}}",
+      "filters": {
+        "title": "Filters",
+        "location": "Location",
+        "locationPlaceholder": "Province, town or area",
+        "radius": "Distance",
+        "radiusNone": "Only this location",
+        "radiusKm": "+ {km} km around it",
+        "radiusHint": "Choose a town first",
+        "query": "Reference",
+        "queryPlaceholder": "e.g. KT-4821",
+        "area": "Area",
+        "anyArea": "Any area",
+        "type": "Property type",
+        "anyType": "Any type",
+        "price": "Price (€)",
+        "min": "Min",
+        "max": "Max",
+        "minPrice": "Minimum price",
+        "maxPrice": "Maximum price",
+        "bedrooms": "Bedrooms",
+        "bathrooms": "Bathrooms",
+        "anyBeds": "Any",
+        "bedsPlus": "{n}+",
+        "clear": "Clear filters",
+        "search": "Search",
+        "reset": "Reset",
+        "condition": "New build or resale",
+        "anyCondition": "Any"
+      },
+      "sort": {
+        "label": "Sort by",
+        "newest": "Newest first",
+        "priceAsc": "Price: low to high",
+        "priceDesc": "Price: high to low"
+      },
+      "empty": {
+        "title": "No properties match",
+        "body": "Try widening the price range or choosing another area."
+      },
+      "card": {
+        "beds": "{n} bd",
+        "baths": "{n} ba",
+        "commission": "Split {split}",
+        "unknownAgency": "Agency not available",
+        "showContact": "Contact",
+        "hideContact": "Hide contact",
+        "showContactLabel": "Show contact details of {agency}",
+        "own": "Your property",
+        "edit": "Edit property",
+        "kmFrom": "{km} km from {place}"
+      },
+      "detail": {
+        "back": "Back to search",
+        "notFoundTitle": "Property not available",
+        "notFoundBody": "It may have been sold, hidden or removed by the listing agency.",
+        "photos": "Photos",
+        "photoAlt": "Photo {n} of {total}",
+        "showPhoto": "Show photo {n}",
+        "details": "Details",
+        "features": "Features",
+        "description": "Description",
+        "perMonth": "{amount} / month",
+        "listedBy": "Listed by",
+        "contact": "Contact",
+        "whatsapp": "WhatsApp",
+        "whatsappText": "Hello, I'm interested in your property {ref} on Colabora MLS.",
+        "emailSubject": "Property {ref} on Colabora MLS",
+        "commission": "Commission split",
+        "addressHidden": "The exact address is shared by the listing agency on request.",
+        "code": "Reference",
+        "website": "Website",
+        "office": "Office",
+        "noContactDetails": "This agency hasn't added its contact details yet.",
+        "ownTitle": "This is your property",
+        "ownBody": "Partner agencies see it here with your contact details.",
+        "distance": "From town centre",
+        "distanceValue": "{km} km (straight line)",
+        "bookViewing": "Book a viewing on WhatsApp",
+        "bookViewingText": "Hi, I'd like to book a viewing for property ref. {ref} – {title}, {town}. {url}"
+      },
+      "places": {
+        "searching": "Searching…",
+        "noMatches": "No locations match",
+        "minChars": "Type at least {n} letters",
+        "more": "Show more results",
+        "error": "Couldn't load locations. Please try again.",
+        "selected": "Chosen locations",
+        "remove": "Remove {name}",
+        "addAnother": "Add another location",
+        "maxReached": "Up to {max} locations",
+        "types": {
+          "province": "Province",
+          "municipality": "Town",
+          "locality": "Locality",
+          "district": "Neighbourhood",
+          "village": "Village",
+          "urbanisation": "Urbanisation"
+        }
+      }
+    },
+    "xmlExport": {
+      "title": "XML export",
+      "description": "Create feed links for your website, CRM, or property portals. Each link includes your own properties and matching partner properties, and updates automatically.",
+      "create": "Create export link",
+      "cancel": "Cancel",
+      "empty": {
+        "title": "No export links yet",
+        "body": "Create a link with the filters you need and paste it into your website or CRM. It updates automatically."
+      },
+      "summary": {
+        "all": "All properties",
+        "from": "From {price}",
+        "upTo": "Up to {price}",
+        "beds": "{n}+ bedrooms"
+      },
+      "card": {
+        "count": "{count, plural, =0 {No properties} one {# property} other {# properties}}",
+        "split": "{mine} yours · {partners} partners",
+        "copy": "Copy link",
+        "open": "Open",
+        "edit": "Edit",
+        "regenerate": "New link",
+        "delete": "Delete",
+        "lastFetched": "Last accessed {when}",
+        "neverFetched": "Not read yet"
+      },
+      "toasts": {
+        "copied": "Link copied.",
+        "copyFailed": "Couldn't copy. Select the link and copy it by hand.",
+        "created": "{name} created.",
+        "saved": "{name} saved.",
+        "regenerated": "New link created for {name}. Update it wherever you used the old one.",
+        "deleted": "{name} deleted.",
+        "saveFailed": "Couldn't save. Please try again.",
+        "fixErrors": "Check the highlighted fields."
+      },
+      "regenerateDialog": {
+        "title": "Create a new link?",
+        "body": "The current link stops working straight away. Use this if the link was shared with someone it shouldn't have been.",
+        "confirm": "Create new link"
+      },
+      "deleteDialog": {
+        "title": "Delete {name}?",
+        "body": "The link stops working straight away. Websites and CRMs using it will stop receiving properties.",
+        "confirm": "Delete link"
+      },
+      "form": {
+        "back": "Back to XML export",
+        "newTitle": "Create export link",
+        "editTitle": "Edit export link",
+        "description": "Choose which properties go into the feed. Changing the filters later keeps the same link.",
+        "notFoundTitle": "Export link not found",
+        "notFoundBody": "It may have been deleted.",
+        "sections": {
+          "name": "Name",
+          "nameHint": "Only you see this.",
+          "filters": "Filters",
+          "filtersHint": "Your own and partner properties are both included. Leave a filter empty to include everything.",
+          "preview": "What the link contains",
+          "previewHint": "Updates as you change the filters."
+        },
+        "fields": {
+          "name": "Link name",
+          "namePlaceholder": "e.g. Website – villas",
+          "optional": "Optional",
+          "query": "Town or reference",
+          "queryPlaceholder": "e.g. Torrevieja",
+          "area": "Area",
+          "anyArea": "Any area",
+          "type": "Property type",
+          "anyType": "Any type",
+          "minPrice": "Price from (€)",
+          "maxPrice": "Price up to (€)",
+          "minBeds": "Bedrooms",
+          "anyBeds": "Any",
+          "bedsPlus": "{n}+",
+          "condition": "New build or resale",
+          "anyCondition": "New build and resale"
+        },
+        "previewCount": "{count, plural, =0 {No properties match} one {# property matches} other {# properties match}} right now ({mine} yours, {partners} partners).",
+        "mine": "Yours",
+        "partner": "Partner",
+        "noMatches": "Try broadening your filters.",
+        "andMore": "…and {count} more.",
+        "previewLoading": "Checking the network…",
+        "formatNote": "Format: Kyero v3 XML. Partner agencies’ names and contact details are not included in the feed.",
+        "createLink": "Create link",
+        "save": "Save changes",
+        "saving": "Saving…"
+      }
+    },
+    "locations": {
+      "placeholder": "Town, village or urbanisation",
+      "selected": "Selected areas",
+      "remove": "Remove {name}",
+      "types": {
+        "municipality": "Municipality",
+        "district": "District",
+        "village": "Village",
+        "urbanisation": "Urbanisation"
+      }
+    }
+  },
+  "errors": {
+    "unreachable": "Couldn't reach the feed URL.",
+    "not_kyero": "This URL isn't a Kyero feed.",
+    "blocked": "This address isn't allowed.",
+    "too_large": "The feed is too large (max 100 MB).",
+    "import_failed": "The import failed. Please try again."
+  },
+  "auth": {
+    "login": {
+      "metaTitle": "Log in",
+      "title": "Log in to Colabora MLS",
+      "description": "Use the email and password from your login details email.",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Log in",
+      "submitting": "Logging in…",
+      "errors": {
+        "invalid": "Wrong email or password.",
+        "suspended": "This account's access is suspended. Contact Colabora MLS if you think this is a mistake.",
+        "rate_limited": "Too many tries. Wait 15 minutes and try again.",
+        "server": "Something went wrong. Try again.",
+        "signed_out": "You were signed out because your password or login changed. Log in again."
+      },
+      "noAccount": "Is your agency not on Colabora MLS yet?",
+      "join": "Join free for 6 months",
+      "forgot": "Forgot password?"
+    },
+    "changePassword": {
+      "metaTitle": "Choose your password",
+      "title": "Choose your password",
+      "description": "You logged in with a temporary password. Choose your own to continue.",
+      "password": "New password",
+      "confirm": "Repeat new password",
+      "hint": "At least 10 characters.",
+      "submit": "Save and continue",
+      "submitting": "Saving…",
+      "saved": "Password saved.",
+      "failed": "Couldn't save your password. Try again."
+    },
+    "forgot": {
+      "metaTitle": "Forgot password",
+      "title": "Forgot your password?",
+      "description": "Enter your login email. If it has an account, we'll email you a link to choose a new password.",
+      "email": "Email",
+      "submit": "Send reset link",
+      "submitting": "Sending…",
+      "sentTitle": "Check your email",
+      "sent": "If {email} has a Colabora MLS login, a reset link is on its way. It expires in 1 hour.",
+      "rateLimited": "Too many requests. Try again in an hour.",
+      "failed": "Something went wrong. Try again.",
+      "back": "Back to log in"
+    },
+    "reset": {
+      "metaTitle": "Choose a new password",
+      "title": "Choose a new password",
+      "description": "Your other devices will be signed out.",
+      "password": "New password",
+      "confirm": "Repeat new password",
+      "hint": "At least 10 characters.",
+      "submit": "Save new password",
+      "submitting": "Saving…",
+      "done": "Password changed. Log in with your new password.",
+      "invalidTitle": "This link doesn't work any more",
+      "invalid": "Reset links work once and expire after 1 hour. Ask for a new one.",
+      "again": "Send a new link",
+      "failed": "Something went wrong. Try again."
+    },
+    "confirmEmail": {
+      "metaTitle": "Confirm new email",
+      "title": "Confirm your new login email",
+      "description": "Click the button to make this address your Colabora MLS login. You'll then log in with it.",
+      "submit": "Confirm new email",
+      "submitting": "Confirming…",
+      "done": "Your login email is changed. Log in with the new address.",
+      "invalid": "This link doesn't work any more. Links expire after 24 hours; ask for a new one on the Security page.",
+      "taken": "This email is now used by another login, so it can't be confirmed.",
+      "login": "Log in",
+      "failed": "Something went wrong. Try again."
+    }
+  },
+  "listings": {
+    "metaTitle": "Properties for sale on the Spanish coast",
+    "metaDescription": "Homes for sale on the Spanish coast, from agencies in the Colabora MLS network.",
+    "title": "Properties for sale",
+    "description": "Homes from agencies all along the coast, in one place.",
+    "detail": {
+      "back": "All properties",
+      "reference": "Reference {code}",
+      "notFoundTitle": "Property not available",
+      "notFoundBody": "It may have been sold or taken off the market.",
+      "agencyTitle": "Are you an estate agency?",
+      "agencyBody": "Join Colabora MLS to share listings with other agencies and sell this property together with its listing agency.",
+      "agencyCta": "Join free for 6 months"
+    }
+  },
+  "join": {
+    "title": "Join Colabora MLS",
+    "subtitle": "We are onboarding the first agencies manually. Send your details and we'll be in touch.",
+    "language": "Preferred language / Idioma preferido",
+    "sections": {
+      "company": "Your company",
+      "address": "Office address",
+      "people": "Owner and contact",
+      "crm": "CRM and billing"
+    },
+    "fields": {
+      "email": "Email",
+      "emailHint": "Your login: we send the login details here once you're approved.",
+      "companyName": "Company name",
+      "brandName": "Commercial brand name",
+      "brandNameHint": "Shown on the platform; the company name if empty",
+      "raicv": "RAICV nº",
+      "cif": "CIF / NIE / NIF / VAT number",
+      "website": "Website",
+      "street": "Address – street and number",
+      "town": "Town / city",
+      "province": "Province",
+      "provincePlaceholder": "Choose a province",
+      "postcode": "Postcode",
+      "ownerName": "Full name of CEO / owner",
+      "ownerIdNumber": "DNI / NIE / passport nº of CEO / owner",
+      "contactPerson": "Contact person",
+      "phone": "Telephone",
+      "phone2": "Additional telephone",
+      "email2": "Additional email",
+      "crm": "CRM",
+      "crmPlaceholder": "e.g. Inmovilla",
+      "crmAgencyNumber": "CRM agency number (Inmovilla)",
+      "paymentFrequency": "Payment frequency",
+      "paymentPlaceholder": "Please select",
+      "iban": "IBAN",
+      "ibanHint": "For direct debit once billing starts",
+      "acceptPrivacy": "I accept the privacy policy",
+      "optional": "Optional",
+      "noBanking": "No banking details required: the first 6 months are free.",
+      "addBanking": "Add IBAN now (optional)",
+      "removeBanking": "Don’t add bank details"
+    },
+    "payment": {
+      "monthly": "Monthly",
+      "quarterly": "Quarterly",
+      "yearly": "Yearly"
+    },
+    "submit": "Request to join",
+    "submitting": "Sending…",
+    "sentTitle": "Thanks, we've got your request",
+    "sentBody": "We'll review your details. Once you're approved, your login details are emailed to the address you gave.",
+    "rateLimited": "Too many requests. Please try again in an hour.",
+    "error": "Something went wrong. Please try again.",
+    "metaDescription": "Apply for your agency to join the collaboration network for estate agencies on the Spanish coast."
+  },
+  "footer": {
+    "blog": "Blog",
+    "tagline": "The collaboration network for estate agencies on the Spanish coast.",
+    "explore": "Explore",
+    "listings": "Listings",
+    "agencies": "Agencies",
+    "join": "Join free for 6 months",
+    "login": "Agency login",
+    "rights": "© {year} Colabora MLS. All rights reserved.",
+    "cookiePolicy": "Cookie policy",
+    "cookieSettings": "Cookie settings",
+    "howItWorks": "How it works",
+    "contact": "Contact",
+    "legal": "Legal notice",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "region": "Spanish coast",
+    "phone": "Phone"
+  },
+  "navbar": {
+    "home": "Colabora MLS, home",
+    "listings": "Listings",
+    "howItWorks": "How it works",
+    "blog": "Blog",
+    "join": "Join",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "developers": "For developers"
+  },
+  "cookies": {
+    "banner": {
+      "title": "Cookies",
+      "settingsTitle": "Cookie settings",
+      "text": "We use cookies the site needs to work, such as keeping you logged in and remembering your language. With your consent we may also use optional cookies; you can accept them, reject them or choose by category.",
+      "policy": "Cookie policy",
+      "accept": "Accept all",
+      "reject": "Reject non-essential",
+      "configure": "Configure",
+      "save": "Save my choices",
+      "alwaysOn": "Always on",
+      "noneInUse": "We don't use any cookies of this type at the moment.",
+      "categories": {
+        "necessary": {
+          "title": "Necessary",
+          "description": "Needed for the site to work: login, security and remembering your language and cookie choice."
+        },
+        "analytics": {
+          "title": "Analytics",
+          "description": "Help us understand how the site is used, so we can improve it."
+        },
+        "marketing": {
+          "title": "Marketing",
+          "description": "Used to show relevant advertising and measure campaigns."
+        }
+      }
+    },
+    "policy": {
+      "title": "Cookie policy",
+      "updated": "Last updated: {date}",
+      "intro": "This policy explains which cookies Colabora MLS uses and why. A cookie is a small text file that a website stores in your browser.",
+      "usedTitle": "Cookies we use",
+      "usedBody": "We only use cookies that the site needs to work. We don't use advertising or analytics cookies, and we don't share cookie data with anyone.",
+      "table": {
+        "name": "Name",
+        "provider": "Provider",
+        "purpose": "Purpose",
+        "duration": "Duration",
+        "type": "Category",
+        "consent": "Consent needed"
+      },
+      "purpose": {
+        "session": "Keeps you logged in to the agency panel.",
+        "csrf": "Protects the login form against forged requests.",
+        "callback": "Remembers which page to open after you log in.",
+        "locale": "Remembers the language you chose.",
+        "consent": "Remembers your cookie choice (the accepted categories, the policy version and a random consent ID), so we don't ask again. We also keep a record of each choice with that ID, the date and the policy version, without your IP address, for 3 years."
+      },
+      "duration": {
+        "days7": "7 days",
+        "browserSession": "Until you close the browser",
+        "year1": "1 year"
+      },
+      "necessary": "Necessary",
+      "prefixNote": "On the live site, the login cookie names start with __Secure- or __Host-.",
+      "legalTitle": "Legal basis",
+      "legalBody": "Cookies that are strictly necessary for a service you ask for don't need consent under article 22.2 of the Spanish Information Society Services Law (LSSI, Law 34/2002). If we ever add optional cookies, such as analytics, we will only set them after you accept them, and we will update this policy first.",
+      "manageTitle": "Changing your choice",
+      "manageBody": "You can change or withdraw your choice at any time with the button below or the \"Cookie settings\" link at the bottom of every page. Withdrawing is as easy as giving consent. You can also delete or block cookies in your browser settings; if you block the necessary ones, you won't be able to log in.",
+      "changeSettings": "Change cookie settings",
+      "version": "Policy version {version}",
+      "categoriesBody": "Cookies are grouped in three categories: necessary, analytics and marketing. Only necessary cookies are set without your consent. Analytics and marketing cookies are only set after you accept them, and we don't use any at the moment.",
+      "category": {
+        "necessary": "Necessary",
+        "analytics": "Analytics",
+        "marketing": "Marketing"
+      },
+      "consentYes": "Yes",
+      "consentNo": "No"
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "News, guides and market insights for estate agencies working on the Spanish coast.",
+    "metaDescription": "News, guides and market insights from Colabora MLS for estate agencies on the Spanish coast.",
+    "empty": "No articles yet. Check back soon.",
+    "readMore": "Read article",
+    "back": "All articles",
+    "otherLanguage": "This article isn't available in your language yet, so it's shown in {language}.",
+    "pagination": "Blog pages",
+    "newer": "Newer",
+    "older": "Older",
+    "pageOf": "Page {page} of {pageCount}"
+  },
+  "Projects": {
+    "metaTitle": "Projects",
+    "title": "My projects",
+    "description": "Your developments on Colabora MLS. Keep prices, availability and status up to date: every change is recorded and agencies see your latest information.",
+    "newProject": "New project",
+    "editProject": "Edit project",
+    "back": "Projects",
+    "empty": "No projects yet.",
+    "emptyHint": "Add your first development: location, prices, availability and images.",
+    "updated": "Updated {date}",
+    "units": "{available} of {total} available",
+    "unitsTotal": "{total} units",
+    "columns": {
+      "project": "Project",
+      "location": "Location",
+      "status": "Status",
+      "units": "Units",
+      "price": "Price",
+      "lastUpdate": "Last update"
+    },
+    "statuses": {
+      "planning": "Planning",
+      "construction": "Under construction",
+      "completed": "Completed"
+    },
+    "currencies": {
+      "EUR": "Euro (€)",
+      "GBP": "Pound (£)",
+      "USD": "Dollar ($)"
+    },
+    "sections": {
+      "basics": {
+        "title": "Development",
+        "description": "Name, stage, kind of homes and amenities."
+      },
+      "location": {
+        "title": "Location",
+        "description": "Where the development is. Coordinates or a Google Maps link put it on the map."
+      },
+      "pricing": {
+        "title": "Prices and homes",
+        "description": "The price range and bedrooms across the development."
+      },
+      "units": {
+        "title": "Availability",
+        "description": "How many homes the development has, and how many are still available."
+      },
+      "timeline": {
+        "title": "Delivery",
+        "description": "Leave empty if not known yet."
+      },
+      "images": {
+        "title": "Images",
+        "description": "The main image is shown first in lists. JPG, PNG, WebP or HEIC."
+      },
+      "about": {
+        "title": "Description",
+        "description": "Setting, finishes, what makes it special. At least one language is needed to publish."
+      },
+      "collaboration": {
+        "title": "Collaboration with agencies",
+        "description": "Your terms for agencies that sell a unit. You set them freely; Colabora MLS never imposes or suggests a commission."
+      },
+      "documents": {
+        "title": "Documents",
+        "description": "Brochure, price list, plans, memoria de calidades… PDF only. Agencies can download them."
+      }
+    },
+    "fields": {
+      "name": "Project name",
+      "status": "Status",
+      "propertyTypes": "Property types",
+      "address": "Address",
+      "town": "Town",
+      "province": "Province",
+      "country": "Country",
+      "latitude": "Latitude",
+      "longitude": "Longitude",
+      "mapsUrl": "Google Maps link",
+      "optional": "Optional",
+      "priceFrom": "Starting price",
+      "priceTo": "Maximum price",
+      "currency": "Currency",
+      "bedroomsMin": "Bedrooms from",
+      "bedroomsMax": "Bedrooms up to",
+      "unitsTotal": "Number of properties",
+      "unitsAvailable": "Still available",
+      "expectedCompletion": "Delivery date",
+      "actualCompletion": "Actual completion",
+      "description": "Description",
+      "amenities": "Amenities",
+      "description_es": "Description (Spanish)",
+      "description_en": "Description (English)",
+      "neededToPublish": "Needed to publish",
+      "collaborationType": "Commission type",
+      "collaborationPercent": "Commission (%)",
+      "collaborationAmount": "Commission (fixed amount)",
+      "paymentTerms": "Payment conditions",
+      "paymentTermsPlaceholder": "e.g. 50% on signing the private contract, 50% at completion",
+      "collaborationNotes": "Other conditions",
+      "protectionDays": "Client protection (days)",
+      "protectionDaysHint": "How long an accepted client registration protects the agency that brought the buyer."
+    },
+    "images": {
+      "add": "Add images",
+      "uploading": "Uploading {done} of {total}…",
+      "main": "Main image",
+      "makeMain": "Make main image",
+      "remove": "Remove image",
+      "none": "No images yet.",
+      "failed": "The images couldn't be uploaded. Try again.",
+      "rejected": "{count, plural, one {# file was} other {# files were}} skipped (not an image, or too large).",
+      "tooMany": "A project can have up to {max} images."
+    },
+    "create": "Create project",
+    "save": "Save changes",
+    "saving": "Saving…",
+    "cancel": "Cancel",
+    "created": "Project created.",
+    "saved": "Project saved.",
+    "errors": {
+      "generic": "Something went wrong. Try again.",
+      "notFound": "This project no longer exists.",
+      "images": "Some images couldn't be saved. Remove them and add them again.",
+      "invalid": "Check the highlighted fields.",
+      "documents": "Some documents couldn't be saved. Check them and try again.",
+      "requiredToPublish": "Add at least one photo to publish."
+    },
+    "delete": {
+      "button": "Delete project",
+      "title": "Delete \"{name}\"?",
+      "body": "The project and its images are deleted. Its properties stay in My properties, they're only unlinked.",
+      "confirm": "Delete project",
+      "done": "Project deleted."
+    },
+    "collaborationTypes": {
+      "percent": "Percentage of the price",
+      "fixed": "Fixed amount"
+    },
+    "amenities": {
+      "pool": "Communal pool",
+      "indoorPool": "Indoor pool",
+      "garden": "Gardens",
+      "gym": "Gym",
+      "spa": "Spa",
+      "parking": "Parking",
+      "storage": "Storage room",
+      "lift": "Lift",
+      "solarium": "Solarium",
+      "playground": "Playground",
+      "padel": "Padel court",
+      "gatedCommunity": "Gated community",
+      "concierge": "Concierge",
+      "coworking": "Coworking",
+      "evCharging": "EV charging",
+      "seaViews": "Sea views",
+      "nearBeach": "Near the beach",
+      "nearGolf": "Near golf"
+    },
+    "documents": {
+      "add": "Add PDF",
+      "uploading": "Uploading…",
+      "hint": "PDF, up to {mb} MB each, {max} at most.",
+      "name": "Document name",
+      "kind": "Type",
+      "open": "Open",
+      "pending": "Uploaded: saved when you save the development",
+      "remove": "Remove",
+      "invalid": "This file couldn't be saved. Remove it and upload it again.",
+      "tooMany": "At most {max} documents.",
+      "kinds": {
+        "brochure": "Brochure",
+        "priceList": "Price list",
+        "plans": "Plans",
+        "qualities": "Memoria de calidades",
+        "other": "Other"
+      },
+      "rejected": {
+        "type": "{name} isn't a PDF.",
+        "size": "{name} is larger than {mb} MB.",
+        "failed": "{name} couldn't be uploaded. Try again."
+      }
+    },
+    "fromUnits": "Worked out from the development's units (Units tab)."
+  },
+  "landing": {
+    "meta": {
+      "title": "Colabora MLS – Collaboration network for estate agencies on the Spanish coast",
+      "description": "More buyers for your listings and more listings for your buyers: the network of verified agencies on the Spanish coast. 6 months free."
+    },
+    "brand": "Colabora MLS",
+    "nav": {
+      "login": "Log in",
+      "home": "Colabora MLS, home"
+    },
+    "hero": {
+      "eyebrow": "Agencies on the Spanish coast",
+      "title": "Where estate agencies and developers work together",
+      "subtitle": "New-build and resale properties from across the coast, all in one place. One collaboration network connecting estate agencies and developers to share listings, reach more buyers and create more sales opportunities.",
+      "types": {
+        "label": "Property types in the network",
+        "resale": "Resale",
+        "newBuild": "New builds"
+      },
+      "primaryCta": "Join free for 6 months",
+      "secondaryCta": "How it works",
+      "trust": "Verified agencies only · Kyero import · No commitment",
+      "statsLabel": "The network today",
+      "agencies": "{count, plural, one {member agency} other {member agencies}}",
+      "properties": "{count, plural, one {shared property} other {shared properties}}"
+    },
+    "how": {
+      "eyebrow": "How it works",
+      "title": "Up and running in three steps",
+      "steps": {
+        "verify": {
+          "title": "Sign up and we verify your agency",
+          "body": "We review every application: your CIF and, in the Valencian Community, your RAICV number. Only real agencies get in."
+        },
+        "feed": {
+          "title": "Connect your Kyero feed",
+          "body": "Your listings join the network within 24 h and sync automatically every 24 h. You can also add them by hand."
+        },
+        "collaborate": {
+          "title": "Collaborate",
+          "body": "Find properties for your buyers in other agencies' portfolios, contact the listing agency directly and close the sale together."
+        }
+      }
+    },
+    "rules": {
+      "eyebrow": "The rules",
+      "title": "A few clear rules, the same for everyone",
+      "subtitle": "Collaboration works when everyone plays by the same rules.",
+      "items": {
+        "consent": {
+          "strong": "Your listings, only with your permission.",
+          "body": "They only appear in the network if you allow it, and you can remove any property or disconnect your feed whenever you like."
+        },
+        "verified": {
+          "strong": "Verified estate agencies only.",
+          "body": "No private sellers."
+        },
+        "conditions": {
+          "strong": "Each agency sets its own terms.",
+          "body": "Commission and split, freely and per property. Colabora MLS never imposes commissions or splits."
+        }
+      }
+    },
+    "features": {
+      "eyebrow": "What's included",
+      "title": "Everything your agency needs to collaborate",
+      "items": {
+        "mls": {
+          "title": "MLS network",
+          "body": "The shared portfolio of every agency in the network, in one search."
+        },
+        "feed": {
+          "title": "Automatic Kyero import",
+          "body": "Connect your Kyero XML feed and your listings sync automatically every 24 h, nothing to upload by hand."
+        },
+        "crm": {
+          "title": "CRM for your buyers",
+          "body": "Contacts, notes and stages for every buyer in one place."
+        },
+        "microsites": {
+          "title": "Client microsites",
+          "body": "You choose which properties each client sees, on a page with your branding."
+        },
+        "panel": {
+          "title": "Agency panel",
+          "body": "Your profile and your listings, always under your control."
+        }
+      }
+    },
+    "pricing": {
+      "eyebrow": "Pricing",
+      "title": "One plan, no small print",
+      "free": "6 months free",
+      "after": "Then €25 / month + VAT",
+      "terms": "No commitment · No setup fee",
+      "deadline": "",
+      "launch": "Launch offer for agencies that join before {fecha}.",
+      "cta": "Join free",
+      "account": "One account per agency, everything included"
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title": "Frequently asked questions",
+      "items": {
+        "pay": {
+          "q": "Do I have to pay anything to start?",
+          "a": "No. You get 6 months free and we don't ask for a card."
+        },
+        "feed": {
+          "q": "Which feed format do you accept?",
+          "a": "Kyero XML: your listings sync automatically every 24 h. You can also add properties by hand."
+        },
+        "commission": {
+          "q": "Who sets the commission?",
+          "a": "Always your agency, property by property. The agreement and the split are settled directly between the agencies."
+        },
+        "cancel": {
+          "q": "Can I cancel?",
+          "a": "Yes, whenever you like. No commitment."
+        },
+        "consent": {
+          "q": "Are my listings shared without my permission?",
+          "a": "No. Your listings only appear in the network with your explicit permission, and you can remove any property or disconnect your feed at any time."
+        },
+        "developer": {
+          "q": "Are you a developer?",
+          "a": "Developers have their own account: they list their new-build developments and the network's agencies see them in their panel.",
+          "link": "Request access"
+        }
+      }
+    },
+    "finalCta": {
+      "title": "More buyers for your portfolio. Start today.",
+      "cta": "Join free for 6 months",
+      "whatsapp": "Message us on WhatsApp",
+      "whatsappMessage": "Hi, I'd like information about Colabora MLS for my agency."
+    },
+    "footer": {
+      "tagline": "The collaboration network for estate agencies on the Spanish coast.",
+      "nav": "Legal and contact links",
+      "legal": "Legal notice",
+      "privacy": "Privacy",
+      "cookies": "Cookies",
+      "contact": "Contact",
+      "rights": "© {year} Colabora MLS. All rights reserved.",
+      "developers": "For developers",
+      "terms": "Terms",
+      "phone": "Phone"
+    }
+  },
+  "promotor": {
+    "panelName": "Developer panel",
+    "logout": "Log out",
+    "home": {
+      "title": "Home",
+      "greeting": "Hello, {name}",
+      "intro": "Your developments, their units and the agencies' client registrations.",
+      "stats": {
+        "developments": "Developments",
+        "developmentsHint": "{published} published · {drafts} drafts",
+        "available": "Units available",
+        "reserved": "Units reserved",
+        "sold": "Units sold"
+      },
+      "latestRegistrations": "Latest client registrations",
+      "pending": "{count} pending",
+      "seeAll": "See all",
+      "preparedByPlatform": "{count, plural, one {Colabora MLS has prepared # development for you: check it and publish it.} other {Colabora MLS has prepared # developments for you: check them and publish them.}}"
+    },
+    "nav": {
+      "label": "Developer panel",
+      "home": "Home",
+      "profile": "Profile",
+      "developments": "Developments",
+      "registrations": "Registrations"
+    },
+    "profile": {
+      "title": "Developer profile",
+      "intro": "This is how agencies in the network see you. Keep your details up to date.",
+      "editedByAdmin": "Edited by Colabora MLS on {date}. Please check everything is correct."
+    },
+    "developments": {
+      "title": "Developments",
+      "intro": "Your new-build developments. Drafts are only visible to you; agencies see published ones.",
+      "new": "New development",
+      "empty": "No developments yet",
+      "emptyHint": "Create your first development: it stays a draft until you publish it.",
+      "toReview": "{count, plural, one {Colabora MLS has prepared # development for you. Check it and publish it when it's correct.} other {Colabora MLS has prepared # developments for you. Check them and publish them when they're correct.}}",
+      "visibility": {
+        "draft": "Draft",
+        "published": "Published"
+      },
+      "addedByPlatform": "Added by Colabora MLS",
+      "editedByPlatform": "Edited by Colabora MLS",
+      "publish": "Publish",
+      "unpublish": "Back to draft",
+      "published": "Published: agencies can see it now.",
+      "unpublished": "Back to draft: agencies no longer see it.",
+      "incomplete": "To publish, add: {missing}.",
+      "missing": {
+        "collaboration": "your commission for agencies",
+        "images": "at least one photo",
+        "description": "a description"
+      },
+      "draftHint": "Draft: only you (and Colabora MLS) can see it. Publish it when it's ready for agencies.",
+      "publishedHint": "Published: agencies in the network can see it, its documents and your collaboration terms.",
+      "delete": "Delete",
+      "cancel": "Cancel",
+      "deleteTitle": "Delete this development?",
+      "deleteBody": "Its photos and documents are deleted too. This can't be undone.",
+      "deleted": "Development deleted.",
+      "errors": {
+        "generic": "Something went wrong. Try again."
+      },
+      "saveDraft": "Save draft",
+      "publishing": "Publishing…",
+      "footerHint": "Draft: only you can see it. Published: the network agencies see it."
+    }
+  },
+  "developerProfile": {
+    "logo": {
+      "title": "Logo",
+      "description": "Square images look best.",
+      "upload": "Upload logo",
+      "replace": "Replace",
+      "remove": "Remove",
+      "uploading": "Uploading…",
+      "invalid": "That file isn't an image we can use.",
+      "failed": "The logo couldn't be uploaded. Try again."
+    },
+    "company": {
+      "title": "Company",
+      "description": "As it appears on the platform and in contracts.",
+      "name": "Developer / company name",
+      "legalName": "Legal name",
+      "cif": "Company registration number (CIF)",
+      "website": "Website"
+    },
+    "about": {
+      "title": "About",
+      "description": "Agencies see it next to your developments.",
+      "es": "Description (Spanish)",
+      "en": "Description (English)"
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "The person agencies and Colabora MLS speak to.",
+      "person": "Contact person",
+      "position": "Position",
+      "positionPlaceholder": "Sales director",
+      "email": "Contact email",
+      "phone": "Phone"
+    },
+    "address": {
+      "title": "Address",
+      "description": "The company's office.",
+      "street": "Street",
+      "town": "City / town",
+      "postcode": "Postcode",
+      "province": "Province",
+      "country": "Country"
+    },
+    "zones": {
+      "title": "Zones",
+      "legend": "Areas you build in"
+    },
+    "optional": "Optional",
+    "save": "Save changes",
+    "saving": "Saving…",
+    "cancel": "Cancel",
+    "saved": "Profile saved.",
+    "errors": {
+      "validation": "Couldn't save. Check the fields and try again.",
+      "logo": "The logo couldn't be saved. Upload it again.",
+      "notFound": "This account no longer exists.",
+      "server": "Something went wrong. Try again."
+    }
+  },
+  "units": {
+    "title": "Units",
+    "tabs": {
+      "label": "Development sections",
+      "details": "Details",
+      "units": "Units ({count})"
+    },
+    "summary": "{total, plural, =0 {No units} one {# unit} other {# units}} · {available} available · {reserved} reserved · {sold} sold",
+    "add": "Add unit",
+    "addTitle": "New unit",
+    "editTitle": "Edit unit {reference}",
+    "edit": "Edit {reference}",
+    "delete": "Delete {reference}",
+    "deleteTitle": "Delete unit {reference}?",
+    "deleteConfirm": "Delete",
+    "select": "Select {reference}",
+    "selectAll": "Select all",
+    "save": "Save",
+    "saving": "Saving…",
+    "cancel": "Cancel",
+    "optional": "Optional",
+    "added": "Unit added.",
+    "saved": "Unit saved.",
+    "deleted": "Unit deleted.",
+    "empty": "No units yet",
+    "emptyHint": "Add the homes in the development: the price range, bedrooms and availability are worked out from them.",
+    "statuses": {
+      "available": "Available",
+      "reserved": "Reserved",
+      "sold": "Sold"
+    },
+    "orientations": {
+      "N": "North",
+      "NE": "North-east",
+      "E": "East",
+      "SE": "South-east",
+      "S": "South",
+      "SW": "South-west",
+      "W": "West",
+      "NW": "North-west"
+    },
+    "fields": {
+      "reference": "Reference",
+      "referencePlaceholder": "e.g. 3B, Villa 12",
+      "type": "Type",
+      "status": "Status",
+      "bedrooms": "Bedrooms",
+      "bathrooms": "Bathrooms",
+      "builtM2": "Built m²",
+      "plotM2": "Plot m²",
+      "terraceM2": "Terrace m²",
+      "floor": "Floor",
+      "floorPlaceholder": "Ground, 3, Penthouse",
+      "orientation": "Orientation",
+      "price": "Price"
+    },
+    "columns": {
+      "rooms": "Beds / baths",
+      "roomsValue": "{beds} / {baths}",
+      "size": "Size",
+      "terrace": "terrace",
+      "actions": "Actions"
+    },
+    "bulk": {
+      "title": "Bulk change",
+      "selected": "{count, plural, one {# unit selected} other {# units selected}}",
+      "status": "New status",
+      "keepStatus": "Same status",
+      "price": "Price change",
+      "keepPrice": "Same price",
+      "setPrice": "New price (€)",
+      "percent": "Raise / lower (%)",
+      "apply": "Apply",
+      "clear": "Clear selection",
+      "nothing": "Choose a status or a price change.",
+      "done": "{count, plural, =0 {Nothing to change.} one {# unit updated.} other {# units updated.}}"
+    },
+    "errors": {
+      "invalid": "Couldn't save. Check the fields.",
+      "notFound": "This unit or development no longer exists.",
+      "tooMany": "You've reached the most units a development can have."
+    },
+    "newTable": {
+      "title": "Units",
+      "description": "Optional. Add the homes with their main figures; they start as Available. Plot m² is asked for townhouses, villas and plots. With units, the price range, bedrooms and unit count are worked out for you. Terrace and orientation can be added later on the Units tab.",
+      "row": "unit {n}",
+      "add": "Add unit",
+      "duplicate": "Duplicate the last one",
+      "remove": "Remove unit {n} ({reference})",
+      "count": "{n, plural, one {# unit} other {# units}}",
+      "max": "At most {max} units at once. Add more later on the Units tab.",
+      "invalid": "Check the units marked in red."
+    }
+  },
+  "registrations": {
+    "title": "Client registrations",
+    "intro": "Agencies register their buyers for your developments. The first registration you accept protects that agency for that buyer for the development's protection period. For privacy you only see the buyer's name.",
+    "filters": {
+      "label": "Filter by status",
+      "all": "All ({count})",
+      "pending": "Pending ({count})",
+      "accepted": "Accepted ({count})",
+      "rejected": "Rejected ({count})"
+    },
+    "status": {
+      "pending": "Pending",
+      "rejected": "Rejected",
+      "protectedUntil": "Protected until {date}",
+      "expired": "Protection expired"
+    },
+    "line": "{agency} · {date}",
+    "empty": "No registrations",
+    "emptyHint": "When an agency registers a buyer for one of your published developments, it appears here.",
+    "accept": "Accept",
+    "reject": "Reject",
+    "cancel": "Cancel",
+    "acceptTitle": "Accept the registration of {name}?",
+    "acceptBody": "{agency} will be protected for this buyer for the development's protection period. Other pending registrations of the same buyer will be rejected.",
+    "rejectTitle": "Reject the registration of {name}?",
+    "rejectBody": "{agency} will see that you rejected it, and your reason if you give one.",
+    "reasonLabel": "Reason (optional, the agency sees it)",
+    "reasonPlaceholder": "e.g. the buyer had already visited us directly",
+    "reasonLine": "Reason: {reason}",
+    "autoRejected": "Rejected automatically: another agency is already protected for this buyer.",
+    "accepted": "Registration accepted.",
+    "rejected": "Registration rejected.",
+    "errors": {
+      "generic": "Something went wrong. Try again.",
+      "not_found": "This registration no longer exists.",
+      "already_decided": "This registration had already been decided.",
+      "already_protected": "Another agency is already protected for this buyer in this development."
+    }
+  },
+  "newBuilds": {
+    "title": "New builds",
+    "intro": "New-build developments from the network's developers. See units, terms and documents, and register your buyers to be protected.",
+    "search": "Search",
+    "searchPlaceholder": "Development, town or developer",
+    "empty": "No published developments yet.",
+    "noResults": "No development matches your search.",
+    "priceRange": "{from} – {to}",
+    "priceFrom": "From {from}",
+    "available": "{count, plural, =0 {No units available} one {# available} other {# available}}",
+    "myRegistrations": "My client registrations",
+    "myRegistrationsHere": "My registrations for this development",
+    "delivery": "delivery {date}",
+    "description": "Description",
+    "units": "Units ({available} of {total} available)",
+    "noUnits": "The developer hasn't added the units yet.",
+    "terms": "Your commission",
+    "protection": "An accepted registration protects you for {days} days for that buyer.",
+    "termsNote": "Terms set freely by the developer. Colabora MLS takes no part in commissions or splits.",
+    "documents": "Documents",
+    "developer": "Developer",
+    "map": "View on the map",
+    "collaboration": {
+      "ask": "Commission on request",
+      "percent": "{value}% of the price",
+      "fixed": "{amount} per unit"
+    },
+    "register": {
+      "title": "Register a client",
+      "intro": "The first registration the developer accepts protects you for {days} days for that buyer. The developer only sees the name; the phone or email is used to recognise the same buyer.",
+      "name": "Buyer's name",
+      "phone": "Phone",
+      "email": "Email",
+      "contactHint": "Give at least a phone or an email.",
+      "notes": "Notes for the developer",
+      "notesPlaceholder": "e.g. interested in 2 bedrooms, viewing planned on 12/11",
+      "optional": "Optional",
+      "submit": "Register client",
+      "sending": "Sending…",
+      "sent": "Registration sent. The developer will accept or reject it.",
+      "errors": {
+        "generic": "Something went wrong. Try again.",
+        "validation_error": "Check the buyer's details.",
+        "not_found": "This development is no longer available.",
+        "already_protected": "This buyer is already registered and protected for this development.",
+        "duplicate": "You already have a pending registration of this buyer for this development."
+      }
+    },
+    "registrations": {
+      "empty": "You haven't registered any clients yet.",
+      "pending": "Pending",
+      "rejected": "Rejected",
+      "expired": "Protection expired",
+      "protectedUntil": "Protected until {date}",
+      "sentOn": "sent on {date}",
+      "protectedOther": "Rejected: another agency was already protected for this buyer.",
+      "reason": "Developer's reason: {reason}",
+      "note": "Developer's note: {reason}"
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "metaDescription": "Write to us with any questions about Colabora MLS: agencies, developers or buyers.",
+    "subtitle": "Have a question about Colabora MLS? Write to us and we'll reply as soon as we can.",
+    "fields": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "optional": "Optional",
+      "role": "I am…",
+      "rolePlaceholder": "Choose one",
+      "message": "Message",
+      "messageHint": "Max. {max} characters",
+      "acceptPrivacy": "I have read and accept the <link>privacy policy</link>"
+    },
+    "roles": {
+      "agency": "An estate agency",
+      "developer": "A developer",
+      "buyer": "A buyer",
+      "other": "Other"
+    },
+    "submit": "Send message",
+    "submitting": "Sending…",
+    "sentTitle": "Message sent",
+    "sentBody": "Thanks for writing to us. We'll reply as soon as we can to the email you gave us.",
+    "sendAnother": "Send another message",
+    "error": "Your message couldn't be sent. Please try again.",
+    "rateLimited": "You've sent too many messages. Please try again in an hour.",
+    "preferTalk": "Would you rather talk to us?",
+    "call": "Call",
+    "whatsapp": "WhatsApp",
+    "whatsappMessage": "Hi, I have a question about Colabora MLS."
+  },
+  "developersLanding": {
+    "meta": {
+      "title": "For developers: your new builds on the agency network",
+      "description": "Colabora MLS: verified estate agencies on the Spanish coast selling your new-build developments. Free account during the launch phase."
+    },
+    "brand": "Colabora MLS",
+    "nav": {
+      "home": "Colabora MLS, home",
+      "label": "Main",
+      "agencies": "For agencies",
+      "developers": "For developers",
+      "contact": "Contact",
+      "login": "Members' login"
+    },
+    "hero": {
+      "eyebrow": "For developers",
+      "title": "Your new builds, in the hands of the agencies selling on the coast",
+      "subtitle": "Colabora MLS is the collaboration network for verified estate agencies on the Spanish coast. List your developments and reach the agencies that work with buyers every day.",
+      "primaryCta": "Request free access",
+      "secondaryCta": "How it works"
+    },
+    "card": {
+      "label": "Example development listing",
+      "example": "Example",
+      "photo": "Development photo",
+      "developer": "Developer",
+      "newBuild": "New build",
+      "name": "Your development's name",
+      "place": "Town · Expected completion",
+      "from": "From X €",
+      "lockTitle": "Prices and availability",
+      "lockText": "visible to member agencies only"
+    },
+    "offer": {
+      "title": "Launch offer: a free account",
+      "text": "Free during the launch phase. Once the network is established it will become a paid service: we'll give you 30 days' notice and you can leave at no cost.",
+      "cta": "I want to join"
+    },
+    "benefits": {
+      "title": "What you gain by listing on Colabora",
+      "items": {
+        "reach": {
+          "title": "More agencies selling your stock",
+          "text": "Your developments appear in the New builds section of every member agency's panel, with their units, prices and availability."
+        },
+        "pro": {
+          "title": "For professionals only",
+          "text": "Your developments aren't published on an open portal: only verified agencies, once logged in, can see them."
+        },
+        "upload": {
+          "title": "You control what's published",
+          "text": "Add your developments and units from your panel, and update prices and availability whenever they change."
+        },
+        "direct": {
+          "title": "Direct contact, no Colabora commission",
+          "text": "Agencies get in touch with you directly. Colabora MLS takes no commission on sales."
+        }
+      }
+    },
+    "how": {
+      "title": "How it works",
+      "steps": {
+        "request": {
+          "title": "Request access",
+          "text": "Fill in the form. We review your application and email you your login details."
+        },
+        "publish": {
+          "title": "List your developments",
+          "text": "Add each development with its units, prices and availability from your panel."
+        },
+        "contact": {
+          "title": "Agencies get in touch",
+          "text": "Agencies in the network see your developments, register their buyers and contact you to arrange viewings."
+        }
+      },
+      "note": {
+        "title": "Colabora MLS is not a portal for buyers",
+        "text": "It's a professional network between agencies. Your developments aren't published to the public: only verified agencies can see them."
+      }
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "items": {
+        "who": {
+          "q": "Who can see my developments and their prices?",
+          "a": "Only the verified estate agencies in the network, once they've logged in."
+        },
+        "feed": {
+          "q": "Can I import my developments with a feed?",
+          "a": "For now, developments and their units are added by hand from your panel: feed import isn't available yet."
+        },
+        "buyers": {
+          "q": "Can buyers see them?",
+          "a": "No. Colabora MLS isn't a public portal: only verified agencies have access."
+        },
+        "leave": {
+          "q": "Can I leave?",
+          "a": "Yes, whenever you like, at no cost."
+        }
+      }
+    },
+    "apply": {
+      "title": "Request your access",
+      "text": "We'll reply by email once we've reviewed your application.",
+      "preferTalk": "Would you rather talk first?",
+      "call": "Call",
+      "whatsapp": "Message us on WhatsApp",
+      "whatsappMessage": "Hi, I'm from a property developer and I'd like information about Colabora MLS."
+    },
+    "footer": {
+      "nav": "Legal and contact links",
+      "contact": "Contact",
+      "legal": "Legal notice",
+      "privacy": "Privacy",
+      "cookies": "Cookies",
+      "rights": "© {year} Colabora MLS. All rights reserved.",
+      "terms": "Terms",
+      "phone": "Phone"
+    },
+    "form": {
+      "fullName": "Full name",
+      "company": "Developer",
+      "companyPlaceholder": "Company name",
+      "email": "Email",
+      "phone": "Phone",
+      "website": "Website",
+      "websitePlaceholder": "www.yourcompany.com",
+      "activeDevelopments": "Active developments",
+      "activeDevelopmentsPlaceholder": "Choose one",
+      "developments": {
+        "1": "1",
+        "2-5": "2–5",
+        "6-10": "6–10",
+        "10+": "More than 10"
+      },
+      "feedUrl": "Kyero feed URL",
+      "feedUrlHint": "If you already have one (optional)",
+      "message": "Message",
+      "optional": "Optional",
+      "acceptTerms": "I have read and accept the <privacy>privacy policy</privacy> and the <terms>terms</terms>",
+      "submit": "Send application",
+      "submitting": "Sending…",
+      "sent": "Application sent. We'll email you once we've reviewed it.",
+      "error": "Your application couldn't be sent. Please try again.",
+      "rateLimited": "You've sent too many applications. Please try again in an hour."
+    }
+  },
+  "legal": {
+    "updated": "Last updated: {date}",
+    "exampleBanner": "Page in preparation: the company details shown here are examples and will be replaced with the real ones before launch.",
+    "spanishBinding": "This is a translation. In case of doubt, the Spanish version prevails.",
+    "related": "Legal texts",
+    "links": {
+      "notice": "Legal notice",
+      "privacy": "Privacy policy",
+      "terms": "Terms of use",
+      "cookies": "Cookie policy"
+    },
+    "notice": {
+      "title": "Legal notice",
+      "description": "Who runs Colabora MLS and the terms of use of this website.",
+      "intro": "In accordance with article 10 of Spanish Law 34/2002 on Information Society Services (LSSI), these are the details of the owner of this website.",
+      "sections": {
+        "owner": {
+          "title": "Owner",
+          "body": "- Owner: {company}\n- Tax ID (CIF): {cif}\n- Registered office: {address}\n- Registry: {registry}\n- Email: {email}"
+        },
+        "purpose": {
+          "title": "Purpose",
+          "body": "This website presents Colabora MLS, a private collaboration network for estate agencies and property developers, and gives its members access to their panel. Use of the panel is also governed by the Terms of use."
+        },
+        "ip": {
+          "title": "Intellectual property",
+          "body": "The texts, design, code and brand of this website belong to {company} or its licensors and may not be copied or reused without permission.\n\nThe properties, developments, photos and documents published by members belong to whoever publishes them."
+        },
+        "liability": {
+          "title": "Liability",
+          "body": "{company} is not responsible for the information published by network members or for the agreements between them, nor for external websites linked from here.\n\nWe try to keep the website running without interruptions, but cannot guarantee it at all times."
+        },
+        "law": {
+          "title": "Governing law",
+          "body": "This notice is governed by Spanish law. Any dispute is submitted to the courts of {courts}, unless the law provides otherwise."
+        }
+      }
+    },
+    "privacy": {
+      "title": "Privacy policy",
+      "description": "What personal data Colabora MLS processes, why, for how long, and how to exercise your rights.",
+      "intro": "This policy explains how {company} processes personal data in Colabora MLS, in accordance with the General Data Protection Regulation (GDPR) and Spanish Organic Law 3/2018 (LOPDGDD).",
+      "sections": {
+        "controller": {
+          "title": "Data controller",
+          "body": "{company}, tax ID {cif}, registered office at {address}.\n\nFor any question about your data: {email}."
+        },
+        "data": {
+          "title": "What data we process",
+          "body": "- Agencies and developers applying to join: company details (legal name, tax ID, agents' registry number, address, website), the contact person's and the owner's details (name and ID number), phone numbers, email addresses and, if provided, the IBAN.\n- Login accounts: email, encrypted password, language and login dates.\n- Properties and developments published by members, with their photos and documents.\n- Buyers an agency adds to its CRM or to a client page, or registers in a development: name, phone, email, notes and what the buyer indicates on their page (likes, comments, viewing requests).\n- Contact form: name, email, phone if given, and your message.\n- Statistics on each property's views and WhatsApp clicks: we don't store IP addresses; we use an anonymous key that changes every day.\n- Cookies: see the Cookie policy."
+        },
+        "purposes": {
+          "title": "Purposes and legal basis",
+          "body": "- Reviewing your application, managing your account and providing the service: performance of a contract (art. 6.1.b GDPR).\n- Answering contact form messages: your consent (art. 6.1.a GDPR).\n- Security, abuse prevention and statistics: legitimate interest (art. 6.1.f GDPR).\n- Invoicing and tax and accounting obligations: legal obligation (art. 6.1.c GDPR).\n\nWe don't make automated decisions with legal effects on you or build marketing profiles."
+        },
+        "buyers": {
+          "title": "Buyers' data",
+          "body": "When an agency enters its buyers' details, the agency is the controller of that data and {company} acts as processor on the agency's behalf (art. 28 GDPR). The agency must inform its buyers and have a legal basis to process their data and to share it with a developer when registering them in a development.\n\nDevelopers only see the names of registered buyers, not their phone or email."
+        },
+        "recipients": {
+          "title": "Who receives the data",
+          "body": "- Other network members: they see your agency's or company's business contact details and the properties and developments you share.\n- Service providers, under a data processing agreement: web hosting ({hosting}), database (MongoDB Atlas), photo and document storage (Cloudflare R2) and email delivery ({emailProvider}).\n- Public authorities and courts, when required by law.\n\nSome providers may process data outside the European Economic Area; when they do, it is with GDPR safeguards (the European Commission's standard contractual clauses or the EU-US Data Privacy Framework). We don't sell personal data."
+        },
+        "retention": {
+          "title": "How long we keep it",
+          "body": "- Account and service data: while the account is active. After closing it, we delete it within 30 days.\n- Rejected applications: 12 months.\n- Contact form messages: as long as needed to answer them, and at most 12 months.\n- Invoices and accounting data: for the period required by law (generally 6 years)."
+        },
+        "rights": {
+          "title": "Your rights",
+          "body": "You can ask to access, correct or delete your data, object to its processing, ask for it to be restricted or ported, and withdraw your consent at any time. Write to {email} saying which right you want to exercise.\n\nIf you think we haven't handled your data properly, you can complain to the Spanish Data Protection Agency (www.aepd.es)."
+        },
+        "security": {
+          "title": "Security",
+          "body": "Passwords are stored encrypted, the website only works over a secure connection (HTTPS), and each member can only see and change the data of their own account."
+        },
+        "changes": {
+          "title": "Changes to this policy",
+          "body": "If we change this policy significantly, we'll email members before the change takes effect."
+        }
+      }
+    },
+    "terms": {
+      "title": "Terms of use",
+      "description": "Terms of use of the Colabora MLS collaboration network for estate agencies and property developers.",
+      "intro": "These terms govern the use of Colabora MLS, a service of {company} (tax ID {cif}). By creating an account, the agency or developer accepts these terms.",
+      "sections": {
+        "service": {
+          "title": "The service",
+          "body": "Colabora MLS is a private collaboration network for estate agencies and property developers. It lets members share properties and developments, find other members' listings and contact them.\n\nColabora MLS is not a portal for buyers and takes no part in transactions: it does not act as an agent, takes no commission on sales and is not a party to agreements between members."
+        },
+        "access": {
+          "title": "Who can use it",
+          "body": "- Verified estate agencies and property developers only. We review every application and may refuse it.\n- Each member is responsible for the accuracy of its registration details and for keeping them up to date.\n- Login details are personal: don't share them. Tell us straight away if you think someone else has used them."
+        },
+        "rules": {
+          "title": "Network rules",
+          "body": "- Only publish properties you are authorised by the owner to market.\n- The information you publish must be accurate and up to date (price, availability, features).\n- Each member freely sets its collaboration terms on each property; Colabora MLS does not impose commissions or splits.\n- Buyer registrations in a development follow the conditions set by each developer.\n- Other members' contact details may only be used to collaborate within the network."
+        },
+        "content": {
+          "title": "Content you publish",
+          "body": "You are responsible for the properties, developments, photos, documents and texts you publish, and for holding the rights to them. You authorise us to show them to network members and on the client pages and XML exports you set up.\n\nWe may hide content that breaks these terms or the law, telling you why."
+        },
+        "price": {
+          "title": "Price",
+          "body": "The price and payment terms of each type of account are those shown on the website when you join. Developer accounts are free during the launch phase.\n\nIf we change the price, we'll email you at least 30 days in advance and you can leave at no cost before it applies."
+        },
+        "leaving": {
+          "title": "Leaving and suspension",
+          "body": "You can leave whenever you like by writing to {email}; there is no minimum term.\n\nWe may suspend or close an account that breaks these terms, normally after a warning; in serious cases, immediately."
+        },
+        "liability": {
+          "title": "Liability",
+          "body": "Colabora MLS makes it easier for professionals to work together but does not guarantee sales or results. We are not responsible for the information published by members or for the agreements between them.\n\nWe try to keep the service available at all times, but there may be interruptions for maintenance or reasons beyond our control. Except where the law does not allow it, our liability is limited to the amounts paid by the member in the previous 12 months."
+        },
+        "data": {
+          "title": "Data protection",
+          "body": "How personal data is processed is explained in the Privacy policy. For buyers' data entered by members, {company} acts as processor on each member's behalf, in accordance with article 28 GDPR."
+        },
+        "changes": {
+          "title": "Changes to these terms",
+          "body": "If we change these terms significantly, we'll email members at least 30 days in advance. If you don't agree, you can leave at no cost before they apply."
+        },
+        "law": {
+          "title": "Governing law and courts",
+          "body": "These terms are governed by Spanish law. Any dispute is submitted to the courts of {courts}."
+        }
+      }
+    }
+  }
+}

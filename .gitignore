@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Next.js build output
+.next/
+out/
+build/
+next-env.d.ts
+
+# Secrets: never commit these (.env.example is fine)
+.env
+.env.*
+!.env.example
+
+# TypeScript / Vercel
+*.tsbuildinfo
+.vercel/
+
+# Logs and system files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+Thumbs.db

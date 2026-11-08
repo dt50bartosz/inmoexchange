@@ -1,0 +1,303 @@
+{
+  "footer": {
+    "blog": "Blog",
+    "tagline": "Sieć współpracy agencji nieruchomości na hiszpańskim wybrzeżu.",
+    "explore": "Odkryj",
+    "listings": "Oferty",
+    "agencies": "Agencje",
+    "join": "Dołącz – 6 miesięcy za darmo",
+    "login": "Logowanie agencji",
+    "rights": "© {year} Colabora MLS. Wszelkie prawa zastrzeżone.",
+    "cookiePolicy": "Polityka cookies",
+    "cookieSettings": "Ustawienia cookies",
+    "howItWorks": "Jak to działa",
+    "contact": "Kontakt",
+    "legal": "Nota prawna",
+    "privacy": "Prywatność",
+    "terms": "Regulamin",
+    "region": "Hiszpańskie wybrzeże",
+    "phone": "Telefon"
+  },
+  "navbar": {
+    "home": "Colabora MLS, strona główna",
+    "listings": "Oferty",
+    "howItWorks": "Jak to działa",
+    "blog": "Blog",
+    "join": "Dołącz",
+    "openMenu": "Otwórz menu",
+    "closeMenu": "Zamknij menu",
+    "developers": "Dla deweloperów"
+  },
+  "cookies": {
+    "banner": {
+      "title": "Pliki cookie",
+      "settingsTitle": "Ustawienia plików cookie",
+      "text": "Używamy plików cookie niezbędnych do działania strony, np. do utrzymania zalogowania i zapamiętania języka. Za Twoją zgodą moglibyśmy używać też opcjonalnych plików cookie; możesz je zaakceptować, odrzucić lub wybrać według kategorii.",
+      "policy": "Polityka cookies",
+      "accept": "Akceptuj wszystkie",
+      "reject": "Odrzuć zbędne",
+      "configure": "Dostosuj",
+      "save": "Zapisz wybór",
+      "alwaysOn": "Zawsze aktywne",
+      "noneInUse": "Obecnie nie używamy plików cookie tego rodzaju.",
+      "categories": {
+        "necessary": {
+          "title": "Niezbędne",
+          "description": "Potrzebne do działania strony: logowanie, bezpieczeństwo oraz zapamiętanie języka i wyboru dotyczącego plików cookie."
+        },
+        "analytics": {
+          "title": "Analityczne",
+          "description": "Pomagają nam zrozumieć, jak korzystasz ze strony, abyśmy mogli ją ulepszać."
+        },
+        "marketing": {
+          "title": "Marketingowe",
+          "description": "Służą do wyświetlania dopasowanych reklam i mierzenia kampanii."
+        }
+      }
+    },
+    "policy": {
+      "title": "Polityka cookies",
+      "updated": "Ostatnia aktualizacja: {date}",
+      "intro": "Ta polityka wyjaśnia, jakich plików cookie używa Colabora MLS i w jakim celu. Plik cookie to mały plik tekstowy, który strona zapisuje w przeglądarce.",
+      "usedTitle": "Pliki cookie, których używamy",
+      "usedBody": "Używamy tylko plików cookie niezbędnych do działania strony. Nie używamy plików cookie reklamowych ani analitycznych i nikomu nie udostępniamy danych z plików cookie.",
+      "table": {
+        "name": "Nazwa",
+        "provider": "Dostawca",
+        "purpose": "Cel",
+        "duration": "Czas przechowywania",
+        "type": "Kategoria",
+        "consent": "Wymaga zgody"
+      },
+      "purpose": {
+        "session": "Utrzymuje zalogowanie w panelu agencji.",
+        "csrf": "Chroni formularz logowania przed sfałszowanymi żądaniami.",
+        "callback": "Zapamiętuje, którą stronę otworzyć po zalogowaniu.",
+        "locale": "Zapamiętuje wybrany język.",
+        "consent": "Zapamiętuje Twój wybór dotyczący plików cookie (zaakceptowane kategorie, wersję polityki i losowy identyfikator zgody), abyśmy nie pytali ponownie. Każdy wybór zapisujemy też z tym identyfikatorem, datą i wersją polityki, bez adresu IP, przez 3 lata."
+      },
+      "duration": {
+        "days7": "7 dni",
+        "browserSession": "Do zamknięcia przeglądarki",
+        "year1": "1 rok"
+      },
+      "necessary": "Niezbędny",
+      "prefixNote": "Na stronie produkcyjnej nazwy plików cookie logowania zaczynają się od __Secure- lub __Host-.",
+      "legalTitle": "Podstawa prawna",
+      "legalBody": "Pliki cookie ściśle niezbędne do świadczenia usługi, o którą prosisz, nie wymagają zgody zgodnie z art. 22.2 hiszpańskiej ustawy o usługach społeczeństwa informacyjnego (LSSI, ustawa 34/2002). Jeśli kiedyś dodamy opcjonalne pliki cookie, np. analityczne, użyjemy ich dopiero po Twojej zgodzie i najpierw zaktualizujemy tę politykę.",
+      "manageTitle": "Zmiana wyboru",
+      "manageBody": "Swój wybór możesz w każdej chwili zmienić lub wycofać przyciskiem poniżej albo linkiem „Ustawienia cookies” na dole każdej strony. Wycofanie zgody jest tak samo proste jak jej wyrażenie. Możesz też usuwać lub blokować pliki cookie w ustawieniach przeglądarki; jeśli zablokujesz niezbędne, nie będzie można się zalogować.",
+      "changeSettings": "Zmień ustawienia cookies",
+      "version": "Wersja polityki: {version}",
+      "categoriesBody": "Pliki cookie dzielimy na trzy kategorie: niezbędne, analityczne i marketingowe. Bez Twojej zgody zapisujemy tylko niezbędne. Analityczne i marketingowe zapisujemy dopiero po Twojej zgodzie, a obecnie nie używamy żadnych.",
+      "category": {
+        "necessary": "Niezbędny",
+        "analytics": "Analityczny",
+        "marketing": "Marketingowy"
+      },
+      "consentYes": "Tak",
+      "consentNo": "Nie"
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Aktualności, poradniki i wiedza o rynku dla agencji nieruchomości na hiszpańskim wybrzeżu.",
+    "metaDescription": "Aktualności, poradniki i wiedza o rynku od Colabora MLS dla agencji nieruchomości na hiszpańskim wybrzeżu.",
+    "empty": "Nie ma jeszcze artykułów. Zajrzyj wkrótce.",
+    "readMore": "Czytaj artykuł",
+    "back": "Wszystkie artykuły",
+    "otherLanguage": "Ten artykuł nie jest jeszcze dostępny w Twoim języku, dlatego wyświetlamy go w języku: {language}.",
+    "pagination": "Strony bloga",
+    "newer": "Nowsze",
+    "older": "Starsze",
+    "pageOf": "Strona {page} z {pageCount}"
+  },
+  "panel": {
+    "search": {
+      "filters": {
+        "condition": "Rynek pierwotny lub wtórny",
+        "anyCondition": "Wszystkie"
+      },
+      "detail": {
+        "bookViewing": "Umów oglądanie przez WhatsApp",
+        "bookViewingText": "Dzień dobry, chciałbym umówić oglądanie nieruchomości nr ref. {ref} – {title}, {town}. {url}"
+      }
+    },
+    "properties": {
+      "conditions": {
+        "newBuild": "Rynek pierwotny",
+        "resale": "Rynek wtórny"
+      }
+    },
+    "validation": {
+      "required": "To pole jest wymagane.",
+      "email": "Prosimy podać adres e-mail, np. nazwa@firma.com.",
+      "phone": "Prosimy podać tylko cyfry, opcjonalnie z + na początku.",
+      "url": "Prosimy podać pełny adres strony, np. https://www.firma.com",
+      "pickOne": "Prosimy wybrać jedną opcję.",
+      "tooLong": "Tekst jest za długi.",
+      "acceptPrivacy": "Wymagana jest akceptacja polityki prywatności.",
+      "acceptTerms": "Wymagana jest akceptacja polityki prywatności i regulaminu.",
+      "tooBig": "Liczba jest za duża.",
+      "invalid": "Prosimy sprawdzić to pole."
+    }
+  },
+  "landing": {
+    "hero": {
+      "title": "Gdzie agencje nieruchomości i deweloperzy współpracują",
+      "subtitle": "Nieruchomości z rynku pierwotnego i wtórnego z całego wybrzeża w jednym miejscu. Jedna sieć współpracy łącząca agencje nieruchomości i deweloperów, by udostępniać oferty, docierać do większej liczby kupujących i tworzyć więcej okazji do sprzedaży."
+    },
+    "footer": {
+      "developers": "Dla deweloperów",
+      "terms": "Regulamin",
+      "phone": "Telefon"
+    }
+  },
+  "developersLanding": {
+    "meta": {
+      "title": "Dla deweloperów: Państwa inwestycje w sieci agencji",
+      "description": "Colabora MLS: zweryfikowane agencje z hiszpańskiego wybrzeża sprzedają Państwa inwestycje z rynku pierwotnego. Bezpłatne konto w fazie startowej."
+    },
+    "brand": "Colabora MLS",
+    "nav": {
+      "home": "Colabora MLS – strona główna",
+      "label": "Menu główne",
+      "agencies": "Dla agencji",
+      "developers": "Dla deweloperów",
+      "contact": "Kontakt",
+      "login": "Logowanie dla członków"
+    },
+    "hero": {
+      "eyebrow": "Dla deweloperów",
+      "title": "Państwa inwestycje w rękach agencji, które sprzedają na wybrzeżu",
+      "subtitle": "Colabora MLS to sieć współpracy zweryfikowanych agencji nieruchomości z hiszpańskiego wybrzeża. Mogą Państwo opublikować swoje inwestycje i dotrzeć do agencji, które na co dzień pracują z kupującymi.",
+      "primaryCta": "Poproś o bezpłatny dostęp",
+      "secondaryCta": "Jak to działa"
+    },
+    "card": {
+      "label": "Przykładowa karta inwestycji",
+      "example": "Przykład",
+      "photo": "Zdjęcie inwestycji",
+      "developer": "Deweloper",
+      "newBuild": "Rynek pierwotny",
+      "name": "Nazwa inwestycji",
+      "place": "Miejscowość · Planowany termin oddania",
+      "from": "Od X €",
+      "lockTitle": "Ceny i dostępność",
+      "lockText": "widoczne tylko dla agencji członkowskich"
+    },
+    "offer": {
+      "title": "Oferta na start: bezpłatne konto",
+      "text": "Bezpłatnie w fazie startowej. Gdy sieć się rozwinie, konto stanie się płatne – poinformujemy Państwa z 30-dniowym wyprzedzeniem, a rezygnacja będzie bezpłatna.",
+      "cta": "Chcę dołączyć"
+    },
+    "benefits": {
+      "title": "Co Państwo zyskują, publikując w Colabora",
+      "items": {
+        "reach": {
+          "title": "Więcej agencji sprzedaje Państwa ofertę",
+          "text": "Państwa inwestycje pojawiają się w sekcji Rynek pierwotny w panelu każdej agencji w sieci – razem z lokalami, cenami i dostępnością."
+        },
+        "pro": {
+          "title": "Tylko dla profesjonalistów",
+          "text": "Inwestycje nie trafiają na otwarty portal: widzą je wyłącznie zweryfikowane agencje po zalogowaniu."
+        },
+        "upload": {
+          "title": "Pełna kontrola nad publikacją",
+          "text": "Inwestycje i lokale dodają Państwo w swoim panelu, a ceny i dostępność aktualizują, gdy tylko się zmienią."
+        },
+        "direct": {
+          "title": "Bezpośredni kontakt, bez prowizji Colabora",
+          "text": "Agencje kontaktują się bezpośrednio z Państwem. Colabora MLS nie pobiera prowizji od sprzedaży."
+        }
+      }
+    },
+    "how": {
+      "title": "Jak to działa",
+      "steps": {
+        "request": {
+          "title": "Prośba o dostęp",
+          "text": "Prosimy o wypełnienie formularza. Sprawdzimy zgłoszenie i prześlemy dane logowania e-mailem."
+        },
+        "publish": {
+          "title": "Publikacja inwestycji",
+          "text": "W swoim panelu dodają Państwo każdą inwestycję wraz z lokalami, cenami i dostępnością."
+        },
+        "contact": {
+          "title": "Agencje się kontaktują",
+          "text": "Agencje z sieci widzą Państwa inwestycje, rejestrują swoich klientów i kontaktują się, aby umówić prezentacje."
+        }
+      },
+      "note": {
+        "title": "Colabora MLS to nie portal dla kupujących",
+        "text": "To profesjonalna sieć agencji. Państwa inwestycje nie są publikowane publicznie – widzą je tylko zweryfikowane agencje."
+      }
+    },
+    "faq": {
+      "title": "Najczęstsze pytania",
+      "items": {
+        "who": {
+          "q": "Kto widzi Państwa inwestycje i ich ceny?",
+          "a": "Wyłącznie zweryfikowane agencje nieruchomości z sieci, po zalogowaniu."
+        },
+        "feed": {
+          "q": "Czy można zaimportować inwestycje z feedu?",
+          "a": "Na razie inwestycje i lokale dodaje się ręcznie w panelu – import z feedu nie jest jeszcze dostępny."
+        },
+        "buyers": {
+          "q": "Czy widzą je kupujący?",
+          "a": "Nie. Colabora MLS nie jest publicznym portalem: dostęp mają tylko zweryfikowane agencje."
+        },
+        "leave": {
+          "q": "Czy można zrezygnować?",
+          "a": "Tak, w dowolnym momencie i bez kosztów."
+        }
+      }
+    },
+    "apply": {
+      "title": "Prośba o dostęp",
+      "text": "Odpowiemy e-mailem po sprawdzeniu Państwa zgłoszenia.",
+      "preferTalk": "Wolą Państwo najpierw porozmawiać?",
+      "call": "Zadzwoń:",
+      "whatsapp": "Napisz na WhatsApp",
+      "whatsappMessage": "Dzień dobry, reprezentuję dewelopera i chciałbym/chciałabym uzyskać informacje o Colabora MLS."
+    },
+    "footer": {
+      "nav": "Linki prawne i kontakt",
+      "contact": "Kontakt",
+      "legal": "Nota prawna",
+      "privacy": "Prywatność",
+      "cookies": "Cookies",
+      "rights": "© {year} Colabora MLS. Wszelkie prawa zastrzeżone.",
+      "terms": "Regulamin",
+      "phone": "Telefon"
+    },
+    "form": {
+      "fullName": "Imię i nazwisko",
+      "company": "Deweloper",
+      "companyPlaceholder": "Nazwa firmy",
+      "email": "E-mail",
+      "phone": "Telefon",
+      "website": "Strona internetowa",
+      "websitePlaceholder": "www.firma.pl",
+      "activeDevelopments": "Aktywne inwestycje",
+      "activeDevelopmentsPlaceholder": "Prosimy wybrać",
+      "developments": {
+        "1": "1",
+        "2-5": "2–5",
+        "6-10": "6–10",
+        "10+": "Ponad 10"
+      },
+      "feedUrl": "Adres feedu Kyero",
+      "feedUrlHint": "Jeśli Państwo go mają (opcjonalnie)",
+      "message": "Wiadomość",
+      "optional": "Opcjonalnie",
+      "acceptTerms": "Zapoznałem/-am się i akceptuję <privacy>politykę prywatności</privacy> oraz <terms>regulamin</terms>",
+      "submit": "Wyślij zgłoszenie",
+      "submitting": "Wysyłanie…",
+      "sent": "Zgłoszenie wysłane. Po jego sprawdzeniu skontaktujemy się z Państwem e-mailem.",
+      "error": "Nie udało się wysłać zgłoszenia. Prosimy spróbować ponownie.",
+      "rateLimited": "Wysłano zbyt wiele zgłoszeń. Prosimy spróbować ponownie za godzinę."
+    }
+  }
+}

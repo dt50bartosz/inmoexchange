@@ -1,0 +1,1718 @@
+{
+  "join": {
+    "title": "Únete a Colabora MLS",
+    "subtitle": "Estamos incorporando las primeras agencias manualmente. Envíanos tus datos y nos pondremos en contacto contigo.",
+    "language": "Preferred language / Idioma preferido",
+    "sections": {
+      "company": "Tu empresa",
+      "address": "Dirección de la oficina",
+      "people": "Titular y contacto",
+      "crm": "CRM y facturación"
+    },
+    "fields": {
+      "email": "Correo electrónico",
+      "emailHint": "Tu acceso: te enviaremos aquí los datos de acceso cuando te aprobemos.",
+      "companyName": "Nombre de la empresa",
+      "brandName": "Nombre comercial",
+      "brandNameHint": "Se muestra en la plataforma; si está vacío, el de la empresa",
+      "raicv": "Nº RAICV",
+      "cif": "CIF / NIE / NIF / número de IVA",
+      "website": "Página web",
+      "street": "Dirección – calle y número",
+      "town": "Población / ciudad",
+      "province": "Provincia",
+      "provincePlaceholder": "Elige una provincia",
+      "postcode": "Código postal",
+      "ownerName": "Nombre completo del CEO / titular",
+      "ownerIdNumber": "Nº DNI / NIE / pasaporte del CEO / titular",
+      "contactPerson": "Persona de contacto",
+      "phone": "Teléfono",
+      "phone2": "Teléfono adicional",
+      "email2": "Correo electrónico adicional",
+      "crm": "CRM",
+      "crmPlaceholder": "p. ej. Inmovilla",
+      "crmAgencyNumber": "Nº de agencia en el CRM (Inmovilla)",
+      "paymentFrequency": "Frecuencia de pago",
+      "paymentPlaceholder": "Selecciona",
+      "iban": "IBAN",
+      "ibanHint": "Para la domiciliación cuando empiece la facturación",
+      "acceptPrivacy": "Acepto la política de privacidad",
+      "optional": "Opcional",
+      "noBanking": "No se requieren datos bancarios: los 6 primeros meses son gratis.",
+      "addBanking": "Añadir IBAN ahora (opcional)",
+      "removeBanking": "No añadir datos bancarios"
+    },
+    "payment": {
+      "monthly": "Mensual",
+      "quarterly": "Trimestral",
+      "yearly": "Anual"
+    },
+    "submit": "Solicitar incorporación",
+    "submitting": "Enviando…",
+    "sentTitle": "Gracias, hemos recibido tu solicitud",
+    "sentBody": "Revisaremos tus datos. Cuando te aprobemos, te enviaremos los datos de acceso al correo indicado.",
+    "rateLimited": "Demasiadas solicitudes. Inténtalo de nuevo dentro de una hora.",
+    "error": "Algo salió mal. Inténtalo de nuevo.",
+    "metaDescription": "Solicita la incorporación de tu agencia a la red de colaboración entre agencias inmobiliarias de la costa española."
+  },
+  "auth": {
+    "login": {
+      "metaTitle": "Acceder",
+      "title": "Accede a Colabora MLS",
+      "description": "Usa el correo y la contraseña del email con tus datos de acceso.",
+      "email": "Correo electrónico",
+      "password": "Contraseña",
+      "submit": "Acceder",
+      "submitting": "Accediendo…",
+      "errors": {
+        "invalid": "Correo o contraseña incorrectos.",
+        "suspended": "El acceso de esta cuenta está suspendido. Si crees que es un error, contacta con Colabora MLS.",
+        "rate_limited": "Demasiados intentos. Espera 15 minutos y vuelve a intentarlo.",
+        "server": "Algo salió mal. Inténtalo de nuevo.",
+        "signed_out": "Se ha cerrado tu sesión porque cambió tu contraseña o tu acceso. Vuelve a entrar."
+      },
+      "noAccount": "¿Tu agencia aún no está en Colabora MLS?",
+      "join": "Únete gratis 6 meses",
+      "forgot": "¿Has olvidado tu contraseña?"
+    },
+    "changePassword": {
+      "metaTitle": "Elige tu contraseña",
+      "title": "Elige tu contraseña",
+      "description": "Has entrado con una contraseña temporal. Elige la tuya para continuar.",
+      "password": "Nueva contraseña",
+      "confirm": "Repite la nueva contraseña",
+      "hint": "Al menos 10 caracteres.",
+      "submit": "Guardar y continuar",
+      "submitting": "Guardando…",
+      "saved": "Contraseña guardada.",
+      "failed": "No se ha podido guardar la contraseña. Inténtalo de nuevo."
+    },
+    "forgot": {
+      "metaTitle": "He olvidado mi contraseña",
+      "title": "¿Has olvidado tu contraseña?",
+      "description": "Escribe tu correo de acceso. Si tiene una cuenta, te enviaremos un enlace para elegir una nueva contraseña.",
+      "email": "Correo electrónico",
+      "submit": "Enviar enlace",
+      "submitting": "Enviando…",
+      "sentTitle": "Revisa tu correo",
+      "sent": "Si {email} tiene un acceso a Colabora MLS, te hemos enviado un enlace. Caduca en 1 hora.",
+      "rateLimited": "Demasiadas solicitudes. Inténtalo de nuevo dentro de una hora.",
+      "failed": "Algo salió mal. Inténtalo de nuevo.",
+      "back": "Volver a acceder"
+    },
+    "reset": {
+      "metaTitle": "Elige una nueva contraseña",
+      "title": "Elige una nueva contraseña",
+      "description": "Se cerrará la sesión en tus otros dispositivos.",
+      "password": "Nueva contraseña",
+      "confirm": "Repite la nueva contraseña",
+      "hint": "Al menos 10 caracteres.",
+      "submit": "Guardar nueva contraseña",
+      "submitting": "Guardando…",
+      "done": "Contraseña cambiada. Entra con tu nueva contraseña.",
+      "invalidTitle": "Este enlace ya no funciona",
+      "invalid": "Los enlaces de restablecimiento solo funcionan una vez y caducan en 1 hora. Pide uno nuevo.",
+      "again": "Enviar un enlace nuevo",
+      "failed": "Algo salió mal. Inténtalo de nuevo."
+    },
+    "confirmEmail": {
+      "metaTitle": "Confirmar nuevo correo",
+      "title": "Confirma tu nuevo correo de acceso",
+      "description": "Pulsa el botón para que esta dirección sea tu acceso a Colabora MLS. A partir de ahora entrarás con ella.",
+      "submit": "Confirmar nuevo correo",
+      "submitting": "Confirmando…",
+      "done": "Tu correo de acceso ha cambiado. Entra con la nueva dirección.",
+      "invalid": "Este enlace ya no funciona. Los enlaces caducan a las 24 horas; pide uno nuevo en la página Seguridad.",
+      "taken": "Este correo ya lo usa otro acceso, así que no se puede confirmar.",
+      "login": "Acceder",
+      "failed": "Algo salió mal. Inténtalo de nuevo."
+    }
+  },
+  "listings": {
+    "metaTitle": "Inmuebles en venta en la costa española",
+    "metaDescription": "Viviendas en venta en la costa española, de las agencias de la red Colabora MLS.",
+    "title": "Inmuebles en venta",
+    "description": "Viviendas de agencias de toda la costa, en un solo lugar.",
+    "detail": {
+      "back": "Todos los inmuebles",
+      "reference": "Referencia {code}",
+      "notFoundTitle": "Inmueble no disponible",
+      "notFoundBody": "Puede que se haya vendido o retirado del mercado.",
+      "agencyTitle": "¿Eres una agencia inmobiliaria?",
+      "agencyBody": "Únete a Colabora MLS para compartir inmuebles con otras agencias y vender este junto a la agencia que lo tiene.",
+      "agencyCta": "Únete gratis 6 meses"
+    }
+  },
+  "panel": {
+    "validation": {
+      "slug": "Usa solo minúsculas, números y guiones, p. ej. comprar-en-espana.",
+      "slugTaken": "Otro artículo ya usa esta dirección.",
+      "required": "Este campo es obligatorio.",
+      "email": "Introduce un correo como nombre@agencia.com.",
+      "url": "Introduce una dirección web completa, p. ej. https://www.agencia.com",
+      "phone": "Introduce solo números, opcionalmente con + delante.",
+      "postcode": "El código postal debe tener 5 dígitos.",
+      "tooLong": "Es demasiado largo.",
+      "taxId": "Introduce un CIF/NIF como B12345678.",
+      "iban": "Introduce un IBAN válido, p. ej. ES91 2100 0418 4502 0005 1332.",
+      "idNumber": "Introduce un número de DNI, NIE o pasaporte.",
+      "acceptPrivacy": "Debes aceptar la política de privacidad.",
+      "date": "Introduce una fecha o déjalo vacío.",
+      "bedroomRange": "El máximo debe ser al menos el mínimo.",
+      "unitsAvailable": "Las disponibles no pueden ser más que el total.",
+      "unit_reference_taken": "Ya hay una unidad con esta referencia en la promoción.",
+      "required_to_publish": "Necesario para publicar.",
+      "phone_or_email": "Indica un teléfono o un email del comprador.",
+      "whatsapp": "Escribe el número en formato internacional, p. ej. +34600000000.",
+      "acceptTerms": "Debes aceptar la política de privacidad y las condiciones.",
+      "year": "Introduce un año, p. ej. 2014.",
+      "pickOne": "Elige una opción.",
+      "number": "Introduce un número entero, 0 o más.",
+      "positive": "Introduce un número mayor que 0.",
+      "defaultLanguageText": "Escribe el texto en tu idioma principal. Los clientes lo ven cuando su idioma no está disponible.",
+      "oneDescription": "Escribe una descripción en al menos un idioma.",
+      "passwordMin": "Usa al menos 10 caracteres.",
+      "passwordSame": "Elige una contraseña distinta de la actual.",
+      "passwordMatch": "Las contraseñas no coinciden.",
+      "sameEmail": "Este ya es tu email de acceso.",
+      "cardNumber": "Introduce el número completo de la tarjeta.",
+      "expiry": "Usa el formato MM/AA.",
+      "expired": "Esta tarjeta ha caducado.",
+      "cvc": "Introduce los 3 o 4 dígitos del reverso.",
+      "priceRange": "El precio máximo debe ser mayor que el mínimo.",
+      "wrongPassword": "La contraseña no es correcta.",
+      "emailTaken": "Este email ya lo usa otro acceso.",
+      "latitude": "La latitud debe estar entre -90 y 90.",
+      "longitude": "La longitud debe estar entre -180 y 180.",
+      "coordinatesPair": "Introduce latitud y longitud, o ninguna de las dos.",
+      "tooBig": "El número es demasiado alto.",
+      "invalid": "Revisa este campo."
+    },
+    "search": {
+      "title": "Buscar inmuebles",
+      "description": "Inmuebles compartidos por agencias colaboradoras, y los tuyos. Contacta directamente con la agencia que tiene cada uno.",
+      "results": "{count, plural, =0 {Ningún inmueble} one {# inmueble} other {# inmuebles}}",
+      "filters": {
+        "title": "Filtros",
+        "location": "Ubicación",
+        "locationPlaceholder": "Provincia, población o zona",
+        "radius": "Distancia",
+        "radiusNone": "Solo esta ubicación",
+        "radiusKm": "+ {km} km alrededor",
+        "radiusHint": "Elige primero una población",
+        "query": "Referencia",
+        "queryPlaceholder": "p. ej. KT-4821",
+        "area": "Zona",
+        "anyArea": "Cualquier zona",
+        "type": "Tipo de inmueble",
+        "anyType": "Cualquier tipo",
+        "price": "Precio (€)",
+        "min": "Mín.",
+        "max": "Máx.",
+        "minPrice": "Precio mínimo",
+        "maxPrice": "Precio máximo",
+        "bedrooms": "Dormitorios",
+        "bathrooms": "Baños",
+        "anyBeds": "Cualquiera",
+        "bedsPlus": "{n}+",
+        "clear": "Borrar filtros",
+        "search": "Buscar",
+        "reset": "Restablecer",
+        "condition": "Obra nueva o reventa",
+        "anyCondition": "Todas"
+      },
+      "sort": {
+        "label": "Ordenar por",
+        "newest": "Más recientes",
+        "priceAsc": "Precio: de menor a mayor",
+        "priceDesc": "Precio: de mayor a menor"
+      },
+      "empty": {
+        "title": "Ningún inmueble coincide",
+        "body": "Prueba a ampliar el rango de precio o elegir otra zona."
+      },
+      "card": {
+        "beds": "{n} dorm.",
+        "baths": "{n} baños",
+        "commission": "Reparto {split}",
+        "unknownAgency": "Agencia no disponible",
+        "showContact": "Contacto",
+        "hideContact": "Ocultar contacto",
+        "showContactLabel": "Ver los datos de contacto de {agency}",
+        "own": "Tu inmueble",
+        "edit": "Editar inmueble",
+        "kmFrom": "A {km} km de {place}"
+      },
+      "detail": {
+        "back": "Volver a la búsqueda",
+        "notFoundTitle": "Inmueble no disponible",
+        "notFoundBody": "Puede que la agencia lo haya vendido, ocultado o retirado.",
+        "photos": "Fotos",
+        "photoAlt": "Foto {n} de {total}",
+        "showPhoto": "Ver foto {n}",
+        "details": "Datos",
+        "features": "Características",
+        "description": "Descripción",
+        "perMonth": "{amount} / mes",
+        "listedBy": "Anunciado por",
+        "contact": "Contacto",
+        "whatsapp": "WhatsApp",
+        "whatsappText": "Hola, me interesa vuestro inmueble {ref} en Colabora MLS.",
+        "emailSubject": "Inmueble {ref} en Colabora MLS",
+        "commission": "Reparto de comisión",
+        "addressHidden": "La agencia facilita la dirección exacta si se la pides.",
+        "code": "Referencia",
+        "website": "Web",
+        "office": "Oficina",
+        "noContactDetails": "Esta agencia aún no ha añadido sus datos de contacto.",
+        "ownTitle": "Este es tu inmueble",
+        "ownBody": "Las agencias colaboradoras lo ven aquí con tus datos de contacto.",
+        "distance": "Desde el centro del pueblo",
+        "distanceValue": "{km} km (en línea recta)",
+        "bookViewing": "Reservar visita por WhatsApp",
+        "bookViewingText": "Hola, me gustaría reservar una visita para el inmueble ref. {ref} – {title}, {town}. {url}"
+      },
+      "places": {
+        "searching": "Buscando…",
+        "noMatches": "Ninguna ubicación coincide",
+        "minChars": "Escribe al menos {n} letras",
+        "more": "Ver más resultados",
+        "error": "No se han podido cargar las ubicaciones. Inténtalo de nuevo.",
+        "selected": "Ubicaciones elegidas",
+        "remove": "Quitar {name}",
+        "addAnother": "Añadir otra ubicación",
+        "maxReached": "Hasta {max} ubicaciones",
+        "types": {
+          "province": "Provincia",
+          "municipality": "Población",
+          "locality": "Localidad",
+          "district": "Barrio",
+          "village": "Pedanía",
+          "urbanisation": "Urbanización"
+        }
+      }
+    },
+    "properties": {
+      "title": "Mis inmuebles",
+      "description": "Añade y edita tus inmuebles, o impórtalos automáticamente desde tus feeds XML.",
+      "addProperty": "Añadir inmueble",
+      "titleFormat": "{type} en {town}",
+      "noTown": "población desconocida",
+      "tabs": {
+        "properties": "Inmuebles",
+        "feeds": "Feeds XML"
+      },
+      "types": {
+        "apartment": "Apartamento",
+        "penthouse": "Ático",
+        "groundFloor": "Planta baja",
+        "townhouse": "Adosado",
+        "bungalow": "Bungalow",
+        "villa": "Villa",
+        "plot": "Parcela",
+        "commercial": "Local comercial"
+      },
+      "statuses": {
+        "active": "Activo",
+        "sold": "Vendido",
+        "hidden": "Oculto",
+        "shared": "Compartido"
+      },
+      "features": {
+        "pool": "Piscina comunitaria",
+        "privatePool": "Piscina privada",
+        "garage": "Garaje",
+        "parking": "Aparcamiento",
+        "seaView": "Vistas al mar",
+        "ac": "Aire acondicionado",
+        "terrace": "Terraza",
+        "garden": "Jardín",
+        "lift": "Ascensor",
+        "furnished": "Amueblado",
+        "storage": "Trastero",
+        "solarium": "Solárium"
+      },
+      "filters": {
+        "search": "Buscar inmuebles",
+        "searchPlaceholder": "Referencia, población…",
+        "status": "Estado",
+        "source": "Origen",
+        "allStatuses": "Todos los estados",
+        "hidden": "Ocultos",
+        "allSources": "Todos los orígenes",
+        "manual": "Añadidos a mano",
+        "fromFeed": "Feed: {name}",
+        "clear": "Borrar filtros",
+        "condition": "Obra nueva o reventa",
+        "allConditions": "Obra nueva y reventa"
+      },
+      "list": {
+        "property": "Inmueble",
+        "price": "Precio",
+        "specs": "Superficie",
+        "status": "Estado",
+        "source": "Origen",
+        "actions": "Acciones",
+        "manual": "Manual",
+        "deletedFeed": "Feed eliminado",
+        "specsFormat": "{beds} dorm. · {baths} baños · {m2} m²",
+        "count": "{count, plural, =0 {Ningún inmueble} one {# inmueble} other {# inmuebles}}",
+        "noMatches": "Ningún inmueble coincide con estos filtros.",
+        "reducedFrom": "Antes",
+        "yourRef": "tu ref. {ref}",
+        "views": "Visitas (30 días)",
+        "whatsappClicks": "WhatsApp (30 días)",
+        "last30": "en los últimos 30 días",
+        "statTotal": "{n} en total"
+      },
+      "actions": {
+        "menuFor": "Acciones de {property}",
+        "edit": "Editar",
+        "viewAndSharing": "Ver y compartir",
+        "hide": "Ocultar",
+        "show": "Volver a mostrar",
+        "delete": "Eliminar"
+      },
+      "empty": {
+        "title": "Aún no tienes inmuebles",
+        "body": "Añade tu primer inmueble a mano, o conecta el feed XML de tu software inmobiliario para importar toda tu cartera.",
+        "connectFeed": "Conectar un feed XML"
+      },
+      "deleteDialog": {
+        "title": "¿Eliminar este inmueble?",
+        "body": "{property} ({ref}) se retirará de la red y de todos los microsites de clientes. No se puede deshacer.",
+        "cancel": "Conservar inmueble",
+        "confirm": "Eliminar inmueble"
+      },
+      "toasts": {
+        "saved": "{ref} guardado.",
+        "deleted": "{ref} eliminado.",
+        "hidden": "{ref} está oculto. Seguirá oculto tras la próxima sincronización.",
+        "shown": "{ref} vuelve a estar visible.",
+        "fixErrors": "Corrige algunos campos antes de guardar.",
+        "published": "{ref} publicado.",
+        "saveFailed": "No se ha podido guardar. Inténtalo de nuevo."
+      },
+      "errors": {
+        "referenceTaken": "Esta referencia ya existe."
+      },
+      "feeds": {
+        "intro": "Conecta la exportación XML de tu software inmobiliario (formato Kyero o Apinmo). Los inmuebles nuevos, modificados y vendidos se actualizan solos.",
+        "add": "Añadir feed XML",
+        "syncNow": "Sincronizar ahora",
+        "syncing": "Sincronizando…",
+        "pause": "Pausar",
+        "resume": "Reanudar",
+        "delete": "Eliminar",
+        "lastSync": "Última sincronización",
+        "never": "Aún sin sincronizar",
+        "properties": "Inmuebles",
+        "frequency": "Comprobación",
+        "errorPrefix": "La última sincronización falló:",
+        "mockError": "No se ha podido leer el feed.",
+        "formats": {
+          "kyero": "Kyero",
+          "apinmo": "Apinmo"
+        },
+        "frequencies": {
+          "6h": "Cada 6 horas",
+          "12h": "Cada 12 horas",
+          "24h": "Una vez al día"
+        },
+        "statuses": {
+          "active": "Activo",
+          "paused": "En pausa",
+          "syncing": "Sincronizando",
+          "error": "Error"
+        },
+        "empty": {
+          "title": "Aún no tienes feeds XML",
+          "body": "Pega la dirección del feed de tu software inmobiliario y tus inmuebles se importan solos."
+        },
+        "toasts": {
+          "added": "{name} añadido. La primera sincronización está en marcha.",
+          "synced": "{name} sincronizado: {count, plural, one {# inmueble} other {# inmuebles}}.",
+          "syncFailed": "No se ha podido sincronizar {name}. Revisa la dirección del feed.",
+          "paused": "{name} en pausa.",
+          "resumed": "{name} reanudado."
+        },
+        "addDialog": {
+          "title": "Añadir feed XML",
+          "description": "Tu software inmobiliario te da esta dirección. Pruébala antes de añadirla.",
+          "name": "Nombre del feed",
+          "namePlaceholder": "p. ej. Feed principal de Inmovilla",
+          "url": "Dirección del feed (URL)",
+          "format": "Formato",
+          "frequency": "Buscar cambios",
+          "test": "Probar feed",
+          "testing": "Probando…",
+          "testOk": "El feed funciona: {count, plural, one {# inmueble encontrado} other {# inmuebles encontrados}}.",
+          "testFailed": "No se ha podido leer este feed. Revisa la dirección y el formato.",
+          "cancel": "Cancelar",
+          "add": "Añadir feed",
+          "adding": "Añadiendo…"
+        },
+        "deleteDialog": {
+          "title": "¿Eliminar {name}?",
+          "body": "El feed deja de sincronizarse. Elige qué pasa con los inmuebles que importó.",
+          "legend": "Inmuebles importados",
+          "keep": "Conservarlos como inmuebles manuales",
+          "keepHint": "A partir de ahora podrás editarlos aquí.",
+          "remove": "{count, plural, one {Eliminar su inmueble} other {Eliminar sus # inmuebles}}",
+          "removeHint": "Se retiran de la red y de todos los microsites de clientes.",
+          "cancel": "Cancelar",
+          "confirm": "Eliminar feed",
+          "doneKept": "{name} eliminado. Sus inmuebles ahora son manuales.",
+          "doneRemoved": "{name} y sus inmuebles eliminados."
+        }
+      },
+      "conditions": {
+        "newBuild": "Obra nueva",
+        "resale": "Reventa"
+      },
+      "form": {
+        "backToList": "Volver a mis inmuebles",
+        "newTitle": "Añadir inmueble",
+        "newDescription": "Rellena los datos y publica. Tu inmueble entra en la red al momento.",
+        "editDescription": "Referencia {ref}",
+        "feedNotice": "Este inmueble viene de tu feed XML «{feed}». Edítalo en tu software inmobiliario: los cambios hechos aquí se sobrescribirían en la próxima sincronización. Aun así, puedes elegir si lo ven las agencias colaboradoras.",
+        "notFoundTitle": "Inmueble no encontrado",
+        "notFoundBody": "Puede que se haya eliminado o que el enlace no sea correcto.",
+        "choose": "Elige…",
+        "notSpecified": "Sin especificar",
+        "publish": "Publicar inmueble",
+        "saveChanges": "Guardar cambios",
+        "saving": "Guardando…",
+        "cancel": "Cancelar",
+        "descriptionRequired": "Escribe una descripción en al menos un idioma.",
+        "sections": {
+          "basics": "Datos básicos",
+          "location": "Ubicación",
+          "priceSize": "Precio y superficie",
+          "features": "Características",
+          "photos": "Fotos",
+          "photosHint": "La primera foto es la principal en los resultados de búsqueda y en los microsites de clientes.",
+          "description": "Descripción",
+          "descriptionHint": "Añade una versión en cada idioma que hablen tus compradores.",
+          "sharing": "Compartir",
+          "sharingHint": "Elige si las demás agencias de la red pueden ofrecerlo a sus compradores."
+        },
+        "fields": {
+          "type": "Tipo de inmueble",
+          "condition": "Obra nueva o reventa",
+          "reference": "Tu referencia",
+          "town": "Población",
+          "province": "Provincia",
+          "area": "Zona",
+          "address": "Dirección",
+          "hideAddress": "Ocultar la dirección exacta",
+          "price": "Precio de venta",
+          "bedrooms": "Dormitorios",
+          "bathrooms": "Baños",
+          "builtM2": "Superficie construida (m²)",
+          "plotM2": "Parcela (m²)",
+          "yearBuilt": "Año de construcción",
+          "communityFees": "Gastos de comunidad",
+          "energyRating": "Certificado energético",
+          "features": "Qué tiene el inmueble",
+          "status": "Estado",
+          "shared": "Compartir con agencias colaboradoras",
+          "commission": "Reparto de comisión"
+        },
+        "hints": {
+          "optional": "Opcional",
+          "perMonth": "€ al mes, opcional",
+          "hideAddress": "Las agencias colaboradoras y los clientes solo ven la población y la zona.",
+          "description": "Describe el inmueble, la zona y lo que lo hace especial.",
+          "shared": "Las agencias colaboradoras pueden encontrarlo en la búsqueda de la red y contactarte.",
+          "sharedFeed": "Solo afecta a este inmueble. Los demás inmuebles del feed mantienen su propio ajuste.",
+          "commission": "Lo ven las agencias colaboradoras"
+        },
+        "priceChange": {
+          "current": "Precio actual",
+          "since": "desde el {date}",
+          "new": "Nuevo precio",
+          "newHint": "Déjalo vacío para mantener el precio actual",
+          "down": "−{amount} (−{pct}%)",
+          "up": "+{amount} (+{pct}%)",
+          "downNote": "Los anuncios mostrarán «Antes» con el precio actual.",
+          "upNote": "El precio actual se guarda en el historial de precios.",
+          "history": "Precios anteriores",
+          "until": "hasta el {date}"
+        },
+        "photos": {
+          "dropHere": "Arrastra las fotos aquí, o",
+          "choose": "Elegir fotos",
+          "limits": "Fotos JPG, PNG, WebP o de iPhone (HEIC), hasta 20 MB cada una, máx. {max} fotos.",
+          "rejected": "{count, plural, one {# archivo no se ha añadido} other {# archivos no se han añadido}}: usa JPG, PNG, WebP o HEIC de menos de 20 MB.",
+          "tooMany": "Puedes añadir hasta {max} fotos.",
+          "main": "Principal",
+          "photoAlt": "Foto {n}",
+          "moveLeft": "Mover la foto {n} antes",
+          "moveRight": "Mover la foto {n} después",
+          "makeMain": "Hacer principal la foto {n}",
+          "remove": "Quitar la foto {n}",
+          "reorderHint": "Arrastra las fotos para cambiar su orden.",
+          "none": "Sin fotos.",
+          "uploading": "Subiendo {done}/{total}…",
+          "uploadFailed": "No se ha podido subir la foto. Inténtalo de nuevo."
+        },
+        "coordinates": {
+          "title": "Coordenadas",
+          "latitude": "Latitud",
+          "longitude": "Longitud",
+          "useTownCentre": "Usar el centro del pueblo",
+          "fromAddress": "Buscar por dirección",
+          "findingTown": "Buscando el centro del pueblo…",
+          "distance": "A {km} km del centro del pueblo",
+          "straightLine": "(en línea recta, no por carretera)",
+          "atTownCentre": "Fijado en el centro del pueblo. Busca la dirección o introduce el punto exacto para una ubicación precisa.",
+          "noPoint": "Aún sin coordenadas: al guardar se fijan en el centro del pueblo.",
+          "noCentre": "No se conoce el centro de esta población, así que no se puede calcular la distancia.",
+          "pickTown": "Elige la población para rellenar sus coordenadas.",
+          "townNotFound": "No se han encontrado las coordenadas de esta población. Revisa la población y la provincia, o introdúcelas a mano.",
+          "addressNotFound": "No se ha encontrado esta dirección. Revísala, o introduce las coordenadas a mano.",
+          "unavailable": "El servicio de ubicación no ha respondido.",
+          "rateLimited": "Demasiadas búsquedas de ubicación. Espera unos minutos.",
+          "retry": "Reintentar",
+          "checkOnMap": "Ver en el mapa"
+        }
+      },
+      "energy": {
+        "inProgress": "En trámite"
+      },
+      "stats": {
+        "title": "Estadísticas",
+        "description": "Una visita es un visitante en un día. Las visitas de tu propia agencia no cuentan.",
+        "tableCaption": "Visitas y clics en WhatsApp por origen",
+        "measure": "Medida",
+        "periods": {
+          "d7": "7 días",
+          "d30": "30 días",
+          "all": "Total"
+        },
+        "views": "Visitas",
+        "whatsapp": "Clics en WhatsApp",
+        "sources": {
+          "network": "Red de agencias",
+          "microsite": "Páginas de cliente",
+          "public": "Página pública"
+        },
+        "dailyTitle": "Visitas por día, últimos 30 días",
+        "dailyTotal": "{n} en 30 días",
+        "dayValue": "{date}: {n, plural, one {# visita} other {# visitas}}",
+        "chartLabel": "Visitas por día en los últimos 30 días: {n} en total, como máximo {max} en un día.",
+        "noViews": "Todavía no hay visitas en los últimos 30 días.",
+        "today": "Hoy",
+        "showTable": "Ver como tabla",
+        "day": "Día"
+      }
+    },
+    "options": {
+      "regions": {
+        "costaBlancaNorth": "Costa Blanca Norte",
+        "costaBlancaSouth": "Costa Blanca Sur",
+        "costaCalida": "Costa Cálida",
+        "costaDelSol": "Costa del Sol",
+        "costaAlmeria": "Costa de Almería",
+        "inlandAlicante": "Interior de Alicante",
+        "inlandMurcia": "Interior de Murcia"
+      },
+      "spokenLanguages": {
+        "en": "Inglés",
+        "es": "Español",
+        "pl": "Polaco",
+        "de": "Alemán",
+        "fr": "Francés",
+        "nl": "Neerlandés",
+        "sv": "Sueco",
+        "no": "Noruego",
+        "ru": "Ruso"
+      }
+    }
+  },
+  "footer": {
+    "blog": "Blog",
+    "tagline": "La red de colaboración entre agencias inmobiliarias de la costa española.",
+    "explore": "Explorar",
+    "listings": "Propiedades",
+    "agencies": "Agencias",
+    "join": "Únete gratis 6 meses",
+    "login": "Acceso agencias",
+    "rights": "© {year} Colabora MLS. Todos los derechos reservados.",
+    "cookiePolicy": "Política de cookies",
+    "cookieSettings": "Configuración de cookies",
+    "howItWorks": "Cómo funciona",
+    "contact": "Contacto",
+    "legal": "Aviso legal",
+    "privacy": "Privacidad",
+    "terms": "Condiciones",
+    "region": "Costa española",
+    "phone": "Teléfono"
+  },
+  "navbar": {
+    "home": "Colabora MLS, inicio",
+    "listings": "Propiedades",
+    "howItWorks": "Cómo funciona",
+    "blog": "Blog",
+    "join": "Únete",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "developers": "Para promotoras"
+  },
+  "cookies": {
+    "banner": {
+      "title": "Cookies",
+      "settingsTitle": "Configuración de cookies",
+      "text": "Usamos las cookies que el sitio necesita para funcionar, como mantener tu sesión iniciada y recordar tu idioma. Con tu consentimiento también podríamos usar cookies opcionales; puedes aceptarlas, rechazarlas o elegir por categorías.",
+      "policy": "Política de cookies",
+      "accept": "Aceptar todas",
+      "reject": "Rechazar las no necesarias",
+      "configure": "Configurar",
+      "save": "Guardar mi selección",
+      "alwaysOn": "Siempre activas",
+      "noneInUse": "Actualmente no usamos cookies de este tipo.",
+      "categories": {
+        "necessary": {
+          "title": "Necesarias",
+          "description": "Imprescindibles para que el sitio funcione: inicio de sesión, seguridad y recordar tu idioma y tu elección sobre cookies."
+        },
+        "analytics": {
+          "title": "Analíticas",
+          "description": "Nos ayudan a entender cómo se usa el sitio para poder mejorarlo."
+        },
+        "marketing": {
+          "title": "Marketing",
+          "description": "Sirven para mostrar publicidad relevante y medir campañas."
+        }
+      }
+    },
+    "policy": {
+      "title": "Política de cookies",
+      "updated": "Última actualización: {date}",
+      "intro": "Esta política explica qué cookies usa Colabora MLS y para qué. Una cookie es un pequeño archivo de texto que un sitio web guarda en tu navegador.",
+      "usedTitle": "Cookies que usamos",
+      "usedBody": "Solo usamos las cookies que el sitio necesita para funcionar. No usamos cookies publicitarias ni de análisis, y no compartimos datos de cookies con nadie.",
+      "table": {
+        "name": "Nombre",
+        "provider": "Titular",
+        "purpose": "Finalidad",
+        "duration": "Duración",
+        "type": "Categoría",
+        "consent": "Requiere consentimiento"
+      },
+      "purpose": {
+        "session": "Mantiene tu sesión iniciada en el panel de agencia.",
+        "csrf": "Protege el formulario de acceso frente a peticiones falsificadas.",
+        "callback": "Recuerda qué página abrir después de iniciar sesión.",
+        "locale": "Recuerda el idioma que has elegido.",
+        "consent": "Recuerda tu elección sobre cookies (las categorías aceptadas, la versión de la política y un identificador de consentimiento aleatorio) para no volver a preguntarte. También guardamos un registro de cada elección con ese identificador, la fecha y la versión de la política, sin tu dirección IP, durante 3 años."
+      },
+      "duration": {
+        "days7": "7 días",
+        "browserSession": "Hasta que cierres el navegador",
+        "year1": "1 año"
+      },
+      "necessary": "Necesaria",
+      "prefixNote": "En el sitio en producción, los nombres de las cookies de acceso empiezan por __Secure- o __Host-.",
+      "legalTitle": "Base legal",
+      "legalBody": "Las cookies estrictamente necesarias para un servicio que solicitas no requieren consentimiento según el artículo 22.2 de la Ley de Servicios de la Sociedad de la Información (LSSI, Ley 34/2002). Si en el futuro añadimos cookies opcionales, como las de análisis, solo las usaremos después de que las aceptes, y antes actualizaremos esta política.",
+      "manageTitle": "Cambiar tu elección",
+      "manageBody": "Puedes cambiar o retirar tu elección en cualquier momento con el botón de abajo o con el enlace «Configuración de cookies» al pie de cada página. Retirar el consentimiento es tan fácil como darlo. También puedes borrar o bloquear las cookies en la configuración de tu navegador; si bloqueas las necesarias, no podrás iniciar sesión.",
+      "changeSettings": "Cambiar configuración de cookies",
+      "version": "Versión de la política: {version}",
+      "categoriesBody": "Las cookies se agrupan en tres categorías: necesarias, analíticas y de marketing. Solo las necesarias se instalan sin tu consentimiento. Las analíticas y de marketing solo se instalan si las aceptas, y actualmente no usamos ninguna.",
+      "category": {
+        "necessary": "Necesaria",
+        "analytics": "Analítica",
+        "marketing": "Marketing"
+      },
+      "consentYes": "Sí",
+      "consentNo": "No"
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Noticias, guías y claves del mercado para agencias inmobiliarias de la costa española.",
+    "metaDescription": "Noticias, guías y claves del mercado de Colabora MLS para agencias inmobiliarias de la costa española.",
+    "empty": "Todavía no hay artículos. Vuelve pronto.",
+    "readMore": "Leer artículo",
+    "back": "Todos los artículos",
+    "otherLanguage": "Este artículo aún no está disponible en tu idioma, así que se muestra en {language}.",
+    "pagination": "Páginas del blog",
+    "newer": "Más recientes",
+    "older": "Anteriores",
+    "pageOf": "Página {page} de {pageCount}"
+  },
+  "Projects": {
+    "metaTitle": "Promociones",
+    "title": "Mis promociones",
+    "description": "Tus promociones en Colabora MLS. Mantén al día precios, disponibilidad y estado: cada cambio queda registrado y las agencias ven tu información más reciente.",
+    "newProject": "Nueva promoción",
+    "editProject": "Editar promoción",
+    "back": "Promociones",
+    "empty": "Todavía no hay promociones.",
+    "emptyHint": "Añade tu primera promoción: ubicación, precios, disponibilidad e imágenes.",
+    "updated": "Actualizada {date}",
+    "units": "{available} de {total} disponibles",
+    "unitsTotal": "{total} viviendas",
+    "columns": {
+      "project": "Promoción",
+      "location": "Ubicación",
+      "status": "Estado",
+      "units": "Viviendas",
+      "price": "Precio",
+      "lastUpdate": "Última actualización"
+    },
+    "statuses": {
+      "planning": "En proyecto",
+      "construction": "En construcción",
+      "completed": "Terminada"
+    },
+    "currencies": {
+      "EUR": "Euro (€)",
+      "GBP": "Libra (£)",
+      "USD": "Dólar ($)"
+    },
+    "sections": {
+      "basics": {
+        "title": "Promoción",
+        "description": "Nombre, estado, tipo de viviendas y zonas comunes."
+      },
+      "location": {
+        "title": "Ubicación",
+        "description": "Dónde está la promoción. Las coordenadas o un enlace de Google Maps la sitúan en el mapa."
+      },
+      "pricing": {
+        "title": "Precios y viviendas",
+        "description": "El rango de precios y de dormitorios de la promoción."
+      },
+      "units": {
+        "title": "Disponibilidad",
+        "description": "Cuántas viviendas tiene la promoción y cuántas siguen disponibles."
+      },
+      "timeline": {
+        "title": "Entrega",
+        "description": "Déjalo vacío si aún no se sabe."
+      },
+      "images": {
+        "title": "Imágenes",
+        "description": "La imagen principal aparece primero en los listados. JPG, PNG, WebP o HEIC."
+      },
+      "about": {
+        "title": "Descripción",
+        "description": "Entorno, acabados, lo que la hace especial. Para publicar hace falta al menos un idioma."
+      },
+      "collaboration": {
+        "title": "Colaboración con agencias",
+        "description": "Tus condiciones para las agencias que vendan una unidad. Las fijas libremente; Colabora MLS nunca impone ni sugiere una comisión."
+      },
+      "documents": {
+        "title": "Documentos",
+        "description": "Dossier, lista de precios, planos, memoria de calidades… Solo PDF. Las agencias pueden descargarlos."
+      }
+    },
+    "fields": {
+      "name": "Nombre de la promoción",
+      "status": "Estado",
+      "propertyTypes": "Tipos de vivienda",
+      "address": "Dirección",
+      "town": "Municipio",
+      "province": "Provincia",
+      "country": "País",
+      "latitude": "Latitud",
+      "longitude": "Longitud",
+      "mapsUrl": "Enlace de Google Maps",
+      "optional": "Opcional",
+      "priceFrom": "Precio desde",
+      "priceTo": "Precio hasta",
+      "currency": "Moneda",
+      "bedroomsMin": "Dormitorios desde",
+      "bedroomsMax": "Dormitorios hasta",
+      "unitsTotal": "Número de viviendas",
+      "unitsAvailable": "Disponibles",
+      "expectedCompletion": "Fecha de entrega",
+      "actualCompletion": "Fecha de entrega real",
+      "description": "Descripción",
+      "amenities": "Zonas comunes y servicios",
+      "description_es": "Descripción (español)",
+      "description_en": "Descripción (inglés)",
+      "neededToPublish": "Necesario para publicar",
+      "collaborationType": "Tipo de comisión",
+      "collaborationPercent": "Comisión (%)",
+      "collaborationAmount": "Comisión (importe fijo)",
+      "paymentTerms": "Condiciones de pago",
+      "paymentTermsPlaceholder": "p. ej. 50 % a la firma del contrato privado, 50 % en la escritura",
+      "collaborationNotes": "Otras condiciones",
+      "protectionDays": "Protección del cliente (días)",
+      "protectionDaysHint": "Durante cuánto tiempo un registro de cliente aceptado protege a la agencia que trajo al comprador."
+    },
+    "images": {
+      "add": "Añadir imágenes",
+      "uploading": "Subiendo {done} de {total}…",
+      "main": "Imagen principal",
+      "makeMain": "Usar como principal",
+      "remove": "Quitar imagen",
+      "none": "Todavía no hay imágenes.",
+      "failed": "No se han podido subir las imágenes. Inténtalo de nuevo.",
+      "rejected": "{count, plural, one {Se ha omitido # archivo} other {Se han omitido # archivos}} (no es una imagen o es demasiado grande).",
+      "tooMany": "Una promoción puede tener hasta {max} imágenes."
+    },
+    "create": "Crear promoción",
+    "save": "Guardar cambios",
+    "saving": "Guardando…",
+    "cancel": "Cancelar",
+    "created": "Promoción creada como borrador.",
+    "saved": "Promoción guardada.",
+    "errors": {
+      "generic": "Algo ha fallado. Inténtalo de nuevo.",
+      "notFound": "Esta promoción ya no existe.",
+      "images": "Algunas imágenes no se han podido guardar. Quítalas y vuelve a añadirlas.",
+      "invalid": "Revisa los campos marcados.",
+      "documents": "Algunos documentos no se han podido guardar. Revísalos e inténtalo de nuevo.",
+      "requiredToPublish": "Añade al menos una foto para publicar."
+    },
+    "delete": {
+      "button": "Eliminar promoción",
+      "title": "¿Eliminar «{name}»?",
+      "body": "Se eliminan la promoción y sus imágenes. Sus inmuebles siguen en Mis propiedades, solo se desvinculan.",
+      "confirm": "Eliminar promoción",
+      "done": "Promoción eliminada."
+    },
+    "collaborationTypes": {
+      "percent": "Porcentaje del precio",
+      "fixed": "Importe fijo"
+    },
+    "amenities": {
+      "pool": "Piscina comunitaria",
+      "indoorPool": "Piscina cubierta",
+      "garden": "Jardines",
+      "gym": "Gimnasio",
+      "spa": "Spa",
+      "parking": "Aparcamiento",
+      "storage": "Trastero",
+      "lift": "Ascensor",
+      "solarium": "Solárium",
+      "playground": "Zona infantil",
+      "padel": "Pista de pádel",
+      "gatedCommunity": "Urbanización cerrada",
+      "concierge": "Conserjería",
+      "coworking": "Coworking",
+      "evCharging": "Carga de vehículos eléctricos",
+      "seaViews": "Vistas al mar",
+      "nearBeach": "Cerca de la playa",
+      "nearGolf": "Cerca del golf"
+    },
+    "documents": {
+      "add": "Añadir PDF",
+      "uploading": "Subiendo…",
+      "hint": "PDF, hasta {mb} MB cada uno, {max} como máximo.",
+      "name": "Nombre del documento",
+      "kind": "Tipo",
+      "open": "Abrir",
+      "pending": "Subido: se guarda al guardar la promoción",
+      "remove": "Quitar",
+      "invalid": "No se ha podido guardar este archivo. Quítalo y súbelo de nuevo.",
+      "tooMany": "Como máximo {max} documentos.",
+      "kinds": {
+        "brochure": "Dossier",
+        "priceList": "Lista de precios",
+        "plans": "Planos",
+        "qualities": "Memoria de calidades",
+        "other": "Otro"
+      },
+      "rejected": {
+        "type": "{name} no es un PDF.",
+        "size": "{name} pesa más de {mb} MB.",
+        "failed": "No se ha podido subir {name}. Inténtalo de nuevo."
+      }
+    },
+    "fromUnits": "Se calcula a partir de las unidades de la promoción (pestaña Unidades)."
+  },
+  "Sidebar": {
+    "projects": "Promociones",
+    "newBuilds": "Obra nueva",
+    "addProperty": "Añadir inmueble",
+    "addXmlFeed": "Añadir feed XML"
+  },
+  "landing": {
+    "meta": {
+      "title": "Colabora MLS – Red de colaboración entre inmobiliarias de la costa española",
+      "description": "Más compradores para tus inmuebles y más inmuebles para tus compradores: la red de agencias verificadas de la costa española. 6 meses gratis."
+    },
+    "brand": "Colabora MLS",
+    "nav": {
+      "login": "Acceder",
+      "home": "Colabora MLS, inicio"
+    },
+    "hero": {
+      "eyebrow": "Agencias de la costa española",
+      "title": "Donde agencias inmobiliarias y promotoras trabajan juntas",
+      "subtitle": "Obra nueva y reventa de toda la costa, en un solo lugar. Una red de colaboración que une a agencias inmobiliarias y promotoras para compartir inmuebles, llegar a más compradores y generar más oportunidades de venta.",
+      "types": {
+        "label": "Tipos de inmueble en la red",
+        "resale": "Reventa",
+        "newBuild": "Obra nueva"
+      },
+      "primaryCta": "Únete gratis 6 meses",
+      "secondaryCta": "Cómo funciona",
+      "trust": "Solo agencias verificadas · Importación Kyero · Sin permanencia",
+      "statsLabel": "La red hoy",
+      "agencies": "{count, plural, one {agencia miembro} other {agencias miembro}}",
+      "properties": "{count, plural, one {propiedad compartida} other {propiedades compartidas}}"
+    },
+    "how": {
+      "eyebrow": "Cómo funciona",
+      "title": "En marcha en tres pasos",
+      "steps": {
+        "verify": {
+          "title": "Regístrate y verificamos tu agencia",
+          "body": "Revisamos cada solicitud: tu CIF y, en la Comunidad Valenciana, tu nº RAICV. Solo entran inmobiliarias reales."
+        },
+        "feed": {
+          "title": "Conecta tu feed Kyero",
+          "body": "Tus inmuebles entran en la red en 24 h y se sincronizan solos cada 24 h. También puedes añadirlos a mano."
+        },
+        "collaborate": {
+          "title": "Colabora",
+          "body": "Encuentra inmuebles para tus compradores en la cartera de las demás agencias, contacta directamente con la agencia que lo tiene y cerrad la venta juntos."
+        }
+      }
+    },
+    "rules": {
+      "eyebrow": "Las reglas",
+      "title": "Pocas normas, claras y para todos",
+      "subtitle": "La colaboración funciona cuando todos juegan con las mismas reglas.",
+      "items": {
+        "consent": {
+          "strong": "Tus inmuebles, solo con tu permiso.",
+          "body": "Solo aparecen en la red si tú lo autorizas, y puedes retirar cualquier inmueble o desconectar tu feed cuando quieras."
+        },
+        "verified": {
+          "strong": "Solo agencias inmobiliarias verificadas.",
+          "body": "No particulares."
+        },
+        "conditions": {
+          "strong": "Cada agencia fija sus condiciones.",
+          "body": "Comisión y reparto, libremente y en cada inmueble. Colabora MLS no impone comisiones ni repartos."
+        }
+      }
+    },
+    "features": {
+      "eyebrow": "Qué incluye",
+      "title": "Todo lo que tu agencia necesita para colaborar",
+      "items": {
+        "mls": {
+          "title": "Red MLS",
+          "body": "La cartera compartida de todas las agencias de la red, en un solo buscador."
+        },
+        "feed": {
+          "title": "Importación Kyero automática",
+          "body": "Conecta tu feed XML de Kyero y tus inmuebles se sincronizan solos cada 24 h, sin cargar nada a mano."
+        },
+        "crm": {
+          "title": "CRM para tus compradores",
+          "body": "Contactos, notas y etapas de cada comprador en un mismo sitio."
+        },
+        "microsites": {
+          "title": "Microsites para clientes",
+          "body": "Tú eliges qué propiedades ve cada cliente, en una página con tu marca."
+        },
+        "panel": {
+          "title": "Panel de agencia",
+          "body": "Tu perfil y tus propiedades, siempre bajo tu control."
+        }
+      }
+    },
+    "pricing": {
+      "eyebrow": "Precio",
+      "title": "Un solo plan, sin letra pequeña",
+      "free": "6 meses gratis",
+      "after": "Después, 25 € / mes + IVA",
+      "terms": "Sin permanencia · Sin coste de alta",
+      "deadline": "",
+      "launch": "Oferta de lanzamiento para agencias que se unan antes del {fecha}.",
+      "cta": "Únete gratis",
+      "account": "Una cuenta por agencia, todo incluido"
+    },
+    "faq": {
+      "eyebrow": "Preguntas frecuentes",
+      "title": "Preguntas frecuentes",
+      "items": {
+        "pay": {
+          "q": "¿Tengo que pagar algo para empezar?",
+          "a": "No. Tienes 6 meses gratis y no te pedimos tarjeta."
+        },
+        "feed": {
+          "q": "¿Qué formato de feed aceptáis?",
+          "a": "Kyero XML: tus inmuebles se sincronizan solos cada 24 h. También puedes añadirlos a mano."
+        },
+        "commission": {
+          "q": "¿Quién fija la comisión?",
+          "a": "Siempre tu agencia, inmueble a inmueble. El acuerdo y el reparto los cerráis directamente entre las agencias."
+        },
+        "cancel": {
+          "q": "¿Puedo darme de baja?",
+          "a": "Sí, cuando quieras. Sin permanencia."
+        },
+        "consent": {
+          "q": "¿Se comparten mis inmuebles sin mi permiso?",
+          "a": "No. Tus inmuebles solo aparecen en la red con tu permiso expreso, y puedes retirar cualquier inmueble o desconectar tu feed en cualquier momento."
+        },
+        "developer": {
+          "q": "¿Eres promotora?",
+          "a": "Las promotoras tienen su propia cuenta: publican sus promociones de obra nueva y las agencias de la red las ven en su panel.",
+          "link": "Solicita acceso"
+        }
+      }
+    },
+    "finalCta": {
+      "title": "Más compradores para tu cartera. Empieza hoy.",
+      "cta": "Únete gratis 6 meses",
+      "whatsapp": "Escríbenos por WhatsApp",
+      "whatsappMessage": "Hola, quiero información sobre Colabora MLS para mi agencia."
+    },
+    "footer": {
+      "tagline": "La red de colaboración entre agencias inmobiliarias de la costa española.",
+      "nav": "Enlaces legales y de contacto",
+      "legal": "Aviso legal",
+      "privacy": "Privacidad",
+      "cookies": "Cookies",
+      "contact": "Contacto",
+      "rights": "© {year} Colabora MLS. Todos los derechos reservados.",
+      "developers": "Para promotoras",
+      "terms": "Condiciones",
+      "phone": "Teléfono"
+    }
+  },
+  "promotor": {
+    "panelName": "Panel de promotora",
+    "logout": "Cerrar sesión",
+    "home": {
+      "title": "Inicio",
+      "greeting": "Hola, {name}",
+      "intro": "Tus promociones, sus unidades y los registros de clientes de las agencias.",
+      "stats": {
+        "developments": "Promociones",
+        "developmentsHint": "{published} publicadas · {drafts} borradores",
+        "available": "Unidades disponibles",
+        "reserved": "Unidades reservadas",
+        "sold": "Unidades vendidas"
+      },
+      "latestRegistrations": "Últimos registros de clientes",
+      "pending": "{count, plural, one {# pendiente} other {# pendientes}}",
+      "seeAll": "Ver todos",
+      "preparedByPlatform": "{count, plural, one {Colabora MLS ha preparado # promoción para ti: revísala y publícala.} other {Colabora MLS ha preparado # promociones para ti: revísalas y publícalas.}}"
+    },
+    "nav": {
+      "label": "Panel de promotora",
+      "home": "Inicio",
+      "profile": "Perfil",
+      "developments": "Promociones",
+      "registrations": "Registros"
+    },
+    "profile": {
+      "title": "Perfil de la promotora",
+      "intro": "Así te ven las agencias de la red. Mantén tus datos al día.",
+      "editedByAdmin": "Editado por Colabora MLS el {date}. Revisa que todo esté correcto."
+    },
+    "developments": {
+      "title": "Promociones",
+      "intro": "Tus promociones de obra nueva. Los borradores solo los ves tú; las agencias ven las publicadas.",
+      "new": "Nueva promoción",
+      "empty": "Aún no tienes promociones",
+      "emptyHint": "Crea tu primera promoción: se queda como borrador hasta que la publiques.",
+      "toReview": "{count, plural, one {Colabora MLS ha preparado # promoción para ti. Revísala y publícala cuando esté correcta.} other {Colabora MLS ha preparado # promociones para ti. Revísalas y publícalas cuando estén correctas.}}",
+      "visibility": {
+        "draft": "Borrador",
+        "published": "Publicada"
+      },
+      "addedByPlatform": "Añadido por Colabora MLS",
+      "editedByPlatform": "Editado por Colabora MLS",
+      "publish": "Publicar",
+      "unpublish": "Volver a borrador",
+      "published": "Publicada: las agencias ya pueden verla.",
+      "unpublished": "Vuelve a ser un borrador: las agencias ya no la ven.",
+      "incomplete": "Para publicar, añade: {missing}.",
+      "missing": {
+        "collaboration": "tu comisión para agencias",
+        "images": "al menos una foto",
+        "description": "una descripción"
+      },
+      "draftHint": "Borrador: solo la ves tú (y Colabora MLS). Publícala cuando esté lista para las agencias.",
+      "publishedHint": "Publicada: las agencias de la red la ven, junto con sus documentos y tus condiciones de colaboración.",
+      "delete": "Eliminar",
+      "cancel": "Cancelar",
+      "deleteTitle": "¿Eliminar esta promoción?",
+      "deleteBody": "También se eliminan sus fotos y documentos. No se puede deshacer.",
+      "deleted": "Promoción eliminada.",
+      "errors": {
+        "generic": "Algo ha fallado. Inténtalo de nuevo."
+      },
+      "saveDraft": "Guardar borrador",
+      "publishing": "Publicando…",
+      "footerHint": "Borrador: solo tú la ves. Publicada: la ven las agencias de la red."
+    }
+  },
+  "developerProfile": {
+    "logo": {
+      "title": "Logo",
+      "description": "Las imágenes cuadradas quedan mejor.",
+      "upload": "Subir logo",
+      "replace": "Cambiar",
+      "remove": "Quitar",
+      "uploading": "Subiendo…",
+      "invalid": "Ese archivo no es una imagen que podamos usar.",
+      "failed": "No se ha podido subir el logo. Inténtalo de nuevo."
+    },
+    "company": {
+      "title": "Empresa",
+      "description": "Tal como aparece en la plataforma y en los contratos.",
+      "name": "Nombre de la promotora",
+      "legalName": "Razón social",
+      "cif": "CIF",
+      "website": "Web"
+    },
+    "about": {
+      "title": "Presentación",
+      "description": "Las agencias la ven junto a tus promociones.",
+      "es": "Descripción (español)",
+      "en": "Descripción (inglés)"
+    },
+    "contact": {
+      "title": "Contacto",
+      "description": "La persona con la que hablan las agencias y Colabora MLS.",
+      "person": "Persona de contacto",
+      "position": "Cargo",
+      "positionPlaceholder": "Director comercial",
+      "email": "Email de contacto",
+      "phone": "Teléfono"
+    },
+    "address": {
+      "title": "Dirección",
+      "description": "La oficina de la empresa.",
+      "street": "Calle y número",
+      "town": "Ciudad / municipio",
+      "postcode": "Código postal",
+      "province": "Provincia",
+      "country": "País"
+    },
+    "zones": {
+      "title": "Zonas",
+      "legend": "Zonas en las que construyes"
+    },
+    "optional": "Opcional",
+    "save": "Guardar cambios",
+    "saving": "Guardando…",
+    "cancel": "Cancelar",
+    "saved": "Perfil guardado.",
+    "errors": {
+      "validation": "No se ha podido guardar. Revisa los campos e inténtalo de nuevo.",
+      "logo": "No se ha podido guardar el logo. Súbelo de nuevo.",
+      "notFound": "Esta cuenta ya no existe.",
+      "server": "Algo ha fallado. Inténtalo de nuevo."
+    }
+  },
+  "units": {
+    "title": "Unidades",
+    "tabs": {
+      "label": "Secciones de la promoción",
+      "details": "Datos",
+      "units": "Unidades ({count})"
+    },
+    "summary": "{total, plural, =0 {Sin unidades} one {# unidad} other {# unidades}} · {available} disponibles · {reserved} reservadas · {sold} vendidas",
+    "add": "Añadir unidad",
+    "addTitle": "Nueva unidad",
+    "editTitle": "Editar unidad {reference}",
+    "edit": "Editar {reference}",
+    "delete": "Eliminar {reference}",
+    "deleteTitle": "¿Eliminar la unidad {reference}?",
+    "deleteConfirm": "Eliminar",
+    "select": "Seleccionar {reference}",
+    "selectAll": "Seleccionar todas",
+    "save": "Guardar",
+    "saving": "Guardando…",
+    "cancel": "Cancelar",
+    "optional": "Opcional",
+    "added": "Unidad añadida.",
+    "saved": "Unidad guardada.",
+    "deleted": "Unidad eliminada.",
+    "empty": "Aún no hay unidades",
+    "emptyHint": "Añade las viviendas de la promoción: el rango de precios, los dormitorios y las disponibles se calculan solos.",
+    "statuses": {
+      "available": "Disponible",
+      "reserved": "Reservada",
+      "sold": "Vendida"
+    },
+    "orientations": {
+      "N": "Norte",
+      "NE": "Noreste",
+      "E": "Este",
+      "SE": "Sureste",
+      "S": "Sur",
+      "SW": "Suroeste",
+      "W": "Oeste",
+      "NW": "Noroeste"
+    },
+    "fields": {
+      "reference": "Referencia",
+      "referencePlaceholder": "p. ej. 3B, Villa 12",
+      "type": "Tipo",
+      "status": "Estado",
+      "bedrooms": "Dormitorios",
+      "bathrooms": "Baños",
+      "builtM2": "m² construidos",
+      "plotM2": "m² de parcela",
+      "terraceM2": "m² de terraza",
+      "floor": "Planta",
+      "floorPlaceholder": "Bajo, 3, Ático",
+      "orientation": "Orientación",
+      "price": "Precio"
+    },
+    "columns": {
+      "rooms": "Dorm. / baños",
+      "roomsValue": "{beds} / {baths}",
+      "size": "Superficie",
+      "terrace": "terraza",
+      "actions": "Acciones"
+    },
+    "bulk": {
+      "title": "Cambio en bloque",
+      "selected": "{count, plural, one {# unidad seleccionada} other {# unidades seleccionadas}}",
+      "status": "Nuevo estado",
+      "keepStatus": "Mismo estado",
+      "price": "Cambio de precio",
+      "keepPrice": "Mismo precio",
+      "setPrice": "Precio nuevo (€)",
+      "percent": "Subir / bajar (%)",
+      "apply": "Aplicar",
+      "clear": "Quitar selección",
+      "nothing": "Elige un estado o un cambio de precio.",
+      "done": "{count, plural, =0 {Nada que cambiar.} one {# unidad actualizada.} other {# unidades actualizadas.}}"
+    },
+    "errors": {
+      "invalid": "No se ha podido guardar. Revisa los campos.",
+      "notFound": "Esta unidad o promoción ya no existe.",
+      "tooMany": "Has llegado al máximo de unidades de una promoción."
+    },
+    "newTable": {
+      "title": "Unidades",
+      "description": "Opcional. Añade las viviendas con sus datos principales; empiezan como Disponibles. Los m² de parcela se piden para adosados, villas y parcelas. Con unidades, el rango de precios, los dormitorios y el número de unidades se calculan solos. Terraza y orientación se completan después en la pestaña Unidades.",
+      "row": "unidad {n}",
+      "add": "Añadir unidad",
+      "duplicate": "Duplicar la última",
+      "remove": "Quitar la unidad {n} ({reference})",
+      "count": "{n, plural, one {# unidad} other {# unidades}}",
+      "max": "Máximo {max} unidades a la vez. Añade más después en la pestaña Unidades.",
+      "invalid": "Revisa las unidades marcadas en rojo."
+    }
+  },
+  "registrations": {
+    "title": "Registros de clientes",
+    "intro": "Las agencias registran a sus compradores en tus promociones. El primer registro que aceptas protege a esa agencia para ese comprador durante los días de protección de la promoción. Por privacidad solo ves el nombre del comprador.",
+    "filters": {
+      "label": "Filtrar por estado",
+      "all": "Todos ({count})",
+      "pending": "Pendientes ({count})",
+      "accepted": "Aceptados ({count})",
+      "rejected": "Rechazados ({count})"
+    },
+    "status": {
+      "pending": "Pendiente",
+      "rejected": "Rechazado",
+      "protectedUntil": "Protegido hasta el {date}",
+      "expired": "Protección vencida"
+    },
+    "line": "{agency} · {date}",
+    "empty": "No hay registros",
+    "emptyHint": "Cuando una agencia registre a un comprador en una de tus promociones publicadas, aparecerá aquí.",
+    "accept": "Aceptar",
+    "reject": "Rechazar",
+    "cancel": "Cancelar",
+    "acceptTitle": "¿Aceptar el registro de {name}?",
+    "acceptBody": "{agency} quedará protegida para este comprador durante los días de protección de la promoción. Los demás registros pendientes del mismo comprador se rechazarán.",
+    "rejectTitle": "¿Rechazar el registro de {name}?",
+    "rejectBody": "{agency} verá que lo has rechazado y el motivo, si lo indicas.",
+    "reasonLabel": "Motivo (opcional, lo ve la agencia)",
+    "reasonPlaceholder": "p. ej. el comprador ya nos había visitado directamente",
+    "reasonLine": "Motivo: {reason}",
+    "autoRejected": "Rechazado automáticamente: otra agencia ya está protegida para este comprador.",
+    "accepted": "Registro aceptado.",
+    "rejected": "Registro rechazado.",
+    "errors": {
+      "generic": "Algo ha fallado. Inténtalo de nuevo.",
+      "not_found": "Este registro ya no existe.",
+      "already_decided": "Este registro ya se había decidido.",
+      "already_protected": "Otra agencia ya está protegida para este comprador en esta promoción."
+    }
+  },
+  "newBuilds": {
+    "title": "Obra nueva",
+    "intro": "Promociones de obra nueva de los promotores de la red. Consulta unidades, condiciones y documentos, y registra a tus compradores para quedar protegido.",
+    "search": "Buscar",
+    "searchPlaceholder": "Promoción, municipio o promotor",
+    "empty": "Aún no hay promociones publicadas.",
+    "noResults": "Ninguna promoción coincide con la búsqueda.",
+    "priceRange": "{from} – {to}",
+    "priceFrom": "Desde {from}",
+    "available": "{count, plural, =0 {Sin unidades disponibles} one {# disponible} other {# disponibles}}",
+    "myRegistrations": "Mis registros de clientes",
+    "myRegistrationsHere": "Mis registros en esta promoción",
+    "delivery": "entrega {date}",
+    "description": "Descripción",
+    "units": "Unidades ({available} disponibles de {total})",
+    "noUnits": "El promotor aún no ha cargado las unidades.",
+    "terms": "Tu comisión",
+    "protection": "Un registro aceptado te protege {days} días para ese comprador.",
+    "termsNote": "Condiciones fijadas libremente por el promotor. Colabora MLS no interviene en comisiones ni repartos.",
+    "documents": "Documentos",
+    "developer": "Promotor",
+    "map": "Ver en el mapa",
+    "collaboration": {
+      "ask": "Comisión a consultar",
+      "percent": "{value} % del precio",
+      "fixed": "{amount} por unidad"
+    },
+    "register": {
+      "title": "Registrar cliente",
+      "intro": "El primer registro que acepte el promotor te protege {days} días para ese comprador. El promotor solo ve el nombre; el teléfono o el email sirven para reconocer al mismo comprador.",
+      "name": "Nombre del comprador",
+      "phone": "Teléfono",
+      "email": "Email",
+      "contactHint": "Indica al menos un teléfono o un email.",
+      "notes": "Notas para el promotor",
+      "notesPlaceholder": "p. ej. interesado en 2 dormitorios, visita prevista el 12/11",
+      "optional": "Opcional",
+      "submit": "Registrar cliente",
+      "sending": "Enviando…",
+      "sent": "Registro enviado. El promotor lo aceptará o rechazará.",
+      "errors": {
+        "generic": "Algo ha fallado. Inténtalo de nuevo.",
+        "validation_error": "Revisa los datos del comprador.",
+        "not_found": "Esta promoción ya no está disponible.",
+        "already_protected": "Este comprador ya está registrado y protegido en esta promoción.",
+        "duplicate": "Ya tienes un registro pendiente de este comprador en esta promoción."
+      }
+    },
+    "registrations": {
+      "empty": "Aún no has registrado clientes.",
+      "pending": "Pendiente",
+      "rejected": "Rechazado",
+      "expired": "Protección vencida",
+      "protectedUntil": "Protegido hasta el {date}",
+      "sentOn": "enviado el {date}",
+      "protectedOther": "Rechazado: otra agencia ya estaba protegida para este comprador.",
+      "reason": "Motivo del promotor: {reason}",
+      "note": "Nota del promotor: {reason}"
+    }
+  },
+  "contact": {
+    "title": "Contacto",
+    "metaDescription": "Escríbenos si tienes preguntas sobre Colabora MLS: agencias, promotoras o compradores.",
+    "subtitle": "¿Tienes alguna pregunta sobre Colabora MLS? Escríbenos y te responderemos lo antes posible.",
+    "fields": {
+      "name": "Nombre",
+      "email": "Email",
+      "phone": "Teléfono",
+      "optional": "Opcional",
+      "role": "Soy…",
+      "rolePlaceholder": "Elige una opción",
+      "message": "Mensaje",
+      "messageHint": "Máx. {max} caracteres",
+      "acceptPrivacy": "He leído y acepto la <link>política de privacidad</link>"
+    },
+    "roles": {
+      "agency": "Agencia inmobiliaria",
+      "developer": "Promotora",
+      "buyer": "Comprador",
+      "other": "Otro"
+    },
+    "submit": "Enviar mensaje",
+    "submitting": "Enviando…",
+    "sentTitle": "Mensaje enviado",
+    "sentBody": "Gracias por escribirnos. Te responderemos lo antes posible al email que nos has dado.",
+    "sendAnother": "Enviar otro mensaje",
+    "error": "No se ha podido enviar el mensaje. Inténtalo de nuevo.",
+    "rateLimited": "Has enviado demasiados mensajes. Inténtalo de nuevo dentro de una hora.",
+    "preferTalk": "¿Prefieres hablar con nosotros?",
+    "call": "Llamar al",
+    "whatsapp": "WhatsApp",
+    "whatsappMessage": "Hola, tengo una pregunta sobre Colabora MLS."
+  },
+  "developersLanding": {
+    "meta": {
+      "title": "Para promotoras: tu obra nueva en la red de agencias",
+      "description": "Colabora MLS: agencias verificadas de la costa española venden tus promociones de obra nueva. Cuenta gratuita durante la fase de lanzamiento."
+    },
+    "brand": "Colabora MLS",
+    "nav": {
+      "home": "Colabora MLS, inicio",
+      "label": "Principal",
+      "agencies": "Para agencias",
+      "developers": "Para promotoras",
+      "contact": "Contacto",
+      "login": "Acceso miembros"
+    },
+    "hero": {
+      "eyebrow": "Para promotoras",
+      "title": "Tu obra nueva, en manos de las agencias que venden en la costa",
+      "subtitle": "Colabora MLS es la red de colaboración entre agencias inmobiliarias verificadas de la costa española. Publica tus promociones y llega a las agencias que trabajan con compradores cada día.",
+      "primaryCta": "Solicitar acceso gratuito",
+      "secondaryCta": "Cómo funciona"
+    },
+    "card": {
+      "label": "Ejemplo de ficha de promoción",
+      "example": "Ejemplo",
+      "photo": "Foto de la promoción",
+      "developer": "Promotora",
+      "newBuild": "Obra nueva",
+      "name": "Nombre de tu promoción",
+      "place": "Municipio · Entrega prevista",
+      "from": "Desde X €",
+      "lockTitle": "Precios y disponibilidad",
+      "lockText": "visibles solo para agencias miembro"
+    },
+    "offer": {
+      "title": "Oferta de lanzamiento: cuenta gratuita",
+      "text": "Gratis durante la fase de lanzamiento. Cuando la red esté consolidada pasará a ser de pago: te avisaremos con 30 días de antelación y podrás darte de baja sin coste.",
+      "cta": "Quiero unirme"
+    },
+    "benefits": {
+      "title": "Qué ganas publicando en Colabora",
+      "items": {
+        "reach": {
+          "title": "Más agencias vendiendo tu stock",
+          "text": "Tus promociones aparecen en la sección Obra nueva del panel de cada agencia de la red, con sus unidades, precios y disponibilidad."
+        },
+        "pro": {
+          "title": "Solo para profesionales",
+          "text": "Tus promociones no se publican en un portal abierto: solo las ven agencias verificadas que han iniciado sesión."
+        },
+        "upload": {
+          "title": "Tú controlas lo que se publica",
+          "text": "Sube tus promociones y unidades desde tu panel y actualiza precios y disponibilidad cuando cambien."
+        },
+        "direct": {
+          "title": "Trato directo, sin comisión de Colabora",
+          "text": "Las agencias contactan contigo directamente. Colabora MLS no cobra comisión por las ventas."
+        }
+      }
+    },
+    "how": {
+      "title": "Cómo funciona",
+      "steps": {
+        "request": {
+          "title": "Solicita acceso",
+          "text": "Rellena el formulario. Revisamos tu solicitud y te enviamos los datos de acceso por email."
+        },
+        "publish": {
+          "title": "Publica tus promociones",
+          "text": "Añade cada promoción con sus unidades, precios y disponibilidad desde tu panel."
+        },
+        "contact": {
+          "title": "Las agencias te contactan",
+          "text": "Las agencias de la red ven tus promociones, registran a sus compradores y te contactan para organizar visitas."
+        }
+      },
+      "note": {
+        "title": "Colabora MLS no es un portal para compradores",
+        "text": "Es una red profesional entre agencias. Tus promociones no se publican para el público: solo las ven agencias verificadas."
+      }
+    },
+    "faq": {
+      "title": "Preguntas frecuentes",
+      "items": {
+        "who": {
+          "q": "¿Quién ve mis promociones y sus precios?",
+          "a": "Solo las agencias inmobiliarias verificadas de la red, después de iniciar sesión."
+        },
+        "feed": {
+          "q": "¿Puedo importar mis promociones con un feed?",
+          "a": "Por ahora las promociones y sus unidades se añaden a mano desde tu panel: la importación por feed todavía no está disponible."
+        },
+        "buyers": {
+          "q": "¿Pueden verlas los compradores?",
+          "a": "No. Colabora MLS no es un portal público: solo acceden agencias verificadas."
+        },
+        "leave": {
+          "q": "¿Puedo darme de baja?",
+          "a": "Sí, cuando quieras y sin coste."
+        }
+      }
+    },
+    "apply": {
+      "title": "Solicita tu acceso",
+      "text": "Te responderemos por email cuando hayamos revisado tu solicitud.",
+      "preferTalk": "¿Prefieres hablar antes?",
+      "call": "Llamar al",
+      "whatsapp": "Escríbenos por WhatsApp",
+      "whatsappMessage": "Hola, soy de una promotora y quiero información sobre Colabora MLS."
+    },
+    "footer": {
+      "nav": "Enlaces legales y de contacto",
+      "contact": "Contacto",
+      "legal": "Aviso legal",
+      "privacy": "Privacidad",
+      "cookies": "Cookies",
+      "rights": "© {year} Colabora MLS. Todos los derechos reservados.",
+      "terms": "Condiciones",
+      "phone": "Teléfono"
+    },
+    "form": {
+      "fullName": "Nombre y apellidos",
+      "company": "Promotora",
+      "companyPlaceholder": "Nombre de la empresa",
+      "email": "Email",
+      "phone": "Teléfono",
+      "website": "Web",
+      "websitePlaceholder": "www.tupromotora.es",
+      "activeDevelopments": "Promociones activas",
+      "activeDevelopmentsPlaceholder": "Elige una opción",
+      "developments": {
+        "1": "1",
+        "2-5": "2–5",
+        "6-10": "6–10",
+        "10+": "Más de 10"
+      },
+      "feedUrl": "URL del feed Kyero",
+      "feedUrlHint": "Si ya tienes uno (opcional)",
+      "message": "Mensaje",
+      "optional": "Opcional",
+      "acceptTerms": "He leído y acepto la <privacy>política de privacidad</privacy> y las <terms>condiciones</terms>",
+      "submit": "Enviar solicitud",
+      "submitting": "Enviando…",
+      "sent": "Solicitud enviada. Te escribiremos por email cuando la hayamos revisado.",
+      "error": "No se ha podido enviar la solicitud. Inténtalo de nuevo.",
+      "rateLimited": "Has enviado demasiadas solicitudes. Inténtalo de nuevo dentro de una hora."
+    }
+  },
+  "legal": {
+    "updated": "Última actualización: {date}",
+    "exampleBanner": "Página en preparación: los datos de la empresa que aparecen aquí son de ejemplo y se sustituirán por los reales antes del lanzamiento.",
+    "spanishBinding": "This is a translation. In case of doubt, the Spanish version prevails.",
+    "related": "Textos legales",
+    "links": {
+      "notice": "Aviso legal",
+      "privacy": "Política de privacidad",
+      "terms": "Condiciones de uso",
+      "cookies": "Política de cookies"
+    },
+    "notice": {
+      "title": "Aviso legal",
+      "description": "Datos del titular de Colabora MLS y condiciones de uso de este sitio web.",
+      "intro": "En cumplimiento del artículo 10 de la Ley 34/2002 de Servicios de la Sociedad de la Información (LSSI), estos son los datos del titular de este sitio web.",
+      "sections": {
+        "owner": {
+          "title": "Titular",
+          "body": "- Titular: {company}\n- CIF: {cif}\n- Domicilio: {address}\n- Registro: {registry}\n- Email: {email}"
+        },
+        "purpose": {
+          "title": "Objeto",
+          "body": "Este sitio web presenta Colabora MLS, una red privada de colaboración entre agencias inmobiliarias y promotoras, y da acceso al panel de sus miembros. El uso del panel se rige además por las Condiciones de uso."
+        },
+        "ip": {
+          "title": "Propiedad intelectual",
+          "body": "Los textos, el diseño, el código y la marca de este sitio pertenecen a {company} o a sus licenciantes. No se pueden copiar ni reutilizar sin autorización.\n\nLos inmuebles, promociones, fotos y documentos que publican los miembros pertenecen a quien los publica."
+        },
+        "liability": {
+          "title": "Responsabilidad",
+          "body": "{company} no es responsable de la información que publican los miembros de la red ni de los acuerdos entre ellos. Tampoco de los sitios web externos enlazados desde aquí.\n\nIntentamos que el sitio funcione sin interrupciones, pero no podemos garantizarlo en todo momento."
+        },
+        "law": {
+          "title": "Ley aplicable",
+          "body": "Este aviso se rige por la ley española. Para cualquier controversia, las partes se someten a los juzgados y tribunales de {courts}, salvo que la ley disponga otra cosa."
+        }
+      }
+    },
+    "privacy": {
+      "title": "Política de privacidad",
+      "description": "Qué datos personales trata Colabora MLS, para qué, durante cuánto tiempo y cómo ejercer tus derechos.",
+      "intro": "Esta política explica cómo {company} trata los datos personales en Colabora MLS, conforme al Reglamento General de Protección de Datos (RGPD) y a la Ley Orgánica 3/2018 (LOPDGDD).",
+      "sections": {
+        "controller": {
+          "title": "Responsable del tratamiento",
+          "body": "{company}, con CIF {cif} y domicilio en {address}.\n\nPara cualquier cuestión sobre tus datos: {email}."
+        },
+        "data": {
+          "title": "Qué datos tratamos",
+          "body": "- Agencias y promotoras que solicitan el alta: datos de la empresa (razón social, CIF, número de registro de agentes, dirección, web), de la persona de contacto y del titular (nombre y DNI/NIE), teléfonos, emails y, si lo facilitas, el IBAN.\n- Cuentas de acceso: email, contraseña cifrada, idioma y fechas de acceso.\n- Inmuebles y promociones que publican los miembros, con sus fotos y documentos.\n- Compradores que una agencia añade a su CRM o a una página de cliente, o que registra en una promoción: nombre, teléfono, email, notas y lo que el comprador indica en su página (me gusta, comentarios, solicitudes de visita).\n- Formulario de contacto: nombre, email, teléfono si lo indicas y tu mensaje.\n- Estadísticas de visitas y de clics en WhatsApp de cada inmueble: no guardamos la dirección IP; usamos una clave anónima que cambia cada día.\n- Cookies: consulta la Política de cookies."
+        },
+        "purposes": {
+          "title": "Para qué y con qué base legal",
+          "body": "- Revisar tu solicitud, gestionar tu cuenta y prestar el servicio: ejecución del contrato (art. 6.1.b RGPD).\n- Responder a los mensajes del formulario de contacto: tu consentimiento (art. 6.1.a RGPD).\n- Seguridad, prevención de abusos y estadísticas: interés legítimo (art. 6.1.f RGPD).\n- Facturación y obligaciones fiscales y contables: obligación legal (art. 6.1.c RGPD).\n\nNo tomamos decisiones automatizadas con efectos jurídicos sobre ti ni elaboramos perfiles comerciales."
+        },
+        "buyers": {
+          "title": "Datos de compradores",
+          "body": "Cuando una agencia introduce datos de sus compradores, la agencia es la responsable de esos datos y {company} actúa como encargado del tratamiento por cuenta de la agencia (art. 28 RGPD). La agencia debe informar a sus compradores y contar con una base legal para tratar sus datos y para compartirlos con una promotora al registrarlos en una promoción.\n\nLas promotoras solo ven el nombre de los compradores registrados, no su teléfono ni su email."
+        },
+        "recipients": {
+          "title": "Quién recibe los datos",
+          "body": "- Otros miembros de la red: ven los datos profesionales de contacto de tu agencia o promotora y los inmuebles y promociones que compartes.\n- Proveedores que nos prestan servicios, con contrato de encargado del tratamiento: alojamiento web ({hosting}), base de datos (MongoDB Atlas), almacenamiento de fotos y documentos (Cloudflare R2) y envío de emails ({emailProvider}).\n- Administraciones y tribunales, cuando la ley lo exija.\n\nAlgunos proveedores pueden tratar datos fuera del Espacio Económico Europeo; en ese caso lo hacen con las garantías del RGPD (cláusulas contractuales tipo de la Comisión Europea o el Marco de Privacidad de Datos UE-EE. UU.). No vendemos datos personales."
+        },
+        "retention": {
+          "title": "Cuánto tiempo los conservamos",
+          "body": "- Datos de la cuenta y del servicio: mientras la cuenta esté activa. Tras la baja, los eliminamos en un plazo de 30 días.\n- Solicitudes de alta rechazadas: 12 meses.\n- Mensajes del formulario de contacto: el tiempo necesario para atenderlos y, como máximo, 12 meses.\n- Facturas y datos contables: el plazo que exige la ley (en general, 6 años)."
+        },
+        "rights": {
+          "title": "Tus derechos",
+          "body": "Puedes pedir acceso a tus datos, su rectificación o supresión, oponerte a su tratamiento, pedir su limitación o su portabilidad y retirar tu consentimiento en cualquier momento. Escríbenos a {email} indicando qué derecho quieres ejercer.\n\nSi crees que no hemos tratado bien tus datos, puedes reclamar ante la Agencia Española de Protección de Datos (www.aepd.es)."
+        },
+        "security": {
+          "title": "Seguridad",
+          "body": "Las contraseñas se guardan cifradas, la web funciona solo con conexión segura (HTTPS) y cada miembro solo puede ver y cambiar los datos de su propia cuenta."
+        },
+        "changes": {
+          "title": "Cambios en esta política",
+          "body": "Si cambiamos esta política de forma importante, avisaremos a los miembros por email antes de que el cambio se aplique."
+        }
+      }
+    },
+    "terms": {
+      "title": "Condiciones de uso",
+      "description": "Condiciones de uso de la red de colaboración Colabora MLS para agencias inmobiliarias y promotoras.",
+      "intro": "Estas condiciones regulan el uso de Colabora MLS, un servicio de {company} (CIF {cif}). Al crear una cuenta, la agencia o promotora acepta estas condiciones.",
+      "sections": {
+        "service": {
+          "title": "El servicio",
+          "body": "Colabora MLS es una red privada de colaboración entre agencias inmobiliarias y promotoras. Permite compartir inmuebles y promociones, encontrar los de otros miembros y contactar con ellos.\n\nColabora MLS no es un portal para compradores ni interviene en las operaciones: no actúa como agente, no cobra comisiones por las ventas y no es parte de los acuerdos entre miembros."
+        },
+        "access": {
+          "title": "Quién puede usarlo",
+          "body": "- Solo agencias inmobiliarias y promotoras verificadas. Revisamos cada solicitud y podemos rechazarla.\n- Cada miembro es responsable de que sus datos de alta sean ciertos y de mantenerlos al día.\n- Los datos de acceso son personales: no los compartas. Avísanos enseguida si crees que alguien los ha usado."
+        },
+        "rules": {
+          "title": "Normas de la red",
+          "body": "- Publica solo inmuebles para los que tengas autorización del propietario.\n- La información que publicas debe ser cierta y estar actualizada (precio, disponibilidad, características).\n- Cada miembro fija libremente sus condiciones de colaboración en cada inmueble; Colabora MLS no impone comisiones ni repartos.\n- Los registros de compradores en una promoción siguen las condiciones que fija cada promotora.\n- Los datos de contacto de otros miembros solo pueden usarse para colaborar dentro de la red."
+        },
+        "content": {
+          "title": "Contenido que publicas",
+          "body": "Eres responsable de los inmuebles, promociones, fotos, documentos y textos que publicas, y de tener los derechos necesarios sobre ellos. Nos autorizas a mostrarlos a los miembros de la red y en las páginas de cliente y exportaciones XML que tú configures.\n\nPodemos ocultar contenido que incumpla estas condiciones o la ley, explicándote el motivo."
+        },
+        "price": {
+          "title": "Precio",
+          "body": "El precio y las condiciones de pago de cada tipo de cuenta son los que se indican en la web en el momento del alta. Las cuentas de promotora son gratuitas durante la fase de lanzamiento.\n\nSi cambiamos el precio, te avisaremos por email con al menos 30 días de antelación y podrás darte de baja sin coste antes de que se aplique."
+        },
+        "leaving": {
+          "title": "Baja y suspensión",
+          "body": "Puedes darte de baja cuando quieras escribiendo a {email}, sin permanencia.\n\nPodemos suspender o cerrar una cuenta que incumpla estas condiciones, normalmente tras un aviso previo; en casos graves, de inmediato."
+        },
+        "liability": {
+          "title": "Responsabilidad",
+          "body": "Colabora MLS facilita el contacto entre profesionales, pero no garantiza ventas ni resultados. No somos responsables de la información que publican los miembros ni de los acuerdos entre ellos.\n\nIntentamos que el servicio esté siempre disponible, pero puede haber interrupciones por mantenimiento o causas ajenas. Salvo en los casos en que la ley no lo permita, nuestra responsabilidad se limita a las cantidades pagadas por el miembro en los 12 meses anteriores."
+        },
+        "data": {
+          "title": "Protección de datos",
+          "body": "El tratamiento de datos personales se explica en la Política de privacidad. Para los datos de compradores que introducen los miembros, {company} actúa como encargado del tratamiento por cuenta de cada miembro, conforme al artículo 28 del RGPD."
+        },
+        "changes": {
+          "title": "Cambios en estas condiciones",
+          "body": "Si cambiamos estas condiciones de forma importante, avisaremos a los miembros por email con al menos 30 días de antelación. Si no estás de acuerdo, puedes darte de baja sin coste antes de que se apliquen."
+        },
+        "law": {
+          "title": "Ley aplicable y tribunales",
+          "body": "Estas condiciones se rigen por la ley española. Para cualquier controversia, las partes se someten a los juzgados y tribunales de {courts}."
+        }
+      }
+    }
+  }
+}
