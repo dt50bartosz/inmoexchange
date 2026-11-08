@@ -1,4 +1,5 @@
 import '../globals.css';
+import '../site-theme.css';
 
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
@@ -9,6 +10,7 @@ import CookieBanner from '@/components/CookieBanner';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import PublicOnly from '@/components/PublicOnly';
+import SiteTheme from '@/components/site/SiteTheme';
 import { Toaster } from '@/components/ui/sonner';
 
 const inter = Inter({
@@ -36,23 +38,25 @@ export default async function LocaleLayout({
     <html lang={locale} className={inter.variable} translate="no" suppressHydrationWarning>
       <body className="min-h-screen flex flex-col font-sans">
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <PublicOnly>
-            <Navbar />
-          </PublicOnly>
+          <SiteTheme>
+            <PublicOnly>
+              <Navbar />
+            </PublicOnly>
 
-          <main className="flex-1">
-            {children}
-          </main>
+            <main className="flex-1">
+              {children}
+            </main>
 
-          {/* toast.success / toast.error from every panel and admin page show here */}
-          <Toaster />
+            {/* toast.success / toast.error from every panel and admin page show here */}
+            <Toaster />
 
-          {/* On every page (panel and admin too) until the visitor chooses */}
-          <CookieBanner />
+            {/* On every page (panel and admin too) until the visitor chooses */}
+            <CookieBanner />
 
-          <PublicOnly>
-            <Footer />
-          </PublicOnly>
+            <PublicOnly>
+              <Footer />
+            </PublicOnly>
+          </SiteTheme>
         </NextIntlClientProvider>
       </body>
     </html>

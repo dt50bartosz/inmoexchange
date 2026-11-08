@@ -1,0 +1,51 @@
+/*
+ * Editorial platinum: the public website's colours.
+ *
+ * Applies only inside .site-theme (see components/site/SiteTheme.tsx), so the agency panel,
+ * developer panel and admin keep the colours in globals.css.
+ * Silver is for surfaces and borders only, never for body text.
+ */
+
+.site-theme {
+  --brand: 26 29 34;             /* #1A1D22 Graphite */
+  --brand-light: 30 78 140;      /* #1E4E8C Mediterranean blue */
+  --brand-accent: 30 78 140;
+
+  /* Page */
+  --background: #f6f7f9;
+  --foreground: #1a1d22;
+  --surface: #eef0f3;            /* Alternate sections */
+  --ink: #14181f;                /* Dark sections */
+
+  --card: #ffffff;
+  --card-foreground: #1a1d22;
+  --popover: #ffffff;
+  --popover-foreground: #1a1d22;
+
+  /* Primary = the one accent: buttons, links, active states */
+  --primary: #1e4e8c;
+  --primary-hover: #183f72;
+  --primary-foreground: #ffffff;
+
+  --secondary: #e4e7ec;
+  --secondary-foreground: #1a1d22;
+
+  --muted: #eef0f3;
+  --muted-foreground: #4f5661;
+
+  --accent: #e7edf5;
+  --accent-foreground: #1e4e8c;
+
+  --info: #1e4e8c;
+  --info-soft: #e7edf5;
+
+  /* Lines */
+  --border: #dde1e6;
+  --border-strong: #c4cad2;
+  --input: #c4cad2;
+  --ring: #1e4e8c;
+
+  /* The body's background is outside this wrapper, so the wrapper paints its own */
+  background-color: var(--background);
+  color: var(--foreground);
+}
