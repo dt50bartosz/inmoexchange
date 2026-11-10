@@ -102,7 +102,7 @@ export default function ContactForm({ initialRole }: Props) {
                 <FormField label={t("fields.email")} required error={e.email?.message}>
                   {(p) => <Input {...p} type="email" autoComplete="email" {...register("email")} />}
                 </FormField>
-                <FormField label={t("fields.phone")} hint={t("fields.optional")} error={e.phone?.message}>
+                <FormField label={t("fields.phone")} required error={e.phone?.message}>
                   {(p) => <Input {...p} type="tel" autoComplete="tel" {...register("phone")} />}
                 </FormField>
                 <FormField label={t("fields.role")} required error={e.role?.message}>
