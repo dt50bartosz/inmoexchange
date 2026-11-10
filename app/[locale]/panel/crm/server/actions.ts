@@ -6,7 +6,7 @@ import { collections, ensureIndexes } from "@/lib/db";
 import { getAgencyId } from "@/lib/server/current-agency";
 import { fail, ok, zodFieldErrors, type ActionResult } from "@/lib/server/action-result";
 import { findContact, newNote, scoped, toContact, toFields, toUpdate, withoutUndefined } from "@/lib/server/crm";
-import { contactSchema, noteSchema, stageSchema } from "@/lib/schemas/crm";
+import { contactSchema, contactWithPhoneSchema, noteSchema, stageSchema } from "@/lib/schemas/crm";
 import { STAGE_LABEL, type Contact, type ContactDoc } from "@/types/crm";
 
 /*
@@ -28,7 +28,7 @@ export async function getContacts(): Promise<CrmResult<Contact[]>> {
 }
 
 export async function createContact(input: unknown): Promise<CrmResult> {
-  const parsed = contactSchema.safeParse(input);
+  const parsed = contactWithPhoneSchema.safeParse(input);
   if (!parsed.success) return fail("validation_error", zodFieldErrors(parsed.error));
 
   const now = new Date();
@@ -50,7 +50,11 @@ export async function updateContact(id: string, changes: unknown): Promise<CrmRe
   const current = await findContact(id);
   if (!current) return fail("not_found");
 
-  const parsed = contactSchema.safeParse({ ...toContact(current), ...(changes as object) });
+  // A saved phone can't be removed. Older buyers without one can still get quick
+  // updates (follow-up date etc.); the edit form asks them for a phone.
+  const before = toContact(current);
+  const schema = before.phone ? contactWithPhoneSchema : contactSchema;
+  const parsed = schema.safeParse({ ...before, ...(changes as object) });
   if (!parsed.success) return fail("validation_error", zodFieldErrors(parsed.error));
 
   const update = toUpdate({ ...toFields(parsed.data), updatedAt: new Date() });

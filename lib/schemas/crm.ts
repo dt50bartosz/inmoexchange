@@ -39,10 +39,16 @@ export const contactSchema = z
     message: "Max budget must be at least the min budget",
     path: ["budgetMax"],
   })
-  // The form asks for one of them; the server checks it too
+  // Buyers saved before the phone became required may only have an email
   .refine((v) => !!v.email || !!v.phone, {
     message: "Add an email or a phone number so you can reach this buyer.",
     path: ["phone"],
   });
+
+/** New buyers, and buyers that already have a phone, must have one. The form asks for it too. */
+export const contactWithPhoneSchema = contactSchema.refine((v) => !!v.phone, {
+  message: "Add a phone number so you can reach this buyer.",
+  path: ["phone"],
+});
 
 export type ContactValues = z.infer<typeof contactSchema>;

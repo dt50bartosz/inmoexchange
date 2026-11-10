@@ -43,7 +43,7 @@ export function ContactForm({ initial, submitLabel, showStage, onSubmit, onCance
     if (saving) return;
     setError(null);
     if (!name.trim()) return setError("Add the buyer's name.");
-    if (!email.trim() && !phone.trim()) return setError("Add an email or a phone number so you can reach this buyer.");
+    if (!phone.trim()) return setError("Add a phone number so you can reach this buyer.");
     const min = num(budgetMin);
     const max = num(budgetMax);
     if (min && max && min > max) return setError("Minimum budget is higher than maximum budget.");
