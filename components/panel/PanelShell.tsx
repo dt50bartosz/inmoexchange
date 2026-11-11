@@ -24,10 +24,11 @@ export default function PanelShell({
   return (
     <div className="min-h-dvh bg-surface text-foreground">
       <Sidebar open={menuOpen} onClose={() => setMenuOpen(false)} />
-      <div className="lg:pl-64">
+      {/* A full-height column: the page content grows, so the footer stays at the bottom on short pages */}
+      <div className="flex min-h-dvh flex-col lg:pl-64">
         <Topbar onMenu={() => setMenuOpen(true)} />
         {banner}
-        <main className="mx-auto min-w-0 max-w-7xl px-4 py-6 sm:px-6 lg:px-8">{children}</main>
+        <main className="mx-auto w-full min-w-0 max-w-7xl flex-1 px-4 py-6 sm:px-6 lg:px-8">{children}</main>
         {footer}
       </div>
     </div>

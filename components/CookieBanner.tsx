@@ -93,7 +93,7 @@ export default function CookieBanner() {
         )}
 
         {/* All choices equally visible and equally easy (AEPD cookie guide, EDPB guidelines 03/2022) */}
-        <div className="mt-4 grid gap-2 sm:grid-cols-3">
+        <div className="mt-4 grid gap-2">
           <Button variant="outline" onClick={() => choose(NONE, "reject_all")}>
             {t("reject")}
           </Button>

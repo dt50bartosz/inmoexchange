@@ -4,7 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { Container } from "@/components/ui/Layout";
 import CookieSettingsButton from "@/components/CookieSettingsButton";
 import Logo from "@/components/Logo";
-import { CONTACT_PHONE } from "@/lib/constants/contact";
+import { CONTACT_EMAIL, CONTACT_PHONE } from "@/lib/constants/contact";
 
 const linkClass = "text-white/70 transition-colors hover:text-white";
 
@@ -23,6 +23,9 @@ export default async function Footer() {
           <p className="max-w-xs leading-6 text-white/70">{t("tagline")}</p>
           <a href={`tel:${CONTACT_PHONE.tel}`} className="inline-block font-medium text-white underline-offset-4 hover:underline">
             {t("phone")}: {CONTACT_PHONE.display}
+          </a>
+          <a href={`mailto:${CONTACT_EMAIL}`} className="block w-fit break-all font-medium text-white underline-offset-4 hover:underline">
+            {CONTACT_EMAIL}
           </a>
         </div>
 

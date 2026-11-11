@@ -1,7 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { inner } from "./styles";
-import { CONTACT_PHONE } from "@/lib/constants/contact";
+import { CONTACT_EMAIL, CONTACT_PHONE } from "@/lib/constants/contact";
 
 const LINKS = [
   { key: "contact", href: "/contacto" },
@@ -20,6 +20,9 @@ export default async function DevFooter() {
         <div className="space-y-1">
           <a href={`tel:${CONTACT_PHONE.tel}`} className="inline-flex min-h-11 items-center font-medium text-dev-ink hover:underline">
             {t("phone")}: {CONTACT_PHONE.display}
+          </a>
+          <a href={`mailto:${CONTACT_EMAIL}`} className="flex min-h-11 w-fit items-center break-all font-medium text-dev-ink hover:underline">
+            {CONTACT_EMAIL}
           </a>
           <p className="text-dev-muted">{t("rights", { year: new Date().getFullYear() })}</p>
         </div>

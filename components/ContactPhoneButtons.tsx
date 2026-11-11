@@ -1,5 +1,5 @@
-import { MessageCircle, Phone } from "lucide-react";
-import { CONTACT_PHONE, contactWhatsappHref } from "@/lib/constants/contact";
+import { Mail, MessageCircle, Phone } from "lucide-react";
+import { CONTACT_EMAIL, CONTACT_PHONE, contactWhatsappHref } from "@/lib/constants/contact";
 
 type Props = {
   /** Pre-filled WhatsApp message, already translated. */
@@ -14,7 +14,7 @@ type Props = {
 /** "Call" and "WhatsApp" buttons with Colabora MLS's number (lib/constants/contact.ts). Server or client components. */
 export default function ContactPhoneButtons({ whatsappMessage, labels, callClassName, whatsappClassName, className = "" }: Props) {
   return (
-    <div className={`flex flex-col gap-3 sm:flex-row ${className}`}>
+    <div className={`flex flex-col gap-3 sm:flex-row sm:flex-wrap ${className}`}>
       <a href={contactWhatsappHref(whatsappMessage)} target="_blank" rel="noopener noreferrer" className={whatsappClassName}>
         <MessageCircle aria-hidden className="size-4" />
         {labels.whatsapp}
@@ -22,6 +22,10 @@ export default function ContactPhoneButtons({ whatsappMessage, labels, callClass
       <a href={`tel:${CONTACT_PHONE.tel}`} className={callClassName}>
         <Phone aria-hidden className="size-4" />
         {labels.call} {CONTACT_PHONE.display}
+      </a>
+      <a href={`mailto:${CONTACT_EMAIL}`} className={callClassName}>
+        <Mail aria-hidden className="size-4" />
+        {CONTACT_EMAIL}
       </a>
     </div>
   );

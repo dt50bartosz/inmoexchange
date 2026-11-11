@@ -42,7 +42,7 @@ export default function Navbar() {
           : "sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur-md"
       }
     >
-      <Container className={`flex items-center justify-between ${onDark ? "py-4" : "py-2"}`}>
+      <Container className={`flex items-center justify-between ${onDark ? "py-4" : "py-3"}`}>
         <Link
           href={`/${locale}`}
           className="flex items-center gap-2"
@@ -51,14 +51,19 @@ export default function Navbar() {
           <Logo onDark={onDark} priority className={onDark ? "h-9" : "h-8"} />
         </Link>
 
-        <nav className="flex items-center gap-8 text-sm font-medium">
+        <nav className="flex items-center gap-4 whitespace-nowrap text-[15px] font-medium lg:gap-7">
           {LINKS.map((l) => (
             <Link
               key={l.href}
               href={href(l.href)}
-              className={`hidden transition-colors md:inline ${
-                onDark ? "text-white/80 hover:text-white" : "text-muted-foreground hover:text-primary"
-              }`}
+              className={
+                // The sign-up link is the header's one button
+                l.href === "/registro" && !onDark
+                  ? "hidden rounded-lg bg-primary px-4 py-2 text-primary-foreground transition-colors hover:bg-primary-hover md:inline"
+                  : `hidden transition-colors md:inline ${
+                      onDark ? "text-white/80 hover:text-white" : "text-foreground/75 hover:text-primary"
+                    }`
+              }
             >
               {t(l.key)}
             </Link>

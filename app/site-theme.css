@@ -6,8 +6,10 @@
  * Silver is for surfaces and borders only, never for body text.
  */
 
-.site-theme {
-  --brand: 26 29 34;             /* #1A1D22 Graphite */
+/* body:has(...): pop-up menus and dialogs render directly in <body>, outside the wrapper. Panels have no .site-theme, so this never matches there. */
+.site-theme,
+body:has(.site-theme) {
+  --brand: 26 29 34;            /* #1A1D22 Graphite */
   --brand-light: 30 78 140;      /* #1E4E8C Mediterranean blue */
   --brand-accent: 30 78 140;
 

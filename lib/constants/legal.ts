@@ -1,3 +1,5 @@
+import { CONTACT_EMAIL } from "./contact";
+
 /**
  * Company details shown on /aviso-legal, /privacidad and /terminos (one place for all three pages).
  *
@@ -14,8 +16,8 @@ export const LEGAL = {
   address: "Calle Ejemplo 1, 03001 Alicante (España)",
   /** Registro Mercantil entry (SL / SA); "" for an autónomo. */
   registry: "Registro Mercantil de Alicante, tomo 0000, folio 00, hoja A-000000",
-  /** For privacy requests and legal notices. example.com is reserved for examples: it never reaches anyone. */
-  email: "privacidad@example.com",
+  /** For privacy requests and legal notices (real address). */
+  email: CONTACT_EMAIL,
   /** Courts for disputes (usually the registered office's city). */
   courts: "Alicante",
   /** Providers that handle personal data on our behalf. */

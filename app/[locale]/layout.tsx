@@ -7,7 +7,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 
 import CookieBanner from '@/components/CookieBanner';
-import Footer from '@/components/Footer';
+import SiteFooter from '@/components/site/SiteFooter';
 import Navbar from '@/components/Navbar';
 import PublicOnly from '@/components/PublicOnly';
 import SiteTheme from '@/components/site/SiteTheme';
@@ -54,7 +54,7 @@ export default async function LocaleLayout({
             <CookieBanner />
 
             <PublicOnly>
-              <Footer />
+              <SiteFooter />
             </PublicOnly>
           </SiteTheme>
         </NextIntlClientProvider>
