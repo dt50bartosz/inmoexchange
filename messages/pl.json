@@ -5,7 +5,7 @@
     "explore": "Odkryj",
     "listings": "Oferty",
     "agencies": "Agencje",
-    "join": "Dołącz – 6 miesięcy za darmo",
+    "join": "Dołącz",
     "login": "Logowanie agencji",
     "rights": "© {year} Colabora MLS. Wszelkie prawa zastrzeżone.",
     "cookiePolicy": "Polityka cookies",
@@ -31,29 +31,40 @@
   "cookies": {
     "banner": {
       "title": "Pliki cookie",
-      "settingsTitle": "Ustawienia plików cookie",
-      "text": "Używamy plików cookie niezbędnych do działania strony, np. do utrzymania zalogowania i zapamiętania języka. Za Twoją zgodą moglibyśmy używać też opcjonalnych plików cookie; możesz je zaakceptować, odrzucić lub wybrać według kategorii.",
+      "settingsTitle": "Centrum preferencji plików cookie",
+      "text": "Używamy plików cookie niezbędnych do działania strony, np. do utrzymania zalogowania. Za Twoją zgodą możemy używać też opcjonalnych plików cookie (funkcjonalnych, analitycznych i marketingowych). Nic opcjonalnego nie zostanie włączone, dopóki tego nie zaakceptujesz, a swój wybór możesz zmienić w każdej chwili.",
       "policy": "Polityka cookies",
       "accept": "Akceptuj wszystkie",
       "reject": "Odrzuć zbędne",
-      "configure": "Dostosuj",
-      "save": "Zapisz wybór",
+      "configure": "Dostosuj preferencje",
+      "save": "Zapisz moje preferencje",
       "alwaysOn": "Zawsze aktywne",
       "noneInUse": "Obecnie nie używamy plików cookie tego rodzaju.",
       "categories": {
         "necessary": {
           "title": "Niezbędne",
-          "description": "Potrzebne do działania strony: logowanie, bezpieczeństwo oraz zapamiętanie języka i wyboru dotyczącego plików cookie."
+          "description": "Potrzebne do działania strony: logowanie, bezpieczeństwo oraz zapamiętanie języka i wyboru dotyczącego plików cookie.",
+          "examples": "Uwierzytelnianie · Bezpieczeństwo · Zarządzanie sesją · Preferencje użytkownika"
         },
         "analytics": {
           "title": "Analityczne",
-          "description": "Pomagają nam zrozumieć, jak korzystasz ze strony, abyśmy mogli ją ulepszać."
+          "description": "Pomagają nam zrozumieć, jak korzystasz ze strony, abyśmy mogli ją ulepszać.",
+          "examples": "Google Analytics · Wydajność strony · Zachowanie odwiedzających · Analiza ruchu"
         },
         "marketing": {
           "title": "Marketingowe",
-          "description": "Służą do wyświetlania dopasowanych reklam i mierzenia kampanii."
+          "description": "Służą do wyświetlania dopasowanych reklam i mierzenia kampanii.",
+          "examples": "Reklama · Remarketing · Śledzenie marketingowe · Piksele reklamowe"
+        },
+        "functional": {
+          "title": "Funkcjonalne",
+          "description": "Zapamiętują wybrane przez Ciebie ustawienia, aby poprawić wygodę korzystania.",
+          "examples": "Preferencje językowe · Zapamiętane ustawienia · Rozszerzone funkcje"
         }
-      }
+      },
+      "privacy": "Polityka prywatności",
+      "rejectAll": "Odrzuć wszystkie",
+      "settingsIntro": "Wybierz, na które opcjonalne pliki cookie się zgadzasz. Niezbędne pliki cookie są zawsze aktywne, ponieważ bez nich strona nie działa. Zgodę możesz zmienić lub wycofać w każdej chwili w „Ustawieniach plików cookie” w stopce."
     },
     "policy": {
       "title": "Polityka cookies",
@@ -89,11 +100,12 @@
       "manageBody": "Swój wybór możesz w każdej chwili zmienić lub wycofać przyciskiem poniżej albo linkiem „Ustawienia cookies” na dole każdej strony. Wycofanie zgody jest tak samo proste jak jej wyrażenie. Możesz też usuwać lub blokować pliki cookie w ustawieniach przeglądarki; jeśli zablokujesz niezbędne, nie będzie można się zalogować.",
       "changeSettings": "Zmień ustawienia cookies",
       "version": "Wersja polityki: {version}",
-      "categoriesBody": "Pliki cookie dzielimy na trzy kategorie: niezbędne, analityczne i marketingowe. Bez Twojej zgody zapisujemy tylko niezbędne. Analityczne i marketingowe zapisujemy dopiero po Twojej zgodzie, a obecnie nie używamy żadnych.",
+      "categoriesBody": "Pliki cookie dzielimy na cztery kategorie: niezbędne, funkcjonalne, analityczne i marketingowe. Bez Twojej zgody instalujemy tylko niezbędne. Funkcjonalne, analityczne i marketingowe są instalowane dopiero po ich zaakceptowaniu, a obecnie nie używamy żadnych.",
       "category": {
         "necessary": "Niezbędny",
         "analytics": "Analityczny",
-        "marketing": "Marketingowy"
+        "marketing": "Marketingowy",
+        "functional": "Funkcjonalne"
       },
       "consentYes": "Tak",
       "consentNo": "Nie"
@@ -145,18 +157,31 @@
   "landing": {
     "hero": {
       "title": "Gdzie agencje nieruchomości i deweloperzy współpracują",
-      "subtitle": "Nieruchomości z rynku pierwotnego i wtórnego z całego wybrzeża w jednym miejscu. Jedna sieć współpracy łącząca agencje nieruchomości i deweloperów, by udostępniać oferty, docierać do większej liczby kupujących i tworzyć więcej okazji do sprzedaży."
+      "subtitle": "Nieruchomości z rynku pierwotnego i wtórnego z całego wybrzeża w jednym miejscu. Jedna sieć współpracy łącząca agencje nieruchomości i deweloperów, by udostępniać oferty, docierać do większej liczby kupujących i tworzyć więcej okazji do sprzedaży.",
+      "primaryCta": "Dołącz za darmo"
     },
     "footer": {
       "developers": "Dla deweloperów",
       "terms": "Regulamin",
       "phone": "Telefon"
+    },
+    "nav": {
+      "label": "Nawigacja główna",
+      "login": "Zaloguj",
+      "home": "Colabora MLS, strona główna",
+      "howItWorks": "Jak to działa",
+      "rules": "Zasady",
+      "faq": "FAQ",
+      "blog": "Blog",
+      "developers": "Dla deweloperów",
+      "openMenu": "Otwórz menu",
+      "closeMenu": "Zamknij menu"
     }
   },
   "developersLanding": {
     "meta": {
       "title": "Dla deweloperów: Państwa inwestycje w sieci agencji",
-      "description": "Colabora MLS: zweryfikowane agencje z hiszpańskiego wybrzeża sprzedają Państwa inwestycje z rynku pierwotnego. Bezpłatne konto w fazie startowej."
+      "description": "Colabora MLS: zweryfikowane agencje z hiszpańskiego wybrzeża sprzedają Państwa inwestycje z rynku pierwotnego."
     },
     "brand": "Colabora MLS",
     "nav": {
@@ -171,7 +196,7 @@
       "eyebrow": "Dla deweloperów",
       "title": "Państwa inwestycje w rękach agencji, które sprzedają na wybrzeżu",
       "subtitle": "Colabora MLS to sieć współpracy zweryfikowanych agencji nieruchomości z hiszpańskiego wybrzeża. Mogą Państwo opublikować swoje inwestycje i dotrzeć do agencji, które na co dzień pracują z kupującymi.",
-      "primaryCta": "Poproś o bezpłatny dostęp",
+      "primaryCta": "Poproś o dostęp",
       "secondaryCta": "Jak to działa"
     },
     "card": {
@@ -185,11 +210,6 @@
       "from": "Od X €",
       "lockTitle": "Ceny i dostępność",
       "lockText": "widoczne tylko dla agencji członkowskich"
-    },
-    "offer": {
-      "title": "Oferta na start: bezpłatne konto",
-      "text": "Bezpłatnie w fazie startowej. Gdy sieć się rozwinie, konto stanie się płatne – poinformujemy Państwa z 30-dniowym wyprzedzeniem, a rezygnacja będzie bezpłatna.",
-      "cta": "Chcę dołączyć"
     },
     "benefits": {
       "title": "Co Państwo zyskują, publikując w Colabora",
@@ -250,7 +270,7 @@
         },
         "leave": {
           "q": "Czy można zrezygnować?",
-          "a": "Tak, w dowolnym momencie i bez kosztów."
+          "a": "Tak, w dowolnym momencie."
         }
       }
     },
@@ -299,5 +319,46 @@
       "error": "Nie udało się wysłać zgłoszenia. Prosimy spróbować ponownie.",
       "rateLimited": "Wysłano zbyt wiele zgłoszeń. Prosimy spróbować ponownie za godzinę."
     }
+  },
+  "legal": {
+    "related": "Inne dokumenty prawne",
+    "docs": {
+      "terms": "Regulamin",
+      "privacy": "Polityka prywatności",
+      "cookies": "Polityka plików cookie",
+      "legal_notice": "Nota prawna",
+      "data_protection": "Ochrona danych",
+      "agency_terms": "Warunki dla agencji",
+      "developer_terms": "Warunki dla deweloperów",
+      "mls_agreement": "Umowa uczestnictwa w MLS",
+      "data_sharing": "Umowa o udostępnianiu danych",
+      "listing_accuracy": "Umowa o rzetelności ogłoszeń i danych"
+    },
+    "doc": {
+      "version": "Wersja {version}",
+      "published": "opublikowana {date}",
+      "oldVersion": "Przeglądasz wcześniejszą wersję tego dokumentu, zachowaną jako zapis tego, co zostało wtedy zaakceptowane.",
+      "viewCurrent": "Zobacz obowiązującą wersję",
+      "placeholderBanner": "Dokument w przygotowaniu: wyróżnione fragmenty muszą jeszcze zostać uzupełnione i sprawdzone przez wykwalifikowanego prawnika.",
+      "placeholderLabel": "Do uzupełnienia przez prawnika",
+      "notTranslated": "Ten dokument nie jest jeszcze dostępny w Twoim języku; wyświetlamy wersję hiszpańską.",
+      "pending": "Ten dokument jest w przygotowaniu i nie został jeszcze opublikowany. Jeśli masz pytania, napisz do nas przez stronę kontaktową."
+    },
+    "spanishBinding": "To jest tłumaczenie. W razie wątpliwości rozstrzyga wersja hiszpańska."
+  },
+  "legalConsent": {
+    "legend": "Akceptacja dokumentów prawnych",
+    "terms": "Przeczytałem/am i akceptuję <link>Regulamin</link> Colabora MLS (v{version}).",
+    "privacy": "Potwierdzam, że zapoznałem/am się z <link>Polityką prywatności</link> Colabora MLS (v{version}).",
+    "document": "Przeczytałem/am i akceptuję dokument: <link>{title}</link> (v{version}).",
+    "authorised": {
+      "agency": "Potwierdzam, że jestem upoważniony/a do zarejestrowania tej agencji i zaakceptowania tych warunków w jej imieniu.",
+      "developer": "Potwierdzam, że jestem upoważniony/a do zarejestrowania tej firmy i zaakceptowania tych warunków w jej imieniu."
+    },
+    "marketing": "Wyrażam zgodę na otrzymywanie od Colabora MLS komunikacji marketingowej, informacji o nowościach na platformie i materiałów promocyjnych.",
+    "marketingHint": "Możesz to zmienić w dowolnym momencie na swoim koncie.",
+    "optional": "(opcjonalnie)",
+    "required": "Musisz to zaakceptować, aby kontynuować.",
+    "outdated": "Jeden z dokumentów prawnych został właśnie zaktualizowany. Odśwież stronę, przeczytaj nową wersję i zaakceptuj ją ponownie."
   }
 }

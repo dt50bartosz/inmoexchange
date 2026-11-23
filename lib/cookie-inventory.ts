@@ -3,10 +3,10 @@
 // withdrawing consent deletes the cookies of the withdrawn categories by these names.
 // Add a cookie here before adding the code that sets it.
 
-export const COOKIE_CATEGORIES = ["necessary", "analytics", "marketing"] as const;
+export const COOKIE_CATEGORIES = ["necessary", "functional", "analytics", "marketing"] as const;
 export type CookieCategory = (typeof COOKIE_CATEGORIES)[number];
 /** Categories that need the visitor's consent before anything in them loads. */
-export const OPTIONAL_CATEGORIES = ["analytics", "marketing"] as const;
+export const OPTIONAL_CATEGORIES = ["functional", "analytics", "marketing"] as const;
 export type OptionalCategory = (typeof OPTIONAL_CATEGORIES)[number];
 
 export interface CookieInfo {

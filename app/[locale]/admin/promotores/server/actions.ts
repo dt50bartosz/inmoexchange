@@ -8,6 +8,7 @@ import { requireAdmin } from "@/lib/server/admin/current-admin";
 import { createDeveloper, findDeveloperDoc } from "@/lib/server/admin/developers";
 import { deleteAgencyAction } from "@/app/[locale]/admin/agencies/[id]/server/actions";
 import { adminActor, recordActivity } from "@/lib/server/project-activity";
+import { orgOf, recordAdminEvent } from "@/lib/server/platform-events";
 import {
   deleteProject,
   findProjectDoc,
@@ -47,10 +48,11 @@ async function adminWriter(): Promise<ProjectWriter & { admin: { id: string; ema
 export async function createDeveloperAction(
   input: unknown
 ): Promise<ActionResult<{ id: string; email: EmailResult | "not_sent" }, "validation_error" | "email_taken">> {
-  await requireAdmin();
+  const admin = await requireAdmin();
   const parsed = newDeveloperSchema.safeParse(input);
   if (!parsed.success) return fail("validation_error", zodFieldErrors(parsed.error));
   const result = await createDeveloper(parsed.data);
+  if (result.ok) await recordAdminEvent(admin, "account_created", await orgOf(result.id), "Developer added by an admin");
   return result.ok ? ok({ id: result.id, email: result.email }) : fail(result.error);
 }
 
@@ -59,7 +61,7 @@ export async function createDeveloperAction(
  * a developer login (role "developer") and its open sessions end, so it signs in again into /promotor.
  */
 export async function convertToDeveloperAction(input: unknown): Promise<ActionResult<{ id: string }, "validation_error" | "not_found">> {
-  await requireAdmin();
+  const admin = await requireAdmin();
   const parsed = convertToDeveloperSchema.safeParse(input);
   if (!parsed.success) return fail("validation_error", zodFieldErrors(parsed.error));
   const res = await collections.agencies.updateOne(
@@ -71,6 +73,7 @@ export async function convertToDeveloperAction(input: unknown): Promise<ActionRe
     { agencyId: parsed.data.agencyId, role: { $ne: "admin" } },
     { $set: { role: "developer", updatedAt: new Date() }, $inc: { sessionVersion: 1 } }
   );
+  await recordAdminEvent(admin, "account_converted", await orgOf(parsed.data.agencyId), "Agency → developer account");
   return ok({ id: parsed.data.agencyId });
 }
 

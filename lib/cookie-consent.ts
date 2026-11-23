@@ -12,7 +12,8 @@ export const CONSENT_MAX_AGE = 60 * 60 * 24 * 365;
  * Version of the cookie policy. Change it when the policy changes in a way that needs new consent
  * (e.g. a new optional cookie): every saved choice with another version is ignored and the banner shows again.
  */
-export const COOKIE_POLICY_VERSION = "2026-10-31";
+// 2026-11-23: new "functional" category (a material change: everyone is asked again)
+export const COOKIE_POLICY_VERSION = "2026-11-23";
 
 export type ConsentChoices = Record<OptionalCategory, boolean>;
 export type Consent = ConsentChoices & {
@@ -26,12 +27,14 @@ export const OPEN_SETTINGS_EVENT = "cookie-settings:open";
 /** Fired after the choice changes, so <ConsentGate> can load or unload. */
 export const CONSENT_CHANGED_EVENT = "cookie-consent:changed";
 
-/* Cookie value: "<version>.<id>.<analytics 0|1><marketing 0|1>" */
+/* Cookie value: "<version>.<id>.<functional 0|1><analytics 0|1><marketing 0|1>" (one digit per OPTIONAL_CATEGORIES entry) */
 
 function decode(raw: string): Consent | null {
-  const m = /^([\w-]+)\.([\w-]+)\.([01]{2})$/.exec(raw);
-  if (!m || m[1] !== COOKIE_POLICY_VERSION) return null; // old policy version: ask again
-  return { version: m[1], id: m[2], analytics: m[3][0] === "1", marketing: m[3][1] === "1" };
+  const m = /^([\w-]+)\.([\w-]+)\.([01]+)$/.exec(raw);
+  // Old policy version (or another number of categories): ask again
+  if (!m || m[1] !== COOKIE_POLICY_VERSION || m[3].length !== OPTIONAL_CATEGORIES.length) return null;
+  const choices = Object.fromEntries(OPTIONAL_CATEGORIES.map((c, i) => [c, m[3][i] === "1"])) as ConsentChoices;
+  return { ...choices, version: m[1], id: m[2] };
 }
 
 /** The saved choice for the current policy version, or null (no choice yet → show the banner). */
@@ -55,7 +58,7 @@ export function saveConsent(choices: ConsentChoices): Consent {
   const before = readConsent();
   const consent: Consent = { ...choices, id: before?.id ?? newId(), version: COOKIE_POLICY_VERSION };
   const secure = location.protocol === "https:" ? "; Secure" : "";
-  const value = `${consent.version}.${consent.id}.${consent.analytics ? 1 : 0}${consent.marketing ? 1 : 0}`;
+  const value = `${consent.version}.${consent.id}.${OPTIONAL_CATEGORIES.map((c) => (consent[c] ? 1 : 0)).join("")}`;
   document.cookie = `${CONSENT_COOKIE}=${value}; Path=/; Max-Age=${CONSENT_MAX_AGE}; SameSite=Lax${secure}`;
 
   const withdrawn = OPTIONAL_CATEGORIES.filter((c) => before?.[c] && !choices[c]);

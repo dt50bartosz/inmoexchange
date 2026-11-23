@@ -9,7 +9,7 @@ import { toFeed } from "@/lib/server/feeds";
 import { toProperty } from "@/lib/server/properties";
 import { checkKyeroFeed } from "@/lib/server/kyero";
 import { importFeed } from "@/lib/server/feed-import";
-import { loginDetailsEmail, sendEmail, type EmailResult } from "@/lib/server/email";
+import { developerLoginDetailsEmail, loginDetailsEmail, sendEmail, type EmailResult } from "@/lib/server/email";
 import { hashPassword, temporaryPassword } from "@/lib/server/passwords";
 import type { addAgencySchema } from "@/lib/schemas/admin";
 import type { AdminAgency, AdminFeed, AdminProperty } from "@/types/admin";
@@ -145,22 +145,48 @@ export type CreateAgencyResult =
 /**
  * Gives the agency's login a new temporary password and emails it (login = the agency's email).
  * The agency must choose its own password at the next login. The password itself is never stored or logged.
- * Returns null if the agency has no login.
+ * An agency without a login (e.g. its login was deleted) gets one, on the agency's email.
+ * Returns null if the agency doesn't exist, or has no login and its email is already used by another login.
  */
 export async function sendLoginDetails(agencyId: string): Promise<EmailResult | null> {
   await requireAdmin();
-  const [user, agency] = await Promise.all([
-    collections.users.findOne({ agencyId }),
-    ObjectId.isValid(agencyId) ? collections.agencies.findOne({ _id: new ObjectId(agencyId) }) : null,
-  ]);
-  if (!user || !agency) return null;
+  const agency = ObjectId.isValid(agencyId) ? await collections.agencies.findOne({ _id: new ObjectId(agencyId) }) : null;
+  if (!agency) return null;
+  // Never an admin login, even one linked to this agency by mistake
+  let user = await collections.users.findOne({ agencyId, role: { $ne: "admin" } });
+  if (!user) {
+    const email = agency.email?.toLowerCase();
+    if (!email || (await collections.users.findOne({ email }, { projection: { _id: 1 } }))) return null;
+    const now = new Date();
+    const created: UserDoc = {
+      _id: new ObjectId(),
+      role: agency.accountType === "developer" ? "developer" : "agency",
+      agencyId,
+      email,
+      passwordHash: null,
+      createdAt: now,
+      updatedAt: now,
+    };
+    try {
+      await collections.users.insertOne(created);
+    } catch (error) {
+      if (error instanceof MongoServerError && error.code === 11000) return null;
+      throw error;
+    }
+    user = created;
+  }
 
   const password = temporaryPassword();
   await collections.users.updateOne(
     { _id: user._id },
     { $set: { passwordHash: await hashPassword(password), mustChangePassword: true, invite: null, updatedAt: new Date() } }
   );
-  return sendEmail(loginDetailsEmail({ to: user.email, agencyName: agency.name, password }));
+  // Developers (promotoras) get their own wording; agencies the usual email
+  return sendEmail(
+    agency.accountType === "developer"
+      ? developerLoginDetailsEmail({ to: user.email, developerName: agency.name, password })
+      : loginDetailsEmail({ to: user.email, agencyName: agency.name, password })
+  );
 }
 
 /** "Costa Homes S.L." → "costa-homes-s-l" */

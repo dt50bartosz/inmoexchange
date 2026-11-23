@@ -3,7 +3,7 @@ import { Plus } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { eyebrow, sectionPad, sectionTitle } from "./styles";
 
-const QUESTIONS = ["pay", "feed", "consent", "commission", "cancel", "developer"] as const;
+const QUESTIONS = ["feed", "consent", "commission", "cancel", "developer"] as const;
 
 /** Section 6: native <details> accordion (no client JS) + FAQPage JSON-LD built from the same texts. */
 export default async function Faq() {
@@ -29,7 +29,7 @@ export default async function Faq() {
             <details key={k} className="group py-1">
               <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 py-3 font-semibold text-navy [&::-webkit-details-marker]:hidden">
                 {q}
-                <Plus aria-hidden className="size-5 shrink-0 text-terracotta transition-transform group-open:rotate-45 motion-reduce:transition-none" />
+                <Plus aria-hidden className="size-5 shrink-0 text-cta-ink transition-transform group-open:rotate-45 motion-reduce:transition-none" />
               </summary>
               <p className="pb-5 pr-9 leading-7 text-navy/75">
                 {a}
@@ -37,7 +37,7 @@ export default async function Faq() {
                 {k === "developer" && (
                   <>
                     {" "}
-                    <Link href="/promotoras#solicitud" className="font-semibold text-terracotta underline underline-offset-4 hover:no-underline">
+                    <Link href="/promotoras#solicitud" className="font-semibold text-cta-ink underline underline-offset-4 hover:no-underline">
                       {t("items.developer.link")}
                     </Link>
                   </>

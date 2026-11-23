@@ -6,6 +6,7 @@ import { collections } from "@/lib/db";
 import { fail, ok, zodFieldErrors, type ActionResult } from "@/lib/server/action-result";
 import { requireAdmin } from "@/lib/server/admin/current-admin";
 import { toAdminProperty } from "@/lib/server/admin/agencies";
+import { orgOf, recordAdminEvent } from "@/lib/server/platform-events";
 import { propertyHiddenEmail, propertyRestoredEmail, sendEmail } from "@/lib/server/email";
 import { hidePropertySchema } from "@/lib/schemas/admin";
 import { getTranslations } from "next-intl/server";
@@ -37,7 +38,7 @@ async function findProperty(id: unknown) {
 }
 
 export async function hidePropertyAction(id: string, input: unknown): Promise<Result> {
-  await requireAdmin();
+  const admin = await requireAdmin();
   const parsed = hidePropertySchema.safeParse(input);
   if (!parsed.success) return fail("validation_error", zodFieldErrors(parsed.error));
 
@@ -50,6 +51,7 @@ export async function hidePropertyAction(id: string, input: unknown): Promise<Re
     { returnDocument: "after" }
   );
   if (!saved) return fail("not_found");
+  await recordAdminEvent(admin, "property_hidden", await orgOf(String(saved.agencyId)), `Property ${String(saved.code ?? saved.reference ?? "")} hidden from the network: ${parsed.data.reason}`);
   // Tell the agency why (an email failure doesn't undo the hide)
   const to = await agencyEmailFor(saved);
   if (to) await sendEmail(propertyHiddenEmail({ to, reference: String(saved.code ?? saved.reference ?? ""), title: await titleOf(saved), reason: parsed.data.reason }));
@@ -57,7 +59,7 @@ export async function hidePropertyAction(id: string, input: unknown): Promise<Re
 }
 
 export async function unhidePropertyAction(id: string): Promise<Result> {
-  await requireAdmin();
+  const admin = await requireAdmin();
   const property = await findProperty(id);
   if (!property) return fail("not_found");
 
@@ -67,6 +69,7 @@ export async function unhidePropertyAction(id: string): Promise<Result> {
     { returnDocument: "after" }
   );
   if (!saved) return fail("not_found");
+  await recordAdminEvent(admin, "property_unhidden", await orgOf(String(saved.agencyId)), `Property ${String(saved.code ?? saved.reference ?? "")} back on the network`);
   // Only if it was actually hidden before
   const to = property.moderation ? await agencyEmailFor(saved) : null;
   if (to) await sendEmail(propertyRestoredEmail({ to, reference: String(saved.code ?? saved.reference ?? ""), title: await titleOf(saved) }));

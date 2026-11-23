@@ -13,6 +13,7 @@ import { PROJECT_STATUSES, PROJECT_STATUS_LABELS, STALE_DAYS } from "@/lib/const
 import type { ProjectRow } from "@/types/developers";
 import AdminPage from "../ui/AdminPage";
 import CrmTabs from "./CrmTabs";
+import { DeleteProjectButton } from "./DeleteButtons";
 import { FreshnessCell, FreshnessLegend, ProjectStatusBadge, priceRange } from "./crm-ui";
 
 const normalize = (s: string) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
@@ -115,12 +116,13 @@ export default function ProjectsListPage({ projects, initial }: Props) {
               <TableHead className="text-right">Units</TableHead>
               <TableHead>Price</TableHead>
               <TableHead>Last update</TableHead>
+              <TableHead className="w-12"><span className="sr-only">Actions</span></TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {visible.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={7} className="py-12 text-center text-muted-foreground">
+                <TableCell colSpan={8} className="py-12 text-center text-muted-foreground">
                   {projects.length === 0 ? "No projects yet. Open a developer to add one." : "No projects match these filters."}
                 </TableCell>
               </TableRow>
@@ -156,6 +158,9 @@ export default function ProjectsListPage({ projects, initial }: Props) {
                   <TableCell className="whitespace-nowrap">{priceRange(p.priceFrom, p.priceTo, p.currency) || "—"}</TableCell>
                   <TableCell>
                     <FreshnessCell iso={p.lastUpdateAt} days={p.daysSinceUpdate} freshness={p.freshness} />
+                  </TableCell>
+                  <TableCell className="text-right">
+                    <DeleteProjectButton project={{ id: p.id, name: p.name }} />
                   </TableCell>
                 </TableRow>
               ))

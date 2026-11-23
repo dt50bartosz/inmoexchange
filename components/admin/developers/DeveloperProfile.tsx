@@ -14,6 +14,7 @@ import type { Activity, Developer, DeveloperContact, DeveloperNote, Project } fr
 import AdminPage from "../ui/AdminPage";
 import AccountPanel from "./AccountPanel";
 import { ActivityTimeline, DeveloperStatusBadge, FreshnessCell, InfoCard, ProjectStatusBadge, Row, priceRange } from "./crm-ui";
+import { DeleteProjectButton } from "./DeleteButtons";
 import DeveloperContacts from "./DeveloperContacts";
 import DeveloperNotes from "./DeveloperNotes";
 
@@ -159,12 +160,13 @@ export default function DeveloperProfile({ developer: d, projects, activity, con
                   <TableHead className="text-right">Units</TableHead>
                   <TableHead>Price</TableHead>
                   <TableHead>Last update</TableHead>
+                  <TableHead className="w-12"><span className="sr-only">Actions</span></TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {projects.length === 0 ? (
                   <TableRow>
-                    <TableCell colSpan={6} className="py-10 text-center text-muted-foreground">
+                    <TableCell colSpan={7} className="py-10 text-center text-muted-foreground">
                       No projects yet.{" "}
                       <Link href={ADMIN_ROUTES.newProject(d.id)} className="font-medium text-foreground underline">
                         Add one
@@ -191,6 +193,9 @@ export default function DeveloperProfile({ developer: d, projects, activity, con
                       <TableCell className="whitespace-nowrap">{priceRange(p.priceFrom, p.priceTo, p.currency) || "—"}</TableCell>
                       <TableCell>
                         <FreshnessCell iso={p.lastUpdateAt} days={p.daysSinceUpdate} freshness={p.freshness} />
+                      </TableCell>
+                      <TableCell className="text-right">
+                        <DeleteProjectButton project={{ id: p.id, name: p.name }} />
                       </TableCell>
                     </TableRow>
                   ))

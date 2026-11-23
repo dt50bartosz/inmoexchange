@@ -26,7 +26,7 @@ export default async function Rules() {
         <ul className="divide-y divide-navy/10 rounded-2xl border border-navy/10 bg-white">
           {RULES.map(({ key, icon: Icon }) => (
             <li key={key} className="flex gap-4 p-5 sm:p-6">
-              <Icon aria-hidden className="mt-0.5 size-5 shrink-0 text-terracotta" />
+              <Icon aria-hidden className="mt-0.5 size-5 shrink-0 text-cta-ink" />
               <p className="leading-7 text-navy/80">
                 <strong className="font-semibold text-navy">{t(`items.${key}.strong`)}</strong> {t(`items.${key}.body`)}
               </p>

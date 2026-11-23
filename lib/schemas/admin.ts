@@ -73,7 +73,7 @@ export const agencyApplicationSchema = z.object({
   crmAgencyNumber: text(40),
   paymentFrequency: z.union([z.literal(""), z.enum(PAYMENT_FREQUENCIES)]),
   iban: z.string().trim().refine((v) => v === "" || isValidIban(v), V.iban),
-  acceptPrivacy: z.boolean().refine((v) => v, V.acceptPrivacy),
+  // Legal acceptance (terms, privacy, agreements, marketing) is sent as `legal` and checked by checkConsent()
   /** Spam trap: a hidden field people never see. Bots fill it in; the server then saves nothing. */
   faxNumber: z.string().max(200).optional(),
 });

@@ -9,9 +9,17 @@ import { CONTACT_EMAIL, CONTACT_PHONE } from "@/lib/constants/contact";
 const linkClass = "text-white/75 transition-colors hover:text-white";
 
 /** The public website's footer. The agency panel keeps components/Footer.tsx, so changes here never reach it. */
+/** Legal pages managed in Admin → Legal documents (labels: messages legal.docs). */
+const LEGAL_EXTRA = [
+  { doc: "data_protection", href: "/legal/proteccion-de-datos" },
+  { doc: "agency_terms", href: "/legal/condiciones-agencias" },
+  { doc: "developer_terms", href: "/legal/condiciones-promotores" },
+] as const;
+
 export default async function SiteFooter() {
   const t = await getTranslations("footer");
   const nav = await getTranslations("navbar");
+  const tl = await getTranslations("legal");
 
   return (
     <footer className="bg-ink text-white">
@@ -56,6 +64,11 @@ export default async function SiteFooter() {
             <Link href="/privacidad" className="hover:text-white">{t("privacy")}</Link>
             <Link href="/terminos" className="hover:text-white">{t("terms")}</Link>
             <Link href="/cookies" className="hover:text-white">{t("cookiePolicy")}</Link>
+            {LEGAL_EXTRA.map((l) => (
+              <Link key={l.doc} href={l.href} className="hover:text-white">
+                {tl(`docs.${l.doc}`)}
+              </Link>
+            ))}
             <CookieSettingsButton asLink label={t("cookieSettings")} className="hover:text-white" />
           </div>
           <span>{t("region")}</span>

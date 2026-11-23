@@ -16,5 +16,17 @@ export const newPasswordSchema = z
   })
   .refine((v) => v.password === v.confirm, { path: ["confirm"], message: V.passwordMatch });
 
+/**
+ * First login (temporary password): the new password. Legal acceptance (agency / developer logins) is sent as `legal`
+ * and checked by checkConsent() in lib/server/legal-acceptances.ts.
+ */
+export const firstLoginSchema = z
+  .object({
+    password: z.string().min(PASSWORD_MIN, V.passwordMin).max(200, V.tooLong),
+    confirm: z.string().min(1, V.required),
+  })
+  .refine((v) => v.password === v.confirm, { path: ["confirm"], message: V.passwordMatch });
+
 export type LoginValues = z.input<typeof loginSchema>;
+export type FirstLoginValues = z.input<typeof firstLoginSchema>;
 export type NewPasswordValues = z.input<typeof newPasswordSchema>;

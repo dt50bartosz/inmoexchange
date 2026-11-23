@@ -1,6 +1,8 @@
 // lib/db.ts
 import "server-only";
 import { MongoClient, type Db } from "mongodb";
+import type { PlatformEventDoc } from "@/types/platform-events";
+import type { LegalAcceptanceDoc, LegalDocVersionDoc } from "@/types/legal";
 import type { AgencyDoc, UserDoc } from "../types/models";
 import type { ContactDoc } from "../types/crm";
 import type { FeedDoc } from "../types/feed";
@@ -16,11 +18,21 @@ import { BLOG_LANGS } from "./constants/blog";
 
 /** One cookie choice (lib/actions/consent.ts): proof of what a visitor agreed to, without IP or account. */
 export interface ConsentRecordDoc {
+  /** Anonymous visitor id: the random id in the visitor's cookie_consent cookie. */
   consentId: string;
+  /** Logged-in user at the time (from the session, never from the browser); null for visitors. */
+  userId?: string | null;
+  /** Cookie policy version (COOKIE_POLICY_VERSION). */
   version: string;
+  /** Privacy policy version shown at the time (PRIVACY_POLICY_VERSION). */
+  privacyVersion?: string;
+  /** Missing on records from before the functional category existed (it didn't exist then: false). */
+  functional?: boolean;
   analytics: boolean;
   marketing: boolean;
   action: "accept_all" | "reject_all" | "custom";
+  /** Where the choice was made. Missing on old records (all were the banner). */
+  method?: "banner" | "preferences_centre" | "account_settings";
   createdAt: Date;
 }
 
@@ -74,6 +86,12 @@ export const collections = {
   projectActivity: db.collection<ActivityDoc>("project_activity"),
   developerContacts: db.collection<DeveloperContactDoc>("developer_contacts"),
   developerNotes: db.collection<DeveloperNoteDoc>("developer_notes"),
+  // Admin → Activity: logins and account events across the platform (lib/server/platform-events.ts)
+  platformEvents: db.collection<PlatformEventDoc>("platform_events"),
+  // Versioned legal documents (lib/server/legal-docs.ts)
+  legalDocuments: db.collection<LegalDocVersionDoc>("legal_documents"),
+  // Who accepted which legal document version, and marketing choices (lib/server/legal-acceptances.ts)
+  legalAcceptances: db.collection<LegalAcceptanceDoc>("legal_acceptances"),
 } as const;
 
 /* ---------- Indexes: all of them here, created once per server process ---------- */
@@ -134,6 +152,17 @@ export function ensureIndexes() {
     collections.devUnits.createIndex({ developmentId: 1, status: 1 }, { name: "development_status" }),
     collections.devUnits.createIndex({ developerId: 1 }, { name: "developer" }),
     collections.clientRegistrations.createIndex({ developerId: 1, status: 1, createdAt: -1 }, { name: "developer_status_newest" }),
+    collections.platformEvents.createIndex({ createdAt: -1 }, { name: "newest" }),
+    // One version label per document; at most one draft and one published version per document
+    collections.legalDocuments.createIndex({ key: 1, version: 1 }, { unique: true, name: "key_version_unique" }),
+    collections.legalAcceptances.createIndex({ userId: 1, createdAt: -1 }, { name: "user_newest" }),
+    collections.legalAcceptances.createIndex({ orgId: 1, createdAt: -1 }, { name: "org_newest" }),
+    collections.legalAcceptances.createIndex({ applicationId: 1 }, { name: "application", partialFilterExpression: { applicationId: { $type: "string" } } }),
+    collections.legalAcceptances.createIndex({ kind: 1, createdAt: -1 }, { name: "kind_newest" }),
+    collections.legalDocuments.createIndex({ key: 1 }, { unique: true, name: "one_draft", partialFilterExpression: { status: "draft" } }),
+    collections.legalDocuments.createIndex({ key: 1, status: 1 }, { unique: true, name: "one_published", partialFilterExpression: { status: "published" } }),
+    collections.platformEvents.createIndex({ orgId: 1, createdAt: -1 }, { name: "org_newest" }),
+    collections.platformEvents.createIndex({ type: 1, createdAt: -1 }, { name: "type_newest" }),
     collections.clientRegistrations.createIndex({ agencyId: 1, createdAt: -1 }, { name: "agency_newest" }),
     collections.clientRegistrations.createIndex({ developmentId: 1, buyerKeys: 1 }, { name: "development_buyer" }),
     // Future Kyero import: one unit per feed item
@@ -155,6 +184,8 @@ export function ensureIndexes() {
     // Cookie consent records: kept 3 years (the longest limitation period for LOPDGDD infringements), then deleted
     collections.consentRecords.createIndex({ createdAt: 1 }, { expireAfterSeconds: 3 * 365 * 24 * 60 * 60, name: "expire_3y" }),
     collections.consentRecords.createIndex({ consentId: 1, createdAt: -1 }, { name: "consent_latest" }),
+    // A user's consent history (Privacy & consent page, admin)
+    collections.consentRecords.createIndex({ userId: 1, createdAt: -1 }, { name: "user_latest", partialFilterExpression: { userId: { $type: "string" } } }),
     // Developer CRM
     collections.agencies.createIndex({ accountType: 1 }, { name: "account_type", partialFilterExpression: { accountType: { $type: "string" } } }),
     collections.devProjects.createIndex({ developerId: 1, lastUpdateAt: -1 }, { name: "developer_latest" }),

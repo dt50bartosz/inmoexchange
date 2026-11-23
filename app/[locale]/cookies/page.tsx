@@ -6,16 +6,36 @@ import { Container } from "@/components/ui/Layout";
 import CookieSettingsButton from "@/components/CookieSettingsButton";
 import { COOKIE_POLICY_VERSION } from "@/lib/cookie-consent";
 import { COOKIE_INVENTORY } from "@/lib/cookie-inventory";
+import LegalDocumentView, { legalDocForPage, legalDocMetadata } from "@/components/legal/LegalDocumentView";
+import LegalLinks from "@/components/legal/LegalLinks";
 
 /** Date of the last change to this policy (shown on the page). Bump COOKIE_POLICY_VERSION too when consent must be asked again. */
 const UPDATED = new Date(COOKIE_POLICY_VERSION);
 
-export async function generateMetadata(): Promise<Metadata> {
+type Props = { params: Promise<{ locale: string }>; searchParams: Promise<{ version?: string | string[] }> };
+
+export async function generateMetadata({ params, searchParams }: Props): Promise<Metadata> {
+  // A version published in Admin → Legal documents replaces the written text (the cookie table always stays)
+  const shown = await legalDocForPage("cookies", (await searchParams).version);
+  if (shown) return legalDocMetadata((await params).locale, shown);
   const t = await getTranslations("cookies.policy");
   return { title: t("title"), description: t("intro") };
 }
 
-export default async function CookiePolicyPage() {
+export default async function CookiePolicyPage({ searchParams }: Props) {
+  const shown = await legalDocForPage("cookies", (await searchParams).version);
+  if (shown) {
+    const t = await getTranslations("cookies.policy");
+    return (
+      <LegalDocumentView {...shown}>
+        <section className="space-y-3">
+          <h2 className="text-xl font-semibold">{t("usedTitle")}</h2>
+          <CookieTable />
+        </section>
+        <ManageCookies />
+      </LegalDocumentView>
+    );
+  }
   const t = await getTranslations("cookies.policy");
   const format = await getFormatter();
 
@@ -34,33 +54,7 @@ export default async function CookiePolicyPage() {
           <h2 className="text-xl font-semibold">{t("usedTitle")}</h2>
           <p>{t("usedBody")}</p>
           <p>{t("categoriesBody")}</p>
-          <div className="overflow-x-auto rounded-lg border border-border">
-            <table className="w-full min-w-[760px] text-left text-sm">
-              <thead className="bg-muted/50">
-                <tr>
-                  <th scope="col" className="px-4 py-2.5 font-medium">{t("table.name")}</th>
-                  <th scope="col" className="px-4 py-2.5 font-medium">{t("table.provider")}</th>
-                  <th scope="col" className="px-4 py-2.5 font-medium">{t("table.purpose")}</th>
-                  <th scope="col" className="px-4 py-2.5 font-medium">{t("table.duration")}</th>
-                  <th scope="col" className="px-4 py-2.5 font-medium">{t("table.type")}</th>
-                  <th scope="col" className="px-4 py-2.5 font-medium">{t("table.consent")}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {COOKIE_INVENTORY.map((c) => (
-                  <tr key={c.name} className="border-t border-border align-top">
-                    <td className="px-4 py-3 font-mono text-xs">{c.name}</td>
-                    <td className="px-4 py-3">{c.provider}</td>
-                    <td className="px-4 py-3">{t(`purpose.${c.purposeKey}`)}</td>
-                    <td className="px-4 py-3 whitespace-nowrap">{t(`duration.${c.durationKey}`)}</td>
-                    <td className="px-4 py-3">{t(`category.${c.category}`)}</td>
-                    <td className="px-4 py-3">{t(c.category === "necessary" ? "consentNo" : "consentYes")}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="text-sm text-muted-foreground">{t("prefixNote")}</p>
+          <CookieTable />
         </section>
 
         <section className="space-y-3">
@@ -68,12 +62,56 @@ export default async function CookiePolicyPage() {
           <p>{t("legalBody")}</p>
         </section>
 
-        <section className="space-y-3">
-          <h2 className="text-xl font-semibold">{t("manageTitle")}</h2>
-          <p>{t("manageBody")}</p>
-          <CookieSettingsButton label={t("changeSettings")} />
-        </section>
+        <ManageCookies />
       </div>
+      <LegalLinks />
     </Container>
+  );
+}
+
+/** Every cookie the site sets (lib/cookie-inventory.ts): always generated from the code, never typed by hand. */
+async function CookieTable() {
+  const t = await getTranslations("cookies.policy");
+  return (
+    <>
+      <div className="overflow-x-auto rounded-lg border border-border">
+        <table className="w-full min-w-[760px] text-left text-sm">
+          <thead className="bg-muted/50">
+            <tr>
+              <th scope="col" className="px-4 py-2.5 font-medium">{t("table.name")}</th>
+              <th scope="col" className="px-4 py-2.5 font-medium">{t("table.provider")}</th>
+              <th scope="col" className="px-4 py-2.5 font-medium">{t("table.purpose")}</th>
+              <th scope="col" className="px-4 py-2.5 font-medium">{t("table.duration")}</th>
+              <th scope="col" className="px-4 py-2.5 font-medium">{t("table.type")}</th>
+              <th scope="col" className="px-4 py-2.5 font-medium">{t("table.consent")}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {COOKIE_INVENTORY.map((c) => (
+              <tr key={c.name} className="border-t border-border align-top">
+                <td className="px-4 py-3 font-mono text-xs">{c.name}</td>
+                <td className="px-4 py-3">{c.provider}</td>
+                <td className="px-4 py-3">{t(`purpose.${c.purposeKey}`)}</td>
+                <td className="px-4 py-3 whitespace-nowrap">{t(`duration.${c.durationKey}`)}</td>
+                <td className="px-4 py-3">{t(`category.${c.category}`)}</td>
+                <td className="px-4 py-3">{t(c.category === "necessary" ? "consentNo" : "consentYes")}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p className="text-sm text-muted-foreground">{t("prefixNote")}</p>
+    </>
+  );
+}
+
+async function ManageCookies() {
+  const t = await getTranslations("cookies.policy");
+  return (
+    <section className="space-y-3">
+      <h2 className="text-xl font-semibold">{t("manageTitle")}</h2>
+      <p>{t("manageBody")}</p>
+      <CookieSettingsButton label={t("changeSettings")} />
+    </section>
   );
 }

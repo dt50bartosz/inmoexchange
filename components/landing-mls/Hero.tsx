@@ -1,23 +1,15 @@
 import Image from "next/image";
-import { getFormatter, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { ArrowRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
-import { getLandingStats } from "@/lib/server/landing-stats";
+import LandingNav from "./LandingNav";
 import { ctaOutlineOnDark, ctaPrimary, inner } from "./styles";
 import Wordmark from "./Wordmark";
 import heroImage from "@/public/index.webp";
 
-/** Header + hero, on navy. The page's only H1. Counters come from the database and a counter at 0 is not shown. */
+/** Header + hero, on navy. The page's only H1. (No agency / property counters: removed on request, 2026-11-23.) */
 export default async function Hero() {
   const t = await getTranslations("landing");
-  const format = await getFormatter();
-  const stats = await getLandingStats();
-
-  const counters = [
-    { key: "agencies", value: stats.memberAgencies },
-    { key: "properties", value: stats.sharedProperties },
-  ].filter((c) => c.value > 0);
 
   return (
     <div className="relative isolate overflow-hidden bg-navy text-white">
@@ -26,15 +18,10 @@ export default async function Hero() {
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-navy/95 via-navy/80 to-navy/40" />
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-t from-navy/90 via-transparent to-navy/50" />
 
-      <header className="px-5 sm:px-8">
+      <header className="relative z-30 px-5 sm:px-8">
         <div className={`${inner} flex items-center justify-between gap-4 py-5`}>
           <Wordmark priority />
-          <div className="flex items-center gap-3 sm:gap-5">
-            <LanguageSwitcher onDark />
-            <Link href="/login" className="text-sm font-medium text-white/85 underline-offset-4 hover:text-white hover:underline">
-              {t("nav.login")}
-            </Link>
-          </div>
+          <LandingNav />
         </div>
       </header>
 
@@ -67,22 +54,6 @@ export default async function Hero() {
             </div>
             <p className="mt-5 text-sm text-white/70">{t("hero.trust")}</p>
           </div>
-
-          {counters.length > 0 && (
-            <dl aria-label={t("hero.statsLabel")} className="mt-12 flex flex-wrap gap-x-10 gap-y-6 border-t border-white/15 pt-8">
-              {counters.map((c) => (
-                <div key={c.key}>
-                  <dt className="sr-only">{t(`hero.${c.key}`, { count: c.value })}</dt>
-                  <dd className="flex items-baseline gap-2">
-                    <span className="text-3xl font-semibold tabular-nums sm:text-4xl">{format.number(c.value)}</span>
-                    <span aria-hidden className="text-sm text-white/75">
-                      {t(`hero.${c.key}`, { count: c.value })}
-                    </span>
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          )}
         </div>
       </section>
     </div>

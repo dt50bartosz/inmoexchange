@@ -10,6 +10,7 @@ import { consumeRateLimit } from "@/lib/server/rate-limit";
 import { newApplicationEmail, sendEmail } from "@/lib/server/email";
 import { developerApplicationSchema } from "@/lib/schemas/developer-application";
 import type { AgencyApplicationDoc } from "@/types/admin";
+import { checkConsent, recordAcceptances } from "@/lib/server/legal-acceptances";
 
 /*
  * Public "Para promotoras" form. Same system as the agency /join form: the request becomes a pending
@@ -20,9 +21,14 @@ import type { AgencyApplicationDoc } from "@/types/admin";
  */
 export async function submitDeveloperApplicationAction(
   input: unknown
-): Promise<ActionResult<null, "validation_error" | "rate_limited" | "server_error">> {
+): Promise<ActionResult<null, "validation_error" | "rate_limited" | "server_error" | "legal_outdated">> {
   const parsed = developerApplicationSchema.safeParse(input);
-  if (!parsed.success) return fail("validation_error", zodFieldErrors(parsed.error));
+  // The legal boxes: every document in force ticked (at the version shown), authorised, marketing optional
+  const consent = await checkConsent("developer", (input as { legal?: unknown } | null)?.legal);
+  if (!parsed.success || !consent.ok) {
+    if (!consent.ok && consent.error === "legal_outdated") return fail("legal_outdated");
+    return fail("validation_error", { ...(parsed.success ? {} : zodFieldErrors(parsed.error)), ...(consent.ok ? {} : consent.fieldErrors) });
+  }
 
   // Spam trap filled in: pretend it worked, save nothing
   if (parsed.data.faxNumber) return ok(null);
@@ -78,6 +84,8 @@ export async function submitDeveloperApplicationAction(
       agencyId: null,
     };
     await collections.applications.insertOne(doc);
+    // One record per accepted document version + authorisation + marketing choice; linked to the account on approval
+    await recordAcceptances(consent.data, { applicationId: doc._id.toHexString(), email }, "registration", await getLocale());
   } catch (err) {
     console.error("[promotoras] saving the application failed", err);
     return fail("server_error");

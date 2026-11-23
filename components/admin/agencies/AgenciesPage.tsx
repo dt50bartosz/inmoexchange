@@ -1,11 +1,24 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useTransition } from "react";
 import { useTranslations } from "next-intl";
-import { Plus, Search } from "lucide-react";
-import { Link } from "@/i18n/navigation";
+import { Plus, Search, Trash2, X } from "lucide-react";
+import { toast } from "sonner";
+import { Link, useRouter } from "@/i18n/navigation";
 import { Badge } from "@/components/ui/Badge";
-import { buttonVariants } from "@/components/ui/Button";
+import { Button, buttonVariants } from "@/components/ui/Button";
+import { Checkbox } from "@/components/ui/checkbox";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
+import { deleteAgenciesAction } from "@/app/[locale]/admin/agencies/[id]/server/actions";
 import { Input } from "@/components/ui/Input";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import SimpleSelect from "@/components/panel/SimpleSelect";
@@ -47,6 +60,12 @@ export default function AgenciesPage({ agencies, feedCounts, propertyCounts, sta
   const [status, setStatus] = useState("all");
   const [area, setArea] = useState("all");
   const [page, setPage] = useState(1);
+  const router = useRouter();
+  const [selected, setSelected] = useState<Set<string>>(new Set());
+  /** Ids waiting for confirmation: one row's trash icon, or "Delete selected". */
+  const [toDelete, setToDelete] = useState<string[] | null>(null);
+  const [typed, setTyped] = useState("");
+  const [busy, startTransition] = useTransition();
 
   const rows = useMemo(() => {
     const q = normalize(query.trim());
@@ -65,6 +84,60 @@ export default function AgenciesPage({ agencies, feedCounts, propertyCounts, sta
   const reset = <T,>(fn: (v: T) => void) => (v: T) => {
     fn(v);
     setPage(1);
+  };
+
+  // Selection only counts agencies still in the list (a deleted one drops out after the refresh)
+  const selectedIds = agencies.filter((a) => selected.has(a.id)).map((a) => a.id);
+  const allMatchingSelected = rows.length > 0 && rows.every((a) => selected.has(a.id));
+  const someMatchingSelected = rows.some((a) => selected.has(a.id));
+  const toggleAll = (on: boolean) =>
+    setSelected((s) => {
+      const next = new Set(s);
+      for (const a of rows) {
+        if (on) next.add(a.id);
+        else next.delete(a.id);
+      }
+      return next;
+    });
+  const toggleOne = (id: string, on: boolean) =>
+    setSelected((s) => {
+      const next = new Set(s);
+      if (on) next.add(id);
+      else next.delete(id);
+      return next;
+    });
+
+  const askDelete = (ids: string[]) => {
+    setTyped("");
+    setToDelete(ids);
+  };
+  const deleteCount = toDelete?.length ?? 0;
+  const single = toDelete && toDelete.length === 1 ? agencies.find((a) => a.id === toDelete[0]) : undefined;
+  const needsTyping = deleteCount > 1;
+
+  const remove = () => {
+    const ids = toDelete ?? [];
+    setToDelete(null);
+    startTransition(async () => {
+      const res = await deleteAgenciesAction(ids).catch(() => null);
+      if (!res?.ok) {
+        toast.error("Couldn't delete. Try again.");
+        return;
+      }
+      const { deleted, cancelled, missing } = res.data;
+      const parts = [
+        deleted && `${deleted} deleted`,
+        cancelled && `${cancelled} developer${cancelled === 1 ? "" : "s"} cancelled instead (agencies registered clients with them)`,
+        missing && `${missing} no longer existed`,
+      ].filter(Boolean);
+      toast.success(parts.join(" · ") || "Nothing to delete.");
+      setSelected((s) => {
+        const next = new Set(s);
+        ids.forEach((id) => next.delete(id));
+        return next;
+      });
+      router.refresh();
+    });
   };
 
   return (
@@ -92,14 +165,43 @@ export default function AgenciesPage({ agencies, feedCounts, propertyCounts, sta
         />
       </div>
 
-      <p className="mb-2 text-sm text-muted-foreground" aria-live="polite">
-        {rows.length} {rows.length === 1 ? "agency" : "agencies"}
-      </p>
+      <div className="mb-2 flex min-h-9 flex-wrap items-center justify-between gap-2">
+        <p className="text-sm text-muted-foreground" aria-live="polite">
+          {rows.length} {rows.length === 1 ? "agency" : "agencies"}
+          {selectedIds.length > 0 && <span className="font-medium text-foreground"> · {selectedIds.length} selected</span>}
+        </p>
+        {selectedIds.length > 0 && (
+          <div className="flex flex-wrap gap-2">
+            {!allMatchingSelected && rows.length > 0 && (
+              <Button type="button" variant="outline" size="sm" onClick={() => toggleAll(true)}>
+                Select all {rows.length} matching
+              </Button>
+            )}
+            <Button type="button" variant="ghost" size="sm" onClick={() => setSelected(new Set())}>
+              <X aria-hidden className="size-4" />
+              Clear
+            </Button>
+            <Button type="button" variant="destructive" size="sm" disabled={busy} onClick={() => askDelete(selectedIds)}>
+              <Trash2 aria-hidden className="size-4" />
+              Delete selected ({selectedIds.length})
+            </Button>
+          </div>
+        )}
+      </div>
 
       <div className="overflow-x-auto rounded-xl border bg-card">
-        <Table className="min-w-[1040px]">
+        <Table className="min-w-[1120px]">
           <TableHeader>
             <TableRow>
+              <TableHead className="w-10">
+                <Checkbox
+                  checked={allMatchingSelected}
+                  indeterminate={!allMatchingSelected && someMatchingSelected}
+                  onCheckedChange={(on) => toggleAll(!!on)}
+                  aria-label={`Select all ${rows.length} matching agencies`}
+                  disabled={rows.length === 0}
+                />
+              </TableHead>
               <TableHead>Agency</TableHead>
               <TableHead>Contact</TableHead>
               <TableHead>Status</TableHead>
@@ -109,18 +211,22 @@ export default function AgenciesPage({ agencies, feedCounts, propertyCounts, sta
               <TableHead className="text-right">WhatsApp (30d)</TableHead>
               <TableHead>Joined</TableHead>
               <TableHead>Last login</TableHead>
+              <TableHead className="w-12"><span className="sr-only">Actions</span></TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {visible.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={9} className="py-10 text-center text-muted-foreground">
+                <TableCell colSpan={11} className="py-10 text-center text-muted-foreground">
                   {agencies.length === 0 ? "No agencies yet." : "No agencies match."}
                 </TableCell>
               </TableRow>
             ) : (
               visible.map((a) => (
-                <TableRow key={a.id}>
+                <TableRow key={a.id} data-state={selected.has(a.id) ? "selected" : undefined}>
+                  <TableCell>
+                    <Checkbox checked={selected.has(a.id)} onCheckedChange={(on) => toggleOne(a.id, !!on)} aria-label={`Select ${a.name}`} />
+                  </TableCell>
                   <TableCell className="max-w-[260px]">
                     <Link href={ADMIN_ROUTES.agency(a.id)} className="block truncate font-medium hover:underline">
                       {a.name}
@@ -159,6 +265,11 @@ export default function AgenciesPage({ agencies, feedCounts, propertyCounts, sta
                   <StatCell recent={stats[a.id]?.whatsapp30 ?? 0} totalText={`${stats[a.id]?.whatsapp ?? 0} total`} recentLabel="in the last 30 days" />
                   <TableCell className="whitespace-nowrap text-muted-foreground">{f.date(a.createdAt)}</TableCell>
                   <TableCell className="whitespace-nowrap text-muted-foreground">{a.lastLoginAt ? f.date(a.lastLoginAt) : "Never"}</TableCell>
+                  <TableCell className="text-right">
+                    <Button type="button" variant="ghost" size="sm" className="text-destructive hover:text-destructive" disabled={busy} onClick={() => askDelete([a.id])} aria-label={`Delete ${a.name}`} title="Delete">
+                      <Trash2 aria-hidden className="size-4" />
+                    </Button>
+                  </TableCell>
                 </TableRow>
               ))
             )}
@@ -169,6 +280,32 @@ export default function AgenciesPage({ agencies, feedCounts, propertyCounts, sta
       <div className="mt-4">
         <Pagination page={current} pageCount={pageCount} onChange={setPage} />
       </div>
+
+      <AlertDialog open={toDelete !== null} onOpenChange={(o) => !o && setToDelete(null)}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>{single ? `Delete ${single.name}?` : `Delete ${deleteCount} agencies?`}</AlertDialogTitle>
+            <AlertDialogDescription>
+              This permanently removes {single ? "the agency" : "each agency"}, its login, properties, feeds, CRM and client microsites. It can&apos;t be undone.
+              Developer accounts with client registrations by agencies are cancelled instead of deleted.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          {needsTyping && (
+            <div className="grid gap-1.5">
+              <label htmlFor="confirm-delete" className="text-sm">
+                Type <span className="font-mono font-semibold">DELETE</span> to confirm
+              </label>
+              <Input id="confirm-delete" value={typed} onChange={(e) => setTyped(e.target.value)} autoComplete="off" />
+            </div>
+          )}
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction variant="destructive" disabled={needsTyping && typed !== "DELETE"} onClick={remove}>
+              {single ? "Delete agency" : `Delete ${deleteCount} agencies`}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </AdminPage>
   );
 }

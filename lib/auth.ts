@@ -10,6 +10,7 @@ import { collections } from "@/lib/db";
 import { verifyPassword } from "@/lib/server/passwords";
 import { consumeRateLimit } from "@/lib/server/rate-limit";
 import { recordLogin } from "@/lib/server/project-activity";
+import { recordLoginEvent } from "@/lib/server/platform-events";
 import type { UserRole } from "@/types/models";
 
 /** The login form shows a message per code (see LoginForm). */
@@ -64,11 +65,16 @@ export const { handlers, auth, signIn, signOut, unstable_update } = NextAuth({
         if (!user?.passwordHash || !(await verifyPassword(user.passwordHash, password))) throw new LoginError("invalid");
         // Admins have no organisation; agency and developer logins need one that may use the network
         const role = roleOf(user);
-        if (role !== "admin" && !(await agencyCanLogIn(user.agencyId))) throw new LoginError("suspended");
+        if (role !== "admin" && !(await agencyCanLogIn(user.agencyId))) {
+          await recordLoginEvent(user, role, "account suspended or cancelled");
+          throw new LoginError("suspended");
+        }
 
         await collections.users.updateOne({ _id: user._id }, { $set: { lastLoginAt: new Date() } });
         // Developer CRM: a developer's login is part of its activity history (never blocks the login)
         if (role !== "admin") await recordLogin(user).catch((e) => console.error("recordLogin failed", e));
+        // Admin → Activity: every login, whatever the role (never blocks the login)
+        await recordLoginEvent(user, role);
         return {
           id: user._id.toHexString(),
           email: user.email,

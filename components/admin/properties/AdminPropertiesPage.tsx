@@ -62,7 +62,8 @@ export default function AdminPropertiesPage({ agencies, initialProperties, stats
     }
   };
 
-  const [query, setQuery] = useState("");
+  // ?q= opens the list on one listing (links from Admin → MLS)
+  const [query, setQuery] = useState(params.get("q") ?? "");
   const [agency, setAgency] = useState(params.get("agency") ?? "all");
   const [area, setArea] = useState("all");
   const [status, setStatus] = useState("all");

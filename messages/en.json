@@ -699,7 +699,7 @@
         "perMonth": "/ month + {vat}% IVA",
         "statuses": {
           "active": "Active",
-          "trialing": "Free trial",
+          "trialing": "Trial",
           "past_due": "Payment failed",
           "canceled": "Cancelled"
         },
@@ -1016,20 +1016,21 @@
         "signed_out": "You were signed out because your password or login changed. Log in again."
       },
       "noAccount": "Is your agency not on Colabora MLS yet?",
-      "join": "Join free for 6 months",
+      "join": "Join",
       "forgot": "Forgot password?"
     },
     "changePassword": {
       "metaTitle": "Choose your password",
       "title": "Choose your password",
-      "description": "You logged in with a temporary password. Choose your own to continue.",
+      "description": "You logged in with a temporary password. Choose your own and accept the terms to continue.",
       "password": "New password",
       "confirm": "Repeat new password",
       "hint": "At least 10 characters.",
       "submit": "Save and continue",
       "submitting": "Saving…",
       "saved": "Password saved.",
-      "failed": "Couldn't save your password. Try again."
+      "failed": "Couldn't save your password. Try again.",
+      "acceptTerms": "I have read and accept the <terms>terms and conditions</terms> and the <privacy>privacy policy</privacy>"
     },
     "forgot": {
       "metaTitle": "Forgot password",
@@ -1084,7 +1085,7 @@
       "notFoundBody": "It may have been sold or taken off the market.",
       "agencyTitle": "Are you an estate agency?",
       "agencyBody": "Join Colabora MLS to share listings with other agencies and sell this property together with its listing agency.",
-      "agencyCta": "Join free for 6 months"
+      "agencyCta": "Join"
     }
   },
   "join": {
@@ -1126,7 +1127,7 @@
       "ibanHint": "For direct debit once billing starts",
       "acceptPrivacy": "I accept the privacy policy",
       "optional": "Optional",
-      "noBanking": "No banking details required: the first 6 months are free.",
+      "noBanking": "No banking details required.",
       "addBanking": "Add IBAN now (optional)",
       "removeBanking": "Don’t add bank details"
     },
@@ -1149,7 +1150,7 @@
     "explore": "Explore",
     "listings": "Listings",
     "agencies": "Agencies",
-    "join": "Join free for 6 months",
+    "join": "Join",
     "login": "Agency login",
     "rights": "© {year} Colabora MLS. All rights reserved.",
     "cookiePolicy": "Cookie policy",
@@ -1175,29 +1176,40 @@
   "cookies": {
     "banner": {
       "title": "Cookies",
-      "settingsTitle": "Cookie settings",
-      "text": "We use cookies the site needs to work, such as keeping you logged in and remembering your language. With your consent we may also use optional cookies; you can accept them, reject them or choose by category.",
+      "settingsTitle": "Cookie preferences centre",
+      "text": "We use the cookies the site needs to work, such as keeping you logged in. With your consent we may also use optional cookies (functional, analytics and marketing). Nothing optional is switched on until you accept it, and you can change your choice at any time.",
       "policy": "Cookie policy",
       "accept": "Accept all",
       "reject": "Reject non-essential",
-      "configure": "Configure",
-      "save": "Save my choices",
+      "configure": "Customise preferences",
+      "save": "Save my preferences",
       "alwaysOn": "Always on",
       "noneInUse": "We don't use any cookies of this type at the moment.",
       "categories": {
         "necessary": {
           "title": "Necessary",
-          "description": "Needed for the site to work: login, security and remembering your language and cookie choice."
+          "description": "Needed for the site to work: login, security and remembering your language and cookie choice.",
+          "examples": "Authentication · Security · Session management · User preferences"
         },
         "analytics": {
           "title": "Analytics",
-          "description": "Help us understand how the site is used, so we can improve it."
+          "description": "Help us understand how the site is used, so we can improve it.",
+          "examples": "Google Analytics · Website performance · Visitor behaviour · Traffic analysis"
         },
         "marketing": {
           "title": "Marketing",
-          "description": "Used to show relevant advertising and measure campaigns."
+          "description": "Used to show relevant advertising and measure campaigns.",
+          "examples": "Advertising · Remarketing · Marketing tracking · Advertising pixels"
+        },
+        "functional": {
+          "title": "Functional",
+          "description": "Remember settings you choose, to improve your experience.",
+          "examples": "Language preferences · Remembered settings · Enhanced functionality"
         }
-      }
+      },
+      "privacy": "Privacy policy",
+      "rejectAll": "Reject all",
+      "settingsIntro": "Choose which optional cookies you allow. Necessary cookies are always on because the site can't work without them. You can change or withdraw your consent at any time from “Cookie settings” in the footer."
     },
     "policy": {
       "title": "Cookie policy",
@@ -1233,11 +1245,12 @@
       "manageBody": "You can change or withdraw your choice at any time with the button below or the \"Cookie settings\" link at the bottom of every page. Withdrawing is as easy as giving consent. You can also delete or block cookies in your browser settings; if you block the necessary ones, you won't be able to log in.",
       "changeSettings": "Change cookie settings",
       "version": "Policy version {version}",
-      "categoriesBody": "Cookies are grouped in three categories: necessary, analytics and marketing. Only necessary cookies are set without your consent. Analytics and marketing cookies are only set after you accept them, and we don't use any at the moment.",
+      "categoriesBody": "Cookies are grouped in four categories: necessary, functional, analytics and marketing. Only necessary cookies are set without your consent. Functional, analytics and marketing cookies are only set after you accept them, and we don't use any at the moment.",
       "category": {
         "necessary": "Necessary",
         "analytics": "Analytics",
-        "marketing": "Marketing"
+        "marketing": "Marketing",
+        "functional": "Functional"
       },
       "consentYes": "Yes",
       "consentNo": "No"
@@ -1444,12 +1457,20 @@
   "landing": {
     "meta": {
       "title": "Colabora MLS – Collaboration network for estate agencies on the Spanish coast",
-      "description": "More buyers for your listings and more listings for your buyers: the network of verified agencies on the Spanish coast. 6 months free."
+      "description": "More buyers for your listings and more listings for your buyers: the network of verified agencies on the Spanish coast."
     },
     "brand": "Colabora MLS",
     "nav": {
       "login": "Log in",
-      "home": "Colabora MLS, home"
+      "home": "Colabora MLS, home",
+      "label": "Main navigation",
+      "howItWorks": "How it works",
+      "rules": "Rules",
+      "faq": "FAQ",
+      "blog": "Blog",
+      "developers": "For developers",
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu"
     },
     "hero": {
       "eyebrow": "Agencies on the Spanish coast",
@@ -1460,7 +1481,7 @@
         "resale": "Resale",
         "newBuild": "New builds"
       },
-      "primaryCta": "Join free for 6 months",
+      "primaryCta": "Join for free",
       "secondaryCta": "How it works",
       "trust": "Verified agencies only · Kyero import · No commitment",
       "statsLabel": "The network today",
@@ -1530,25 +1551,10 @@
         }
       }
     },
-    "pricing": {
-      "eyebrow": "Pricing",
-      "title": "One plan, no small print",
-      "free": "6 months free",
-      "after": "Then €25 / month + VAT",
-      "terms": "No commitment · No setup fee",
-      "deadline": "",
-      "launch": "Launch offer for agencies that join before {fecha}.",
-      "cta": "Join free",
-      "account": "One account per agency, everything included"
-    },
     "faq": {
       "eyebrow": "FAQ",
       "title": "Frequently asked questions",
       "items": {
-        "pay": {
-          "q": "Do I have to pay anything to start?",
-          "a": "No. You get 6 months free and we don't ask for a card."
-        },
         "feed": {
           "q": "Which feed format do you accept?",
           "a": "Kyero XML: your listings sync automatically every 24 h. You can also add properties by hand."
@@ -1574,7 +1580,7 @@
     },
     "finalCta": {
       "title": "More buyers for your portfolio. Start today.",
-      "cta": "Join free for 6 months",
+      "cta": "Join",
       "whatsapp": "Message us on WhatsApp",
       "whatsappMessage": "Hi, I'd like information about Colabora MLS for my agency."
     },
@@ -1948,7 +1954,7 @@
   "developersLanding": {
     "meta": {
       "title": "For developers: your new builds on the agency network",
-      "description": "Colabora MLS: verified estate agencies on the Spanish coast selling your new-build developments. Free account during the launch phase."
+      "description": "Colabora MLS: verified estate agencies on the Spanish coast selling your new-build developments."
     },
     "brand": "Colabora MLS",
     "nav": {
@@ -1963,7 +1969,7 @@
       "eyebrow": "For developers",
       "title": "Your new builds, in the hands of the agencies selling on the coast",
       "subtitle": "Colabora MLS is the collaboration network for verified estate agencies on the Spanish coast. List your developments and reach the agencies that work with buyers every day.",
-      "primaryCta": "Request free access",
+      "primaryCta": "Request access",
       "secondaryCta": "How it works"
     },
     "card": {
@@ -1977,11 +1983,6 @@
       "from": "From X €",
       "lockTitle": "Prices and availability",
       "lockText": "visible to member agencies only"
-    },
-    "offer": {
-      "title": "Launch offer: a free account",
-      "text": "Free during the launch phase. Once the network is established it will become a paid service: we'll give you 30 days' notice and you can leave at no cost.",
-      "cta": "I want to join"
     },
     "benefits": {
       "title": "What you gain by listing on Colabora",
@@ -2042,7 +2043,7 @@
         },
         "leave": {
           "q": "Can I leave?",
-          "a": "Yes, whenever you like, at no cost."
+          "a": "Yes, whenever you like."
         }
       }
     },
@@ -2096,7 +2097,7 @@
     "updated": "Last updated: {date}",
     "exampleBanner": "Page in preparation: the company details shown here are examples and will be replaced with the real ones before launch.",
     "spanishBinding": "This is a translation. In case of doubt, the Spanish version prevails.",
-    "related": "Legal texts",
+    "related": "Other legal documents",
     "links": {
       "notice": "Legal notice",
       "privacy": "Privacy policy",
@@ -2194,10 +2195,6 @@
           "title": "Content you publish",
           "body": "You are responsible for the properties, developments, photos, documents and texts you publish, and for holding the rights to them. You authorise us to show them to network members and on the client pages and XML exports you set up.\n\nWe may hide content that breaks these terms or the law, telling you why."
         },
-        "price": {
-          "title": "Price",
-          "body": "The price and payment terms of each type of account are those shown on the website when you join. Developer accounts are free during the launch phase.\n\nIf we change the price, we'll email you at least 30 days in advance and you can leave at no cost before it applies."
-        },
         "leaving": {
           "title": "Leaving and suspension",
           "body": "You can leave whenever you like by writing to {email}; there is no minimum term.\n\nWe may suspend or close an account that breaks these terms, normally after a warning; in serious cases, immediately."
@@ -2212,13 +2209,50 @@
         },
         "changes": {
           "title": "Changes to these terms",
-          "body": "If we change these terms significantly, we'll email members at least 30 days in advance. If you don't agree, you can leave at no cost before they apply."
+          "body": "If we change these terms significantly, we'll email members at least 30 days in advance. If you don't agree, you can leave before they apply."
         },
         "law": {
           "title": "Governing law and courts",
           "body": "These terms are governed by Spanish law. Any dispute is submitted to the courts of {courts}."
         }
       }
+    },
+    "docs": {
+      "terms": "Terms and Conditions",
+      "privacy": "Privacy Policy",
+      "cookies": "Cookie Policy",
+      "legal_notice": "Legal Notice",
+      "data_protection": "Data Protection",
+      "agency_terms": "Agency Terms",
+      "developer_terms": "Developer Terms",
+      "mls_agreement": "MLS Participation Agreement",
+      "data_sharing": "Data Sharing Agreement",
+      "listing_accuracy": "Property Listing and Data Accuracy Agreement"
+    },
+    "doc": {
+      "version": "Version {version}",
+      "published": "published on {date}",
+      "oldVersion": "You are viewing an earlier version of this document, kept as a record of what was accepted at the time.",
+      "viewCurrent": "View the version in force",
+      "placeholderBanner": "Document in preparation: the highlighted parts are still to be completed and reviewed by a qualified legal professional.",
+      "placeholderLabel": "To be completed by a legal professional",
+      "notTranslated": "This document is not available in your language yet; the Spanish version is shown.",
+      "pending": "This document is being prepared and has not been published yet. If you have any questions, write to us through the contact page."
     }
+  },
+  "legalConsent": {
+    "legend": "Legal acceptance",
+    "terms": "I have read and agree to the Colabora MLS <link>Terms and Conditions</link> (v{version}).",
+    "privacy": "I acknowledge that I have read the Colabora MLS <link>Privacy Policy</link> (v{version}).",
+    "document": "I have read and agree to the <link>{title}</link> (v{version}).",
+    "authorised": {
+      "agency": "I confirm that I am authorised to register this agency and to accept these terms on its behalf.",
+      "developer": "I confirm that I am authorised to register this company and to accept these terms on its behalf."
+    },
+    "marketing": "I agree to receive marketing communications, platform updates and promotional information from Colabora MLS.",
+    "marketingHint": "You can change this at any time in your account.",
+    "optional": "(optional)",
+    "required": "You need to accept this to continue.",
+    "outdated": "One of the legal documents has just been updated. Reload the page, read the new version and accept it again."
   }
 }

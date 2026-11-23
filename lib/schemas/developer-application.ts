@@ -26,7 +26,7 @@ export const developerApplicationSchema = z.object({
   activeDevelopments: z.enum(ACTIVE_DEVELOPMENTS, { message: V.pickOne }),
   feedUrl: text(500).transform(withScheme).refine(optionalMatch(RE.url), V.url),
   message: text(DEVELOPER_MESSAGE_MAX),
-  acceptTerms: z.boolean().refine((v) => v, V.acceptTerms),
+  // Legal acceptance (terms, privacy, agreements, marketing) is sent as `legal` and checked by checkConsent()
   /** Spam trap: a hidden field people never see. Bots fill it in; the server then saves nothing. */
   faxNumber: z.string().max(200).optional(),
 });

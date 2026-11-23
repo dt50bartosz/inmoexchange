@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { getFormatter, getLocale, getTranslations } from "next-intl/server";
 import { TriangleAlert } from "lucide-react";
-import { Link } from "@/i18n/navigation";
 import { Container } from "@/components/ui/Layout";
 import { LEGAL, LEGAL_IS_EXAMPLE } from "@/lib/constants/legal";
+import LegalLinks from "./LegalLinks";
 
 /** Values the texts can use: {company}, {cif}, {address}, {registry}, {email}, {courts}, {hosting}, {emailProvider}. */
 const VALUES = { ...LEGAL, registry: LEGAL.registry || "—" };
@@ -77,20 +77,7 @@ export default async function LegalPage({ namespace, sections }: Props) {
         ))}
       </div>
 
-      <nav aria-label={tl("related")} className="mt-12 flex flex-wrap gap-x-5 gap-y-2 border-t pt-6 text-sm">
-        {(
-          [
-            ["notice", "/aviso-legal"],
-            ["privacy", "/privacidad"],
-            ["terms", "/terminos"],
-            ["cookies", "/cookies"],
-          ] as const
-        ).map(([key, href]) => (
-          <Link key={key} href={href} className="text-muted-foreground underline-offset-4 hover:text-foreground hover:underline">
-            {tl(`links.${key}`)}
-          </Link>
-        ))}
-      </nav>
+      <LegalLinks />
     </Container>
   );
 }

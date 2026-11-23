@@ -1,6 +1,6 @@
 "use client";
 
-import { Building, Building2, HardHat, Home, Newspaper, Inbox, KeyRound, LayoutDashboard, LogOut, Plus, Rss, ShieldCheck, type LucideIcon } from "lucide-react";
+import { Activity, Building, Network, Scale, Building2, HardHat, Home, Newspaper, Inbox, KeyRound, LayoutDashboard, LogOut, Plus, Rss, ShieldCheck, type LucideIcon } from "lucide-react";
 import { Link, usePathname } from "@/i18n/navigation";
 import { ADMIN_ROUTES } from "@/lib/constants/admin";
 import type { AdminBadges } from "@/lib/server/admin/dashboard";
@@ -35,8 +35,11 @@ const ITEMS: Item[] = [
   { href: ADMIN_ROUTES.projects, label: "Developments", icon: Building, sub: true, match: (path) => isDevelopmentPage(path) && path !== ADMIN_ROUTES.pickDeveloperForProject },
   { href: ADMIN_ROUTES.pickDeveloperForProject, label: "New development", icon: Plus, sub: true, exact: true },
   { href: ADMIN_ROUTES.properties, label: "Properties", icon: Home },
+  { href: ADMIN_ROUTES.mls, label: "MLS health", icon: Network, sub: true },
+  { href: ADMIN_ROUTES.activity, label: "Activity", icon: Activity },
   { href: ADMIN_ROUTES.feeds, label: "XML feeds", icon: Rss, badge: "feeds" as const },
   { href: ADMIN_ROUTES.blog, label: "Blog", icon: Newspaper },
+  { href: ADMIN_ROUTES.legal, label: "Legal documents", icon: Scale },
   { href: ADMIN_ROUTES.security, label: "Security", icon: KeyRound },
 ];
 

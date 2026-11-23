@@ -26,3 +26,10 @@ export const LEGAL = {
   /** Last change to any of the three texts (YYYY-MM-DD). */
   updated: "2026-11-05",
 } as const;
+
+/**
+ * Versions saved with every consent record (lib/actions/consent.ts). The cookie policy version lives in
+ * lib/cookie-consent.ts (COOKIE_POLICY_VERSION) because changing it re-asks every visitor.
+ * TODO (consent phase 2): read these from the versioned legal documents managed in the admin.
+ */
+export const PRIVACY_POLICY_VERSION = LEGAL.updated;

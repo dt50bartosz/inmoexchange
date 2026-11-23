@@ -4,7 +4,6 @@ import Hero from "@/components/landing-mls/Hero";
 import HowItWorks from "@/components/landing-mls/HowItWorks";
 import Rules from "@/components/landing-mls/Rules";
 import Features from "@/components/landing-mls/Features";
-import Pricing from "@/components/landing-mls/Pricing";
 import Faq from "@/components/landing-mls/Faq";
 import FinalCta from "@/components/landing-mls/FinalCta";
 import LandingFooter from "@/components/landing-mls/LandingFooter";
@@ -46,7 +45,6 @@ export default function HomePage() {
       <HowItWorks />
       <Rules />
       <Features />
-      <Pricing />
       <Faq />
       <FinalCta />
       <LandingFooter />

@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import CookieSettingsButton from "@/components/CookieSettingsButton";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { inner } from "./styles";
 import Wordmark from "./Wordmark";
@@ -14,9 +15,18 @@ const LINKS = [
   { key: "contact", href: "/contacto" },
 ] as const;
 
+/** Legal pages managed in Admin → Legal documents (labels: messages legal.docs). */
+const LEGAL_EXTRA = [
+  { doc: "data_protection", href: "/legal/proteccion-de-datos" },
+  { doc: "agency_terms", href: "/legal/condiciones-agencias" },
+  { doc: "developer_terms", href: "/legal/condiciones-promotores" },
+] as const;
+
 /** Section 8: the landing's own footer (the site-wide one is hidden on this page, see components/PublicOnly.tsx). */
 export default async function LandingFooter() {
   const t = await getTranslations("landing.footer");
+  const tl = await getTranslations("legal");
+  const tf = await getTranslations("footer");
 
   return (
     <footer className="border-t border-white/10 bg-navy px-5 text-white sm:px-8">
@@ -42,6 +52,16 @@ export default async function LandingFooter() {
                   </Link>
                 </li>
               ))}
+              {LEGAL_EXTRA.map((l) => (
+                <li key={l.doc}>
+                  <Link href={l.href} className="text-white/80 underline-offset-4 hover:text-white hover:underline">
+                    {tl(`docs.${l.doc}`)}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <CookieSettingsButton asLink label={tf("cookieSettings")} className="text-white/80 underline-offset-4 hover:text-white hover:underline" />
+              </li>
             </ul>
           </nav>
           <LanguageSwitcher onDark className="md:justify-end" />

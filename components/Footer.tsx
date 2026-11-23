@@ -9,9 +9,17 @@ import { CONTACT_EMAIL, CONTACT_PHONE } from "@/lib/constants/contact";
 const linkClass = "text-white/70 transition-colors hover:text-white";
 
 /** The public site's footer: a navy band that closes every page (hidden on the panel and admin by PublicOnly in the layout). */
+/** Legal pages managed in Admin → Legal documents (labels: messages legal.docs). */
+const LEGAL_EXTRA = [
+  { doc: "data_protection", href: "/legal/proteccion-de-datos" },
+  { doc: "agency_terms", href: "/legal/condiciones-agencias" },
+  { doc: "developer_terms", href: "/legal/condiciones-promotores" },
+] as const;
+
 export default async function Footer() {
   const t = await getTranslations("footer");
   const nav = await getTranslations("navbar");
+  const tl = await getTranslations("legal");
 
   return (
     <footer className="bg-ink text-white">
@@ -60,6 +68,14 @@ export default async function Footer() {
             <Link href="/terminos" className="hover:text-white">{t("terms")}</Link>
             <span aria-hidden> · </span>
             <Link href="/cookies" className="hover:text-white">{t("cookiePolicy")}</Link>
+            {LEGAL_EXTRA.map((l) => (
+              <span key={l.doc}>
+                <span aria-hidden> · </span>
+                <Link href={l.href} className="hover:text-white">
+                  {tl(`docs.${l.doc}`)}
+                </Link>
+              </span>
+            ))}
             <span aria-hidden> · </span>
             <CookieSettingsButton asLink label={t("cookieSettings")} className="hover:text-white" />
           </span>

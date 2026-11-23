@@ -68,11 +68,12 @@
   /* Dark sections (heroes, CTA bands): deep navy, never pure black */
   --color-ink: var(--ink);
 
-  /* Colabora MLS landing: deep navy, off-white, one warm accent */
+  /* Colabora MLS landing: deep navy, off-white, brand blue accent (the orange terracotta was removed 2026-11-24) */
   --color-navy: #0b2545;
   --color-offwhite: #faf8f4;
-  --color-terracotta: #b5532e;        /* 4.9:1 with white text (AA) */
-  --color-terracotta-hover: #9c4425;
+  --color-cta: #0171f2;               /* brand blue: buttons, 4.5:1 with white text (AA) */
+  --color-cta-hover: #005bc4;
+  --color-cta-ink: #0166d9;           /* brand blue for small text and icons on light backgrounds, 4.9:1 (AA) */
 
   /* "Para promotoras" page (/promotoras): navy + the site's blue, matching the logo (dev-* names kept,
      so the page's components don't change) */
@@ -341,6 +342,15 @@
   .blog-content > :first-child { margin-top: 0; }
   .blog-content a { color: rgb(var(--brand-light)); text-decoration: underline; text-underline-offset: 2px; }
   .blog-content a:hover { text-decoration: none; }
+  /* Legal documents: {{…}} placeholders still to be supplied by a legal professional (LegalDocumentView) */
+  .legal-content .legal-placeholder {
+    background: color-mix(in oklab, var(--color-warning, #f59e0b) 22%, transparent);
+    color: inherit;
+    border: 1px dashed color-mix(in oklab, var(--color-warning, #f59e0b) 70%, transparent);
+    border-radius: 0.25rem;
+    padding: 0 0.25rem;
+    font-style: italic;
+  }
   .blog-content ul { list-style: disc; padding-left: 1.4em; }
   .blog-content ol { list-style: decimal; padding-left: 1.4em; }
   .blog-content li + li { margin-top: 0.35em; }

@@ -104,7 +104,7 @@ export default function AgencyDetail({ agency, feeds, properties, stats }: Props
     startTransition(async () => {
       const res = await sendLoginDetailsAction(agency.id).catch(() => null);
       if (!res?.ok) {
-        toast.error(res?.error === "not_found" ? "This agency has no login." : FAILED);
+        toast.error(res?.error === "not_found" ? "Couldn't create a login: the agency's email is missing or already used by another login." : FAILED);
         return;
       }
       loginEmailToast(agency.email, res.data);

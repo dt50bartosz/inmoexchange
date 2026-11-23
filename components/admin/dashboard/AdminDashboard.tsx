@@ -5,30 +5,54 @@ import { Link } from "@/i18n/navigation";
 import { buttonVariants } from "@/components/ui/Button";
 import { ADMIN_ROUTES, FEED_ERROR_TEXT } from "@/lib/constants/admin";
 import type { AdminDashboardData } from "@/lib/server/admin/dashboard";
+import { ActivityTimeline } from "../developers/crm-ui";
 import AdminPage from "../ui/AdminPage";
 import StatCard from "../ui/StatCard";
 import { useAdminFormat } from "../ui/useAdminFormat";
 
+function Section({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <section className="mt-8 first:mt-0">
+      <h2 className="mb-3 text-sm font-semibold tracking-wide text-muted-foreground uppercase">{title}</h2>
+      <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">{children}</div>
+    </section>
+  );
+}
+
 /** All numbers are counted on the server (lib/server/admin/dashboard.ts). */
 export default function AdminDashboard({ data }: { data: AdminDashboardData }) {
   const f = useAdminFormat();
-  const { pending, brokenFeeds: broken, agencies } = data;
+  const { pending, brokenFeeds: broken, agencies, developers } = data;
 
   return (
-    <AdminPage title="Dashboard" description="What needs your attention on inmoexchange.">
-      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+    <AdminPage title="Dashboard" description="The whole platform at a glance: estate agencies, property developers and the MLS.">
+      <Section title="Needs attention">
         <StatCard label="Pending applications" value={data.pendingCount} href={ADMIN_ROUTES.applications} tone="warning" />
-        <StatCard label="Feeds with errors" value={broken.length} href={`${ADMIN_ROUTES.feeds}`} tone="danger" />
+        <StatCard label="Feeds with errors" value={broken.length} href={ADMIN_ROUTES.feeds} tone="danger" />
+        <StatCard label="Client registrations waiting" value={data.registrations.pending} href={ADMIN_ROUTES.developers} tone="warning" hint="Waiting for the developer to decide" />
         <StatCard label="Properties hidden by admin" value={data.hiddenByAdmin} href={ADMIN_ROUTES.properties} />
-        <StatCard
-          label="Active agencies"
-          value={agencies.active}
-          href={ADMIN_ROUTES.agencies}
-          hint={`${agencies.trial} on trial · ${agencies.suspended} suspended`}
-        />
-        <StatCard label="Properties on the network" value={data.onNetwork} href={ADMIN_ROUTES.properties} hint={`${data.propertyCount} in total`} />
+      </Section>
+
+      <Section title="Estate agencies">
+        <StatCard label="Active agencies" value={agencies.active} href={ADMIN_ROUTES.agencies} hint={`${agencies.trial} on trial · ${agencies.suspended} suspended · ${agencies.cancelled} cancelled`} />
+        <StatCard label="New agencies (30 days)" value={data.newAccounts.agencies} href={ADMIN_ROUTES.agencies} />
+        <StatCard label="Agency logins used (30 days)" value={data.activeLogins.agency} href={ADMIN_ROUTES.agencies} />
         <StatCard label="Import feeds" value={data.feedCount} href={ADMIN_ROUTES.feeds} />
-      </div>
+      </Section>
+
+      <Section title="Property developers">
+        <StatCard label="Active developers" value={developers.active} href={ADMIN_ROUTES.developers} hint={`${developers.suspended} suspended · ${developers.cancelled} cancelled · ${data.activeLogins.developer} logged in (30 days)`} />
+        <StatCard label="Developments" value={data.developments.total} href={ADMIN_ROUTES.projects} hint={`${data.developments.published} published · ${data.developments.draft} draft`} />
+        <StatCard label="Units available" value={data.units.available} href={ADMIN_ROUTES.projects} hint={`${data.units.reserved} reserved · ${data.units.sold} sold`} />
+        <StatCard label="Client registrations (30 days)" value={data.registrations.last30} href={ADMIN_ROUTES.developers} />
+      </Section>
+
+      <Section title="MLS · last 30 days">
+        <StatCard label="Properties on the network" value={data.onNetwork} href={ADMIN_ROUTES.properties} hint={`${data.propertyCount} in total`} />
+        <StatCard label="New listings" value={data.mls.newListings} href={ADMIN_ROUTES.properties} />
+        <StatCard label="Property views" value={data.mls.views} href={ADMIN_ROUTES.properties} hint="One visitor per property per day" />
+        <StatCard label="WhatsApp clicks" value={data.mls.whatsapp} href={ADMIN_ROUTES.properties} hint={data.mls.contacts ? `${data.mls.contacts} contact clicks` : undefined} />
+      </Section>
 
       <div className="mt-8 grid gap-6 lg:grid-cols-2">
         <section className="rounded-xl border bg-card p-5">
@@ -81,6 +105,16 @@ export default function AdminDashboard({ data }: { data: AdminDashboardData }) {
           )}
         </section>
       </div>
+      <section className="mt-6 rounded-xl border bg-card p-5">
+        <div className="mb-3 flex items-center justify-between">
+          <h2 className="font-semibold">Latest development updates</h2>
+          <Link href={ADMIN_ROUTES.developers} className={buttonVariants({ variant: "ghost", size: "sm" })}>
+            Developer CRM
+            <ArrowRight aria-hidden className="size-4" />
+          </Link>
+        </div>
+        <ActivityTimeline items={data.recentActivity} showDeveloper empty="No development updates yet." />
+      </section>
     </AdminPage>
   );
 }

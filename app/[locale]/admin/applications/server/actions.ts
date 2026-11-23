@@ -5,6 +5,8 @@ import { collections } from "@/lib/db";
 import { fail, ok, zodFieldErrors, type ActionResult } from "@/lib/server/action-result";
 import { requireAdmin } from "@/lib/server/admin/current-admin";
 import { createAgency } from "@/lib/server/admin/agencies";
+import { orgOf, recordAdminEvent } from "@/lib/server/platform-events";
+import { linkApplicationAcceptances } from "@/lib/server/legal-acceptances";
 import { findApplication, registrationForAgency, toApplication } from "@/lib/server/admin/applications";
 import { addAgencySchema, rejectApplicationSchema } from "@/lib/schemas/admin";
 import { applicationRejectedEmail, sendEmail, type EmailResult } from "@/lib/server/email";
@@ -22,7 +24,7 @@ export async function approveApplicationAction(
   id: string,
   values: unknown
 ): Promise<Result<"validation_error" | "email_taken">> {
-  await requireAdmin();
+  const admin = await requireAdmin();
   const application = await findApplication(id);
   if (!application) return fail("not_found");
   if (application.status !== "pending") return fail("already_decided");
@@ -44,12 +46,15 @@ export async function approveApplicationAction(
     { returnDocument: "after" }
   );
   if (!saved) return fail("already_decided");
+  // What the applicant accepted on the form now belongs to the new account and its login
+  await linkApplicationAcceptances(application._id.toHexString(), created.id).catch((e) => console.error("linkApplicationAcceptances failed", e));
+  await recordAdminEvent(admin, "application_approved", await orgOf(created.id), `Application from ${saved.email} approved: account created`);
   return ok({ application: toApplication(saved), feed: created.feed, email: created.email });
 }
 
 /** The reason is optional; it goes into the rejection email to the applicant. */
 export async function rejectApplicationAction(id: string, input: unknown): Promise<Result<"validation_error">> {
-  await requireAdmin();
+  const admin = await requireAdmin();
   const parsed = rejectApplicationSchema.safeParse(input);
   if (!parsed.success) return fail("validation_error", zodFieldErrors(parsed.error));
 
@@ -62,6 +67,7 @@ export async function rejectApplicationAction(id: string, input: unknown): Promi
     { returnDocument: "after" }
   );
   if (!saved) return fail("already_decided");
+  await recordAdminEvent(admin, "application_rejected", null, `Application from ${saved.agencyName} (${saved.email}) rejected${saved.rejectReason ? `: ${saved.rejectReason}` : ""}`);
   const email = await sendEmail(applicationRejectedEmail({ to: saved.email, agencyName: saved.agencyName, reason: saved.rejectReason ?? "" }));
   return ok({ application: toApplication(saved), email });
 }

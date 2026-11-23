@@ -102,6 +102,10 @@ export interface UserDoc {
   /** True while the password is the temporary one from the email: the agency must choose its own at login. */
   mustChangePassword?: boolean;
   passwordChangedAt?: Date;
+  /** When the terms and privacy policy were accepted (ticked at first login, on the choose-password page). */
+  termsAcceptedAt?: Date;
+  /** Current marketing communications preference (history: legal_acceptances, kind "marketing"). Missing = never asked = no. */
+  marketingConsent?: { granted: boolean; at: Date };
   /** Raised on password change/reset and "sign out everywhere": sessions with an older number stop working. */
   sessionVersion?: number;
   /** "Forgot password" link waiting to be used (1 hour). Only a hash of the token is stored. */

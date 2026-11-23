@@ -1,12 +1,10 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Controller, useForm, type FieldPath } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
-import { Link } from "@/i18n/navigation";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/Input";
 import { Textarea } from "@/components/ui/textarea";
 import FormField from "@/components/panel/FormField";
@@ -21,7 +19,8 @@ import {
   type DeveloperApplicationInput,
 } from "@/lib/schemas/developer-application";
 import { submitDeveloperApplicationAction } from "./server/actions";
-import { useValidationMessage } from "@/components/panel/useValidationMessage";
+import LegalConsentFields, { emptyLegalConsent, legalConsentErrors, type LegalConsentValue } from "@/components/legal/LegalConsentFields";
+import type { RequiredLegalDoc } from "@/types/legal";
 
 const EMPTY: DeveloperApplicationInput = {
   fullName: "",
@@ -33,39 +32,53 @@ const EMPTY: DeveloperApplicationInput = {
   activeDevelopments: "" as ActiveDevelopments,
   feedUrl: "",
   message: "",
-  acceptTerms: false,
   faxNumber: "",
 };
 
 // Touch targets of at least 44px on this public page
 const field = "h-11 bg-white";
-const linkClass = "font-medium text-dev-accent underline underline-offset-4 hover:no-underline";
 
 /** "Para promotoras" application (#solicitud). Becomes a pending developer application in Admin → Applications. */
-export default function ApplicationForm() {
+export default function ApplicationForm({ legalDocs }: { legalDocs: RequiredLegalDoc[] }) {
   const t = useTranslations("developersLanding.form");
-  const tv = useValidationMessage();
   const formRef = useRef<HTMLFormElement>(null);
   const form = useForm<DeveloperApplicationInput>({ resolver: zodResolver(developerApplicationSchema), defaultValues: EMPTY, mode: "onTouched" });
   const { register, control, handleSubmit, formState, setError, reset } = form;
   const e = formState.errors;
+  // Legal acceptance: outside react-hook-form, checked here and again on the server (checkConsent)
+  const [legal, setLegal] = useState<LegalConsentValue>(emptyLegalConsent);
+  const [legalErrors, setLegalErrors] = useState<Record<string, string>>({});
+  const tc = useTranslations("legalConsent");
 
   const onSubmit = handleSubmit(
     async (values) => {
-      const res = await submitDeveloperApplicationAction(values).catch(() => null);
+      const missing = legalConsentErrors(legalDocs, legal);
+      setLegalErrors(missing);
+      if (Object.keys(missing).length) {
+        requestAnimationFrame(() => focusFirstInvalid(formRef.current));
+        return;
+      }
+      const res = await submitDeveloperApplicationAction({ ...values, legal }).catch(() => null);
       if (res?.ok) {
         toast.success(t("sent"));
         reset(EMPTY);
+        setLegal(emptyLegalConsent());
         return;
       }
       if (res?.error === "validation_error" && res.fieldErrors) {
-        for (const [name, message] of Object.entries(res.fieldErrors)) setError(name as FieldPath<DeveloperApplicationInput>, { type: "server", message });
+        setLegalErrors(Object.fromEntries(Object.entries(res.fieldErrors).filter(([f]) => f.startsWith("legal."))));
+        for (const [name, message] of Object.entries(res.fieldErrors)) {
+          if (!name.startsWith("legal.")) setError(name as FieldPath<DeveloperApplicationInput>, { type: "server", message });
+        }
         focusFirstInvalid(formRef.current);
         return;
       }
-      toast.error(res?.error === "rate_limited" ? t("rateLimited") : t("error"));
+      toast.error(res?.error === "rate_limited" ? t("rateLimited") : res?.error === "legal_outdated" ? tc("outdated") : t("error"));
     },
-    () => focusFirstInvalid(formRef.current)
+    () => {
+      setLegalErrors(legalConsentErrors(legalDocs, legal));
+      focusFirstInvalid(formRef.current);
+    }
   );
 
   const text = (name: "fullName" | "company" | "email" | "phone" | "website", opts: { type?: string; autoComplete?: string; placeholder?: string } = {}) => (
@@ -110,45 +123,16 @@ export default function ApplicationForm() {
         {(p) => <Textarea {...p} rows={5} maxLength={DEVELOPER_MESSAGE_MAX} className="bg-white" {...register("message")} />}
       </FormField>
 
-      <Controller
-        control={control}
-        name="acceptTerms"
-        render={({ field: f }) => (
-          <div>
-            <label className="flex min-h-11 cursor-pointer items-start gap-3 text-sm text-dev-ink">
-              <Checkbox
-                checked={f.value}
-                onCheckedChange={(checked) => f.onChange(checked === true)}
-                onBlur={f.onBlur}
-                aria-invalid={!!e.acceptTerms}
-                aria-describedby={e.acceptTerms ? "dev-terms-err" : undefined}
-                className="mt-0.5 size-5"
-              />
-              <span>
-                {t.rich("acceptTerms", {
-                  privacy: (chunks) => (
-                    <Link href="/privacidad" target="_blank" className={linkClass}>
-                      {chunks}
-                    </Link>
-                  ),
-                  terms: (chunks) => (
-                    <Link href="/terminos" target="_blank" className={linkClass}>
-                      {chunks}
-                    </Link>
-                  ),
-                })}
-                <span className="ml-0.5 text-destructive" aria-hidden>
-                  *
-                </span>
-              </span>
-            </label>
-            {e.acceptTerms?.message && (
-              <p id="dev-terms-err" className="mt-1.5 text-sm text-destructive">
-                {tv(e.acceptTerms.message)}
-              </p>
-            )}
-          </div>
-        )}
+      <LegalConsentFields
+        docs={legalDocs}
+        audience="developer"
+        value={legal}
+        onChange={(v) => {
+          setLegal(v);
+          if (Object.keys(legalErrors).length) setLegalErrors(legalConsentErrors(legalDocs, v));
+        }}
+        errors={legalErrors}
+        idPrefix="dev-legal"
       />
 
       {/* Spam trap: hidden from people and screen readers; bots fill it in */}

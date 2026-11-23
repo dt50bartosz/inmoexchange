@@ -1,16 +1,17 @@
 // app/[locale]/promotoras/page.tsx
 import type { Metadata } from "next";
+import { connection } from "next/server";
 import { Space_Grotesk } from "next/font/google";
 import { getTranslations } from "next-intl/server";
 import DevHeader from "@/components/developers-landing/DevHeader";
 import DevHero from "@/components/developers-landing/DevHero";
-import OfferBand from "@/components/developers-landing/OfferBand";
 import Benefits from "@/components/developers-landing/Benefits";
 import DevHowItWorks from "@/components/developers-landing/DevHowItWorks";
 import DevFaq from "@/components/developers-landing/DevFaq";
 import ApplySection from "@/components/developers-landing/ApplySection";
 import DevFooter from "@/components/developers-landing/DevFooter";
 import ApplicationForm from "./application-form";
+import { requiredDocsFor } from "@/lib/server/legal-acceptances";
 
 // Headings font for this page only (globals.css: --font-display)
 const grotesk = Space_Grotesk({ subsets: ["latin", "latin-ext"], variable: "--font-space-grotesk", display: "swap" });
@@ -45,17 +46,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 /** Public "Para promotoras" page. Has its own header and footer (the site ones are hidden by PublicOnly). */
-export default function DevelopersPage() {
+export default async function DevelopersPage() {
+  await connection(); // the legal versions in force are read at request time, never at build
+  // The legal documents in force for developers (their versions are saved with the application)
+  const legalDocs = await requiredDocsFor("developer");
   return (
     <div className={`${grotesk.variable} bg-white text-dev-ink`}>
       <DevHeader />
       <DevHero />
-      <OfferBand />
       <Benefits />
       <DevHowItWorks />
       <DevFaq />
       <ApplySection>
-        <ApplicationForm />
+        <ApplicationForm legalDocs={legalDocs} />
       </ApplySection>
       <DevFooter />
     </div>

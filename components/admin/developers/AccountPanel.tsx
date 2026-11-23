@@ -53,7 +53,7 @@ export default function AccountPanel({ developer: d, registrationCount }: { deve
     if (confirm === "login")
       startTransition(async () => {
         const res = await sendLoginDetailsAction(d.id).catch(() => null);
-        if (!res?.ok) toast.error(res?.error === "not_found" ? "This developer has no login." : FAILED);
+        if (!res?.ok) toast.error(res?.error === "not_found" ? "Couldn't create a login: the developer's email is missing or already used by another login." : FAILED);
         else {
           loginEmailToast(d.email, res.data);
           router.refresh();

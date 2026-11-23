@@ -7,7 +7,6 @@ import { useLocale, useTranslations } from "next-intl";
 import type { z } from "zod";
 import { CheckCircle2, Landmark } from "lucide-react";
 import { Card } from "@/components/ui/card";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/Input";
 import LocationInput from "@/components/panel/LocationInput";
 import SimpleSelect from "@/components/panel/SimpleSelect";
@@ -18,7 +17,8 @@ import { focusFirstInvalid } from "@/components/panel/mock";
 import { SPANISH_PROVINCES } from "@/lib/constants/provinces";
 import { PAYMENT_FREQUENCIES, PREFERRED_LANGUAGES, agencyApplicationSchema } from "@/lib/schemas/admin";
 import { submitApplicationAction } from "@/app/[locale]/join/server/actions";
-import { useValidationMessage } from "@/components/panel/useValidationMessage";
+import LegalConsentFields, { emptyLegalConsent, legalConsentErrors, type LegalConsentValue } from "@/components/legal/LegalConsentFields";
+import type { RequiredLegalDoc } from "@/types/legal";
 
 type Values = z.input<typeof agencyApplicationSchema>;
 
@@ -43,7 +43,6 @@ const EMPTY: Omit<Values, "preferredLanguage"> = {
   crmAgencyNumber: "",
   paymentFrequency: "",
   iban: "",
-  acceptPrivacy: false,
   faxNumber: "",
 };
 
@@ -65,14 +64,17 @@ function Group({ title, hint, children }: { title: string; hint?: string; childr
  * to the agency when the admin approves it, so nothing has to be typed twice.
  */
 /** Public sign-up: agencies only (developer accounts are created by admin). */
-export default function JoinForm() {
+export default function JoinForm({ legalDocs }: { legalDocs: RequiredLegalDoc[] }) {
   const t = useTranslations("join");
-  const tv = useValidationMessage();
   const locale = useLocale();
   const formRef = useRef<HTMLFormElement>(null);
   const [sent, setSent] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
-  // Default: no bank details (the first 6 months are free). The agency can still add them now if it wants.
+  // Legal acceptance: outside react-hook-form, checked here and again on the server (checkConsent)
+  const [legal, setLegal] = useState<LegalConsentValue>(emptyLegalConsent);
+  const [legalErrors, setLegalErrors] = useState<Record<string, string>>({});
+  const tc = useTranslations("legalConsent");
+  // Default: no bank details. The agency can still add them now if it wants.
   const [addBanking, setAddBanking] = useState(false);
   const toggleBanking = (on: boolean) => {
     setAddBanking(on);
@@ -94,26 +96,39 @@ export default function JoinForm() {
   const onSubmit = handleSubmit(
     async (values) => {
       setServerError(null);
+      const missing = legalConsentErrors(legalDocs, legal);
+      setLegalErrors(missing);
+      if (Object.keys(missing).length) {
+        requestAnimationFrame(() => focusFirstInvalid(formRef.current));
+        return;
+      }
       try {
-        const res = await submitApplicationAction(values);
+        const res = await submitApplicationAction({ ...values, legal });
         if (res.ok) {
           setSent(true);
           return;
         }
         if (res.error === "validation_error" && res.fieldErrors) {
-          for (const [field, message] of Object.entries(res.fieldErrors)) setError(field as FieldPath<Values>, { type: "server", message });
+          const legalFields = Object.fromEntries(Object.entries(res.fieldErrors).filter(([f]) => f.startsWith("legal.")));
+          setLegalErrors(legalFields);
+          for (const [field, message] of Object.entries(res.fieldErrors)) {
+            if (!field.startsWith("legal.")) setError(field as FieldPath<Values>, { type: "server", message });
+          }
           focusFirstInvalid(formRef.current);
         } else {
-          setServerError(res.error === "rate_limited" ? t("rateLimited") : t("error"));
+          setServerError(res.error === "rate_limited" ? t("rateLimited") : res.error === "legal_outdated" ? tc("outdated") : t("error"));
         }
       } catch {
         setServerError(t("error"));
       }
     },
-    () => focusFirstInvalid(formRef.current)
+    () => {
+      setLegalErrors(legalConsentErrors(legalDocs, legal));
+      focusFirstInvalid(formRef.current);
+    }
   );
 
-  const text = (name: Exclude<FieldPath<Values>, "acceptPrivacy" | "preferredLanguage" | "paymentFrequency">, opts: { required?: boolean; type?: string; autoComplete?: string; hint?: string; placeholder?: string; className?: string } = {}) => (
+  const text = (name: Exclude<FieldPath<Values>, "preferredLanguage" | "paymentFrequency">, opts: { required?: boolean; type?: string; autoComplete?: string; hint?: string; placeholder?: string; className?: string } = {}) => (
     <FormField label={t(`fields.${name}`)} required={opts.required} hint={opts.hint ?? (opts.required ? undefined : optional)} error={e[name]?.message} className={opts.className}>
       {(p) => <Input {...p} type={opts.type ?? "text"} autoComplete={opts.autoComplete ?? "off"} placeholder={opts.placeholder} {...register(name)} />}
     </FormField>
@@ -277,34 +292,16 @@ export default function JoinForm() {
                 </div>
               </Group>
 
-              <Controller
-                control={control}
-                name="acceptPrivacy"
-                render={({ field }) => (
-                  <div>
-                    <label className="flex cursor-pointer items-start gap-2.5 text-sm">
-                      <Checkbox
-                        checked={field.value}
-                        onCheckedChange={(checked) => field.onChange(checked === true)}
-                        onBlur={field.onBlur}
-                        aria-invalid={!!e.acceptPrivacy}
-                        aria-describedby={e.acceptPrivacy ? "join-privacy-err" : undefined}
-                        className="mt-0.5"
-                      />
-                      <span>
-                        {t("fields.acceptPrivacy")}
-                        <span className="ml-0.5 text-destructive" aria-hidden>
-                          *
-                        </span>
-                      </span>
-                    </label>
-                    {e.acceptPrivacy?.message && (
-                      <p id="join-privacy-err" className="mt-1.5 text-sm text-destructive">
-                        {tv(e.acceptPrivacy.message)}
-                      </p>
-                    )}
-                  </div>
-                )}
+              <LegalConsentFields
+                docs={legalDocs}
+                audience="agency"
+                value={legal}
+                onChange={(v) => {
+                  setLegal(v);
+                  if (Object.keys(legalErrors).length) setLegalErrors(legalConsentErrors(legalDocs, v));
+                }}
+                errors={legalErrors}
+                idPrefix="join-legal"
               />
 
               {/* Spam trap: hidden from people and screen readers; bots fill it in */}

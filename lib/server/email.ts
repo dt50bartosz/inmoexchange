@@ -118,6 +118,34 @@ export const loginDetailsEmail = (p: { to: string; agencyName: string; password:
     },
   });
 
+/** Login details for a property developer (promotora): same login page, worded for developers and their panel. */
+export const developerLoginDetailsEmail = (p: { to: string; developerName: string; password: string }) =>
+  bilingual({
+    to: p.to,
+    subject: { en: "Your Colabora MLS developer login", es: "Tus datos de acceso de promotor a Colabora MLS" },
+    url: `${baseUrl()}/login`,
+    en: {
+      lines: [
+        `Welcome to Colabora MLS, ${p.developerName}!`,
+        "Your developer account is ready. In your panel you can publish your developments, keep units and prices up to date and manage the client registrations agencies send you.",
+        "Your login details:",
+      ],
+      rows: [["Login", p.to], ["Temporary password", p.password]],
+      button: "Log in to the developer panel",
+      footer: "You'll be asked to choose your own password when you first log in. If you didn't expect this email, you can ignore it.",
+    },
+    es: {
+      lines: [
+        `¡Bienvenido a Colabora MLS, ${p.developerName}!`,
+        "Tu cuenta de promotor ya está lista. Desde tu panel puedes publicar tus promociones, mantener al día unidades y precios y gestionar los registros de clientes que te envían las agencias.",
+        "Tus datos de acceso:",
+      ],
+      rows: [["Usuario", p.to], ["Contraseña temporal", p.password]],
+      button: "Entrar al panel de promotor",
+      footer: "Al entrar por primera vez tendrás que elegir tu propia contraseña. Si no esperabas este correo, puedes ignorarlo.",
+    },
+  });
+
 /** "Forgot password": a link that sets a new password (valid 1 hour, works once). */
 export const passwordResetEmail = (to: string, token: string) =>
   bilingual({

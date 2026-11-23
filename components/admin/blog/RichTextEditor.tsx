@@ -32,10 +32,12 @@ type Props = {
   onChange: (html: string) => void;
   invalid?: boolean;
   describedBy?: string;
+  /** false hides the image button (e.g. legal documents). Default true. */
+  allowImages?: boolean;
 };
 
 /** Word-style editor for blog posts. Only makes what the server keeps (see cleanHtml in lib/server/blog.ts). */
-export default function RichTextEditor({ id, value, onChange, invalid, describedBy }: Props) {
+export default function RichTextEditor({ id, value, onChange, invalid, describedBy, allowImages = true }: Props) {
   const editor = useEditor({
     extensions: [
       StarterKit.configure({
@@ -67,13 +69,13 @@ export default function RichTextEditor({ id, value, onChange, invalid, described
         invalid ? "border-destructive" : "border-input"
       }`}
     >
-      {editor && <Toolbar editor={editor} />}
+      {editor && <Toolbar editor={editor} allowImages={allowImages} />}
       <EditorContent editor={editor} />
     </div>
   );
 }
 
-function Toolbar({ editor }: { editor: Editor }) {
+function Toolbar({ editor, allowImages }: { editor: Editor; allowImages: boolean }) {
   const fileRef = useRef<HTMLInputElement>(null);
   const [uploading, setUploading] = useState(false);
   const s = useEditorState({
@@ -130,7 +132,9 @@ function Toolbar({ editor }: { editor: Editor }) {
     { label: "Divider", icon: Minus, active: false, run: () => c().setHorizontalRule().run() },
     null,
     { label: "Link", icon: Link2, active: s.link, run: setLink },
-    { label: uploading ? "Uploading image…" : "Image", icon: uploading ? Loader2 : ImagePlus, active: false, run: () => fileRef.current?.click(), disabled: uploading },
+    ...(allowImages
+      ? [{ label: uploading ? "Uploading image…" : "Image", icon: uploading ? Loader2 : ImagePlus, active: false, run: () => fileRef.current?.click(), disabled: uploading }]
+      : []),
     null,
     { label: "Undo", icon: Undo2, active: false, run: () => c().undo().run(), disabled: !s.canUndo },
     { label: "Redo", icon: Redo2, active: false, run: () => c().redo().run(), disabled: !s.canRedo },

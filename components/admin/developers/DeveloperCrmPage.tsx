@@ -15,6 +15,7 @@ import type { Activity, DeveloperCrmStats, DeveloperRow } from "@/types/develope
 import AdminPage from "../ui/AdminPage";
 import StatCard from "../ui/StatCard";
 import CrmTabs from "./CrmTabs";
+import { DeleteDeveloperButton, DeleteProjectButton } from "./DeleteButtons";
 import { ActivityTimeline, DEVELOPER_STATUS_LABELS, DeveloperStatusBadge, FreshnessCell, FreshnessLegend, InfoCard, ProjectStatusBadge } from "./crm-ui";
 
 const normalize = (s: string) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
@@ -275,6 +276,7 @@ export default function DeveloperCrmPage({ rows, stats, recent, initial }: Props
                           <Link href={ADMIN_ROUTES.editDeveloper(r.id)} className={buttonVariants({ variant: "ghost", size: "sm" })} aria-label={`Edit ${r.name}`} title="Edit">
                             <Pencil aria-hidden className="size-4" />
                           </Link>
+                          <DeleteDeveloperButton developer={{ id: r.id, name: r.name }} />
                         </div>
                       </TableCell>
                     </TableRow>
@@ -294,7 +296,10 @@ export default function DeveloperCrmPage({ rows, stats, recent, initial }: Props
                           <TableCell>
                             <FreshnessCell iso={p.lastUpdateAt} days={p.daysSinceUpdate} freshness={p.freshness} />
                           </TableCell>
-                          <TableCell colSpan={2} />
+                          <TableCell />
+                          <TableCell className="text-right">
+                            <DeleteProjectButton project={{ id: p.id, name: p.name }} />
+                          </TableCell>
                         </TableRow>
                       ))}
                   </Fragment>

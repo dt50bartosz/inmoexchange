@@ -38,7 +38,7 @@
       "ibanHint": "Para la domiciliación cuando empiece la facturación",
       "acceptPrivacy": "Acepto la política de privacidad",
       "optional": "Opcional",
-      "noBanking": "No se requieren datos bancarios: los 6 primeros meses son gratis.",
+      "noBanking": "No se requieren datos bancarios.",
       "addBanking": "Añadir IBAN ahora (opcional)",
       "removeBanking": "No añadir datos bancarios"
     },
@@ -72,20 +72,21 @@
         "signed_out": "Se ha cerrado tu sesión porque cambió tu contraseña o tu acceso. Vuelve a entrar."
       },
       "noAccount": "¿Tu agencia aún no está en Colabora MLS?",
-      "join": "Únete gratis 6 meses",
+      "join": "Únete",
       "forgot": "¿Has olvidado tu contraseña?"
     },
     "changePassword": {
       "metaTitle": "Elige tu contraseña",
       "title": "Elige tu contraseña",
-      "description": "Has entrado con una contraseña temporal. Elige la tuya para continuar.",
+      "description": "Has entrado con una contraseña temporal. Elige la tuya y acepta las condiciones para continuar.",
       "password": "Nueva contraseña",
       "confirm": "Repite la nueva contraseña",
       "hint": "Al menos 10 caracteres.",
       "submit": "Guardar y continuar",
       "submitting": "Guardando…",
       "saved": "Contraseña guardada.",
-      "failed": "No se ha podido guardar la contraseña. Inténtalo de nuevo."
+      "failed": "No se ha podido guardar la contraseña. Inténtalo de nuevo.",
+      "acceptTerms": "He leído y acepto los <terms>términos y condiciones</terms> y la <privacy>política de privacidad</privacy>"
     },
     "forgot": {
       "metaTitle": "He olvidado mi contraseña",
@@ -140,7 +141,7 @@
       "notFoundBody": "Puede que se haya vendido o retirado del mercado.",
       "agencyTitle": "¿Eres una agencia inmobiliaria?",
       "agencyBody": "Únete a Colabora MLS para compartir inmuebles con otras agencias y vender este junto a la agencia que lo tiene.",
-      "agencyCta": "Únete gratis 6 meses"
+      "agencyCta": "Únete"
     }
   },
   "panel": {
@@ -637,7 +638,7 @@
     "explore": "Explorar",
     "listings": "Propiedades",
     "agencies": "Agencias",
-    "join": "Únete gratis 6 meses",
+    "join": "Únete",
     "login": "Acceso agencias",
     "rights": "© {year} Colabora MLS. Todos los derechos reservados.",
     "cookiePolicy": "Política de cookies",
@@ -663,29 +664,40 @@
   "cookies": {
     "banner": {
       "title": "Cookies",
-      "settingsTitle": "Configuración de cookies",
-      "text": "Usamos las cookies que el sitio necesita para funcionar, como mantener tu sesión iniciada y recordar tu idioma. Con tu consentimiento también podríamos usar cookies opcionales; puedes aceptarlas, rechazarlas o elegir por categorías.",
+      "settingsTitle": "Centro de preferencias de cookies",
+      "text": "Usamos las cookies necesarias para que el sitio funcione, como mantener tu sesión iniciada. Con tu consentimiento podríamos usar también cookies opcionales (funcionales, analíticas y de marketing). Nada opcional se activa hasta que lo aceptes, y puedes cambiar tu elección cuando quieras.",
       "policy": "Política de cookies",
       "accept": "Aceptar todas",
       "reject": "Rechazar las no necesarias",
-      "configure": "Configurar",
-      "save": "Guardar mi selección",
+      "configure": "Personalizar preferencias",
+      "save": "Guardar mis preferencias",
       "alwaysOn": "Siempre activas",
       "noneInUse": "Actualmente no usamos cookies de este tipo.",
       "categories": {
         "necessary": {
           "title": "Necesarias",
-          "description": "Imprescindibles para que el sitio funcione: inicio de sesión, seguridad y recordar tu idioma y tu elección sobre cookies."
+          "description": "Imprescindibles para que el sitio funcione: inicio de sesión, seguridad y recordar tu idioma y tu elección sobre cookies.",
+          "examples": "Autenticación · Seguridad · Gestión de la sesión · Preferencias de usuario"
         },
         "analytics": {
           "title": "Analíticas",
-          "description": "Nos ayudan a entender cómo se usa el sitio para poder mejorarlo."
+          "description": "Nos ayudan a entender cómo se usa el sitio para poder mejorarlo.",
+          "examples": "Google Analytics · Rendimiento del sitio · Comportamiento de los visitantes · Análisis del tráfico"
         },
         "marketing": {
           "title": "Marketing",
-          "description": "Sirven para mostrar publicidad relevante y medir campañas."
+          "description": "Sirven para mostrar publicidad relevante y medir campañas.",
+          "examples": "Publicidad · Remarketing · Seguimiento de marketing · Píxeles publicitarios"
+        },
+        "functional": {
+          "title": "Funcionales",
+          "description": "Recuerdan ajustes que eliges para mejorar tu experiencia.",
+          "examples": "Preferencias de idioma · Ajustes recordados · Funciones mejoradas"
         }
-      }
+      },
+      "privacy": "Política de privacidad",
+      "rejectAll": "Rechazar todas",
+      "settingsIntro": "Elige qué cookies opcionales permites. Las necesarias siempre están activas porque sin ellas el sitio no funciona. Puedes cambiar o retirar tu consentimiento en cualquier momento desde «Configuración de cookies» en el pie de página."
     },
     "policy": {
       "title": "Política de cookies",
@@ -721,11 +733,12 @@
       "manageBody": "Puedes cambiar o retirar tu elección en cualquier momento con el botón de abajo o con el enlace «Configuración de cookies» al pie de cada página. Retirar el consentimiento es tan fácil como darlo. También puedes borrar o bloquear las cookies en la configuración de tu navegador; si bloqueas las necesarias, no podrás iniciar sesión.",
       "changeSettings": "Cambiar configuración de cookies",
       "version": "Versión de la política: {version}",
-      "categoriesBody": "Las cookies se agrupan en tres categorías: necesarias, analíticas y de marketing. Solo las necesarias se instalan sin tu consentimiento. Las analíticas y de marketing solo se instalan si las aceptas, y actualmente no usamos ninguna.",
+      "categoriesBody": "Las cookies se agrupan en cuatro categorías: necesarias, funcionales, analíticas y de marketing. Solo las necesarias se instalan sin tu consentimiento. Las funcionales, analíticas y de marketing solo se instalan después de que las aceptes, y ahora mismo no usamos ninguna.",
       "category": {
         "necessary": "Necesaria",
         "analytics": "Analítica",
-        "marketing": "Marketing"
+        "marketing": "Marketing",
+        "functional": "Funcional"
       },
       "consentYes": "Sí",
       "consentNo": "No"
@@ -938,12 +951,20 @@
   "landing": {
     "meta": {
       "title": "Colabora MLS – Red de colaboración entre inmobiliarias de la costa española",
-      "description": "Más compradores para tus inmuebles y más inmuebles para tus compradores: la red de agencias verificadas de la costa española. 6 meses gratis."
+      "description": "Más compradores para tus inmuebles y más inmuebles para tus compradores: la red de agencias verificadas de la costa española."
     },
     "brand": "Colabora MLS",
     "nav": {
       "login": "Acceder",
-      "home": "Colabora MLS, inicio"
+      "home": "Colabora MLS, inicio",
+      "label": "Navegación principal",
+      "howItWorks": "Cómo funciona",
+      "rules": "Reglas",
+      "faq": "FAQ",
+      "blog": "Blog",
+      "developers": "Para promotoras",
+      "openMenu": "Abrir menú",
+      "closeMenu": "Cerrar menú"
     },
     "hero": {
       "eyebrow": "Agencias de la costa española",
@@ -954,7 +975,7 @@
         "resale": "Reventa",
         "newBuild": "Obra nueva"
       },
-      "primaryCta": "Únete gratis 6 meses",
+      "primaryCta": "Únete gratis",
       "secondaryCta": "Cómo funciona",
       "trust": "Solo agencias verificadas · Importación Kyero · Sin permanencia",
       "statsLabel": "La red hoy",
@@ -1024,25 +1045,10 @@
         }
       }
     },
-    "pricing": {
-      "eyebrow": "Precio",
-      "title": "Un solo plan, sin letra pequeña",
-      "free": "6 meses gratis",
-      "after": "Después, 25 € / mes + IVA",
-      "terms": "Sin permanencia · Sin coste de alta",
-      "deadline": "",
-      "launch": "Oferta de lanzamiento para agencias que se unan antes del {fecha}.",
-      "cta": "Únete gratis",
-      "account": "Una cuenta por agencia, todo incluido"
-    },
     "faq": {
       "eyebrow": "Preguntas frecuentes",
       "title": "Preguntas frecuentes",
       "items": {
-        "pay": {
-          "q": "¿Tengo que pagar algo para empezar?",
-          "a": "No. Tienes 6 meses gratis y no te pedimos tarjeta."
-        },
         "feed": {
           "q": "¿Qué formato de feed aceptáis?",
           "a": "Kyero XML: tus inmuebles se sincronizan solos cada 24 h. También puedes añadirlos a mano."
@@ -1068,7 +1074,7 @@
     },
     "finalCta": {
       "title": "Más compradores para tu cartera. Empieza hoy.",
-      "cta": "Únete gratis 6 meses",
+      "cta": "Únete",
       "whatsapp": "Escríbenos por WhatsApp",
       "whatsappMessage": "Hola, quiero información sobre Colabora MLS para mi agencia."
     },
@@ -1442,7 +1448,7 @@
   "developersLanding": {
     "meta": {
       "title": "Para promotoras: tu obra nueva en la red de agencias",
-      "description": "Colabora MLS: agencias verificadas de la costa española venden tus promociones de obra nueva. Cuenta gratuita durante la fase de lanzamiento."
+      "description": "Colabora MLS: agencias verificadas de la costa española venden tus promociones de obra nueva."
     },
     "brand": "Colabora MLS",
     "nav": {
@@ -1457,7 +1463,7 @@
       "eyebrow": "Para promotoras",
       "title": "Tu obra nueva, en manos de las agencias que venden en la costa",
       "subtitle": "Colabora MLS es la red de colaboración entre agencias inmobiliarias verificadas de la costa española. Publica tus promociones y llega a las agencias que trabajan con compradores cada día.",
-      "primaryCta": "Solicitar acceso gratuito",
+      "primaryCta": "Solicitar acceso",
       "secondaryCta": "Cómo funciona"
     },
     "card": {
@@ -1471,11 +1477,6 @@
       "from": "Desde X €",
       "lockTitle": "Precios y disponibilidad",
       "lockText": "visibles solo para agencias miembro"
-    },
-    "offer": {
-      "title": "Oferta de lanzamiento: cuenta gratuita",
-      "text": "Gratis durante la fase de lanzamiento. Cuando la red esté consolidada pasará a ser de pago: te avisaremos con 30 días de antelación y podrás darte de baja sin coste.",
-      "cta": "Quiero unirme"
     },
     "benefits": {
       "title": "Qué ganas publicando en Colabora",
@@ -1536,7 +1537,7 @@
         },
         "leave": {
           "q": "¿Puedo darme de baja?",
-          "a": "Sí, cuando quieras y sin coste."
+          "a": "Sí, cuando quieras."
         }
       }
     },
@@ -1590,7 +1591,7 @@
     "updated": "Última actualización: {date}",
     "exampleBanner": "Página en preparación: los datos de la empresa que aparecen aquí son de ejemplo y se sustituirán por los reales antes del lanzamiento.",
     "spanishBinding": "This is a translation. In case of doubt, the Spanish version prevails.",
-    "related": "Textos legales",
+    "related": "Otros documentos legales",
     "links": {
       "notice": "Aviso legal",
       "privacy": "Política de privacidad",
@@ -1688,10 +1689,6 @@
           "title": "Contenido que publicas",
           "body": "Eres responsable de los inmuebles, promociones, fotos, documentos y textos que publicas, y de tener los derechos necesarios sobre ellos. Nos autorizas a mostrarlos a los miembros de la red y en las páginas de cliente y exportaciones XML que tú configures.\n\nPodemos ocultar contenido que incumpla estas condiciones o la ley, explicándote el motivo."
         },
-        "price": {
-          "title": "Precio",
-          "body": "El precio y las condiciones de pago de cada tipo de cuenta son los que se indican en la web en el momento del alta. Las cuentas de promotora son gratuitas durante la fase de lanzamiento.\n\nSi cambiamos el precio, te avisaremos por email con al menos 30 días de antelación y podrás darte de baja sin coste antes de que se aplique."
-        },
         "leaving": {
           "title": "Baja y suspensión",
           "body": "Puedes darte de baja cuando quieras escribiendo a {email}, sin permanencia.\n\nPodemos suspender o cerrar una cuenta que incumpla estas condiciones, normalmente tras un aviso previo; en casos graves, de inmediato."
@@ -1706,13 +1703,50 @@
         },
         "changes": {
           "title": "Cambios en estas condiciones",
-          "body": "Si cambiamos estas condiciones de forma importante, avisaremos a los miembros por email con al menos 30 días de antelación. Si no estás de acuerdo, puedes darte de baja sin coste antes de que se apliquen."
+          "body": "Si cambiamos estas condiciones de forma importante, avisaremos a los miembros por email con al menos 30 días de antelación. Si no estás de acuerdo, puedes darte de baja antes de que se apliquen."
         },
         "law": {
           "title": "Ley aplicable y tribunales",
           "body": "Estas condiciones se rigen por la ley española. Para cualquier controversia, las partes se someten a los juzgados y tribunales de {courts}."
         }
       }
+    },
+    "docs": {
+      "terms": "Términos y condiciones",
+      "privacy": "Política de privacidad",
+      "cookies": "Política de cookies",
+      "legal_notice": "Aviso legal",
+      "data_protection": "Protección de datos",
+      "agency_terms": "Condiciones para agencias",
+      "developer_terms": "Condiciones para promotores",
+      "mls_agreement": "Acuerdo de participación en el MLS",
+      "data_sharing": "Acuerdo de intercambio de datos",
+      "listing_accuracy": "Acuerdo de exactitud de anuncios y datos"
+    },
+    "doc": {
+      "version": "Versión {version}",
+      "published": "publicada el {date}",
+      "oldVersion": "Estás viendo una versión anterior de este documento, conservada como registro de lo que se aceptó en su momento.",
+      "viewCurrent": "Ver la versión vigente",
+      "placeholderBanner": "Documento en preparación: las partes resaltadas están pendientes de completar y revisar por un profesional jurídico cualificado.",
+      "placeholderLabel": "Pendiente de completar por un profesional jurídico",
+      "notTranslated": "Este documento aún no está disponible en tu idioma; se muestra la versión en español.",
+      "pending": "Este documento está en preparación y todavía no se ha publicado. Si tienes alguna pregunta, escríbenos a través de la página de contacto."
     }
+  },
+  "legalConsent": {
+    "legend": "Aceptación legal",
+    "terms": "He leído y acepto los <link>Términos y condiciones</link> de Colabora MLS (v{version}).",
+    "privacy": "Declaro haber leído la <link>Política de privacidad</link> de Colabora MLS (v{version}).",
+    "document": "He leído y acepto el <link>{title}</link> (v{version}).",
+    "authorised": {
+      "agency": "Confirmo que estoy autorizado/a para registrar esta agencia y aceptar estas condiciones en su nombre.",
+      "developer": "Confirmo que estoy autorizado/a para registrar esta empresa y aceptar estas condiciones en su nombre."
+    },
+    "marketing": "Acepto recibir comunicaciones comerciales, novedades de la plataforma e información promocional de Colabora MLS.",
+    "marketingHint": "Puedes cambiarlo en cualquier momento desde tu cuenta.",
+    "optional": "(opcional)",
+    "required": "Debes aceptarlo para continuar.",
+    "outdated": "Uno de los documentos legales se acaba de actualizar. Recarga la página, lee la nueva versión y vuelve a aceptarla."
   }
 }
