@@ -66,6 +66,9 @@ export type LogCallInput = z.input<typeof logCallSchema>;
 
 /* ---------- CSV import ---------- */
 
+/** Rows per import (one server request). */
+export const LEAD_IMPORT_MAX_ROWS = 2000;
+
 /** Columns of the CSV template, in order. Empty cells are fine except company and source. */
 export const LEAD_CSV_COLUMNS = [
   "company",
