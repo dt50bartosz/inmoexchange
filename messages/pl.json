@@ -360,5 +360,10 @@
     "optional": "(opcjonalnie)",
     "required": "Musisz to zaakceptować, aby kontynuować.",
     "outdated": "Jeden z dokumentów prawnych został właśnie zaktualizowany. Odśwież stronę, przeczytaj nową wersję i zaakceptuj ją ponownie."
+  },
+  "join": {
+    "sections": {
+      "people": "Kontakt"
+    }
   }
 }

@@ -3,6 +3,7 @@ import "server-only";
 import { MongoClient, type Db } from "mongodb";
 import type { PlatformEventDoc } from "@/types/platform-events";
 import type { LegalAcceptanceDoc, LegalDocVersionDoc } from "@/types/legal";
+import type { DeveloperLeadDoc } from "@/types/developer-leads";
 import type { AgencyDoc, UserDoc } from "../types/models";
 import type { ContactDoc } from "../types/crm";
 import type { FeedDoc } from "../types/feed";
@@ -92,6 +93,8 @@ export const collections = {
   legalDocuments: db.collection<LegalDocVersionDoc>("legal_documents"),
   // Who accepted which legal document version, and marketing choices (lib/server/legal-acceptances.ts)
   legalAcceptances: db.collection<LegalAcceptanceDoc>("legal_acceptances"),
+  // Admin → Developer calls: developers to cold-call and their call history (lib/server/admin/developer-leads.ts)
+  developerLeads: db.collection<DeveloperLeadDoc>("developer_leads"),
 } as const;
 
 /* ---------- Indexes: all of them here, created once per server process ---------- */
@@ -156,6 +159,7 @@ export function ensureIndexes() {
     // One version label per document; at most one draft and one published version per document
     collections.legalDocuments.createIndex({ key: 1, version: 1 }, { unique: true, name: "key_version_unique" }),
     collections.legalAcceptances.createIndex({ userId: 1, createdAt: -1 }, { name: "user_newest" }),
+    collections.developerLeads.createIndex({ status: 1, nextCallAt: 1 }, { name: "status_next_call" }),
     collections.legalAcceptances.createIndex({ orgId: 1, createdAt: -1 }, { name: "org_newest" }),
     collections.legalAcceptances.createIndex({ applicationId: 1 }, { name: "application", partialFilterExpression: { applicationId: { $type: "string" } } }),
     collections.legalAcceptances.createIndex({ kind: 1, createdAt: -1 }, { name: "kind_newest" }),

@@ -231,8 +231,6 @@ export default function JoinForm({ legalDocs }: { legalDocs: RequiredLegalDoc[] 
 
               <Group title={t("sections.people")}>
                 <div className="grid gap-4 md:grid-cols-2">
-                  {text("ownerName")}
-                  {text("ownerIdNumber")}
                   {text("contactPerson", { required: true, autoComplete: "name" })}
                   {text("phone", { required: true, type: "tel", autoComplete: "tel" })}
                   {text("phone2", { type: "tel" })}

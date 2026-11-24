@@ -1095,7 +1095,7 @@
     "sections": {
       "company": "Your company",
       "address": "Office address",
-      "people": "Owner and contact",
+      "people": "Contact",
       "crm": "CRM and billing"
     },
     "fields": {

@@ -14,6 +14,12 @@ export const ADMIN_ROUTES = {
   activity: "/admin/activity",
   mls: "/admin/mls",
   legal: "/admin/legal",
+  /** Developer calls: promotoras to cold-call (lib/server/admin/developer-leads.ts). */
+  developerLeads: "/admin/promotoras-llamadas",
+  newDeveloperLead: "/admin/promotoras-llamadas/new",
+  importDeveloperLeads: "/admin/promotoras-llamadas/importar",
+  developerLead: (id: string) => `/admin/promotoras-llamadas/${id}`,
+  editDeveloperLead: (id: string) => `/admin/promotoras-llamadas/${id}/editar`,
   legalDoc: (key: string) => `/admin/legal/${key}`,
   developers: "/admin/promotores",
   newDeveloper: "/admin/promotores/new",
