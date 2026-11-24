@@ -1,9 +1,9 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useTransition } from "react";
 import { Controller, useForm, useWatch, type FieldPath } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { ArrowLeft, ExternalLink, Pencil, PhoneCall } from "lucide-react";
+import { ArrowLeft, ExternalLink, Pencil, PhoneCall, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { Link, useRouter } from "@/i18n/navigation";
 import { Button, buttonVariants } from "@/components/ui/Button";
@@ -17,8 +17,9 @@ import LocalTime from "@/components/developers/LocalTime";
 import { ADMIN_ROUTES } from "@/lib/constants/admin";
 import { LEAD_STATUSES, logCallSchema, type LogCallInput } from "@/lib/schemas/developer-leads";
 import type { DeveloperLead } from "@/types/developer-leads";
-import { logCallAction } from "@/app/[locale]/admin/promotoras-llamadas/[id]/server/actions";
+import { deleteDeveloperLeadAction, logCallAction } from "@/app/[locale]/admin/promotoras-llamadas/[id]/server/actions";
 import AdminPage from "../ui/AdminPage";
+import ConfirmDialog from "../ui/ConfirmDialog";
 import { LEAD_STATUS_LABELS, LeadStatusBadge, PHONE_TYPE_LABELS, PhoneLink } from "./lead-ui";
 
 const NO_NUMBER = "__none__";
@@ -36,6 +37,21 @@ function Row({ label, children }: { label: string; children: React.ReactNode }) 
 export default function LeadDetail({ lead, due }: { lead: DeveloperLead; due: boolean }) {
   // The number to call first (same type and number as mainPhone: the objects differ after leaving the server)
   const mainIndex = lead.mainPhone ? lead.phones.findIndex((p) => p.type === lead.mainPhone!.type && p.number === lead.mainPhone!.number) : -1;
+  const router = useRouter();
+  const [confirmDelete, setConfirmDelete] = useState(false);
+  const [deleting, startDeleting] = useTransition();
+
+  const remove = () =>
+    startDeleting(async () => {
+      const res = await deleteDeveloperLeadAction(lead.id).catch(() => null);
+      if (!res?.ok) {
+        toast.error(res?.error === "not_found" ? "This developer no longer exists." : "Couldn't delete. Try again.");
+        return;
+      }
+      toast.success(`${lead.company} deleted permanently.`);
+      router.push(ADMIN_ROUTES.developerLeads);
+    });
+
   return (
     <AdminPage
       title={lead.company}
@@ -47,12 +63,30 @@ export default function LeadDetail({ lead, due }: { lead: DeveloperLead; due: bo
         </Link>
       }
       actions={
-        <Link href={ADMIN_ROUTES.editDeveloperLead(lead.id)} className={buttonVariants({ variant: "outline" })}>
-          <Pencil aria-hidden className="size-4" />
-          Edit
-        </Link>
+        <>
+          <Button type="button" variant="ghost" className="text-destructive hover:text-destructive" disabled={deleting} onClick={() => setConfirmDelete(true)}>
+            <Trash2 aria-hidden className="size-4" />
+            {deleting ? "Deleting…" : "Delete"}
+          </Button>
+          <Link href={ADMIN_ROUTES.editDeveloperLead(lead.id)} className={buttonVariants({ variant: "outline" })}>
+            <Pencil aria-hidden className="size-4" />
+            Edit
+          </Link>
+        </>
       }
     >
+      <ConfirmDialog
+        open={confirmDelete}
+        onOpenChange={setConfirmDelete}
+        title={`Delete ${lead.company} permanently?`}
+        description={`This removes the developer, all its numbers and details, and the whole call history (${lead.callLog.length} call${lead.callLog.length === 1 ? "" : "s"}). It can't be undone. Use it for GDPR deletion requests; to stop calling someone, set the status to “Do not call” instead.`}
+        confirmLabel="Delete permanently"
+        destructive
+        onConfirm={() => {
+          setConfirmDelete(false);
+          remove();
+        }}
+      />
       <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
         <div className="grid content-start gap-6">
           <PanelCard className="p-5">

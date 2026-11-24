@@ -19,6 +19,7 @@ export const PLATFORM_EVENT_TYPES = [
   "property_unhidden",
   "legal_draft_saved",
   "legal_published",
+  "lead_deleted",
 ] as const;
 export type PlatformEventType = (typeof PLATFORM_EVENT_TYPES)[number];
 
@@ -38,6 +39,7 @@ export const PLATFORM_EVENT_LABELS: Record<PlatformEventType, string> = {
   property_unhidden: "Property unhidden",
   legal_draft_saved: "Legal draft saved",
   legal_published: "Legal document published",
+  lead_deleted: "Developer call contact deleted",
 };
 
 export type PlatformOrgType = "agency" | "developer";

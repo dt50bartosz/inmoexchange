@@ -1,9 +1,10 @@
 // app/[locale]/admin/promotoras-llamadas/[id]/server/actions.ts
 "use server";
 
-import { fail, zodFieldErrors, type ActionResult } from "@/lib/server/action-result";
+import { fail, ok, zodFieldErrors, type ActionResult } from "@/lib/server/action-result";
 import { requireAdmin } from "@/lib/server/admin/current-admin";
-import { logDeveloperLeadCall } from "@/lib/server/admin/developer-leads";
+import { deleteDeveloperLead, logDeveloperLeadCall } from "@/lib/server/admin/developer-leads";
+import { recordAdminEvent } from "@/lib/server/platform-events";
 import { logCallSchema } from "@/lib/schemas/developer-leads";
 import type { DeveloperLead } from "@/types/developer-leads";
 
@@ -23,4 +24,16 @@ export async function logCallAction(
   const parsed = logCallSchema.safeParse(input);
   if (!parsed.success) return fail("validation_error", zodFieldErrors(parsed.error));
   return logDeveloperLeadCall(id, parsed.data);
+}
+
+/**
+ * GDPR deletion request: removes the developer and its whole call history permanently. Admin → Activity keeps a
+ * record that it happened, with the company name only (no person, number or email).
+ */
+export async function deleteDeveloperLeadAction(id: string): Promise<ActionResult<null, "not_found">> {
+  const admin = await requireAdmin();
+  const res = await deleteDeveloperLead(id);
+  if (!res.ok) return res;
+  await recordAdminEvent(admin, "lead_deleted", null, `Developer call contact “${res.data.company}” deleted permanently with its call history`);
+  return ok(null);
 }
