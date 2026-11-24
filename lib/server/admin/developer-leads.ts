@@ -36,6 +36,17 @@ export function fromMadridInput(v: string): Date | null {
   return new Date(guess.getTime() - madridOffsetMinutes(guess) * 60000);
 }
 
+/** Date → "2026-11-25T10:30" in Spain time, for <input type="datetime-local">. null → "". */
+export function toMadridInput(d: Date | null | undefined): string {
+  if (!d) return "";
+  const p = Object.fromEntries(
+    new Intl.DateTimeFormat("en-US", { timeZone: TZ, hourCycle: "h23", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit" })
+      .formatToParts(d)
+      .map((x) => [x.type, x.value])
+  );
+  return `${p.year}-${p.month}-${p.day}T${p.hour}:${p.minute}`;
+}
+
 /* ---------- Matching (only for comparing: what is stored is never changed) ---------- */
 
 /** Digits only, without the Spanish prefix: "+34 600 11 22 33" and "600112233" are the same number. */
@@ -157,6 +168,10 @@ export async function findDuplicates(
 
 /* ---------- Writing ---------- */
 
+/** Field errors for the form: "duplicate.<lead id>" → "Company · phone 600 11 22 33" (the form links to that lead). */
+const duplicateErrors = (dupes: LeadDuplicate[]) =>
+  Object.fromEntries(dupes.map((d) => [`duplicate.${d.id}`, `${d.company} · ${d.reason === "phone" ? `phone ${d.match}` : "same company name"}`]));
+
 const clean = (v: DeveloperLeadValues) => ({
   company: v.company,
   contactPerson: v.contactPerson,
@@ -175,7 +190,7 @@ const clean = (v: DeveloperLeadValues) => ({
 export async function createDeveloperLead(v: DeveloperLeadValues): Promise<ActionResult<{ id: string }, "duplicate">> {
   await ensureIndexes();
   const dupes = await findDuplicates(v);
-  if (dupes.length) return fail("duplicate", Object.fromEntries(dupes.map((d, i) => [`duplicate.${i}`, `${d.company} (${d.reason}: ${d.match})`])));
+  if (dupes.length) return fail("duplicate", duplicateErrors(dupes));
   const now = new Date();
   const doc: DeveloperLeadDoc = { _id: new ObjectId(), ...clean(v), callLog: [], createdAt: now, updatedAt: now };
   await collections.developerLeads.insertOne(doc);
@@ -186,7 +201,7 @@ export async function updateDeveloperLead(id: string, v: DeveloperLeadValues): P
   const lead = await findDeveloperLeadDoc(id);
   if (!lead) return fail("not_found");
   const dupes = await findDuplicates(v, id);
-  if (dupes.length) return fail("duplicate", Object.fromEntries(dupes.map((d, i) => [`duplicate.${i}`, `${d.company} (${d.reason}: ${d.match})`])));
+  if (dupes.length) return fail("duplicate", duplicateErrors(dupes));
   const saved = await collections.developerLeads.findOneAndUpdate(
     { _id: lead._id },
     { $set: { ...clean(v), updatedAt: new Date() } },
